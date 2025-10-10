@@ -1,0 +1,129 @@
+const axios = require('axios');
+const { getText } = require('../lib/i18n');
+
+const ANIMU_BASE = 'https://api.some-random-api.com/animu';
+
+function normalizeType(input) {
+    const lower = (input || '').toLowerCase();
+    if (lower === 'facepalm' || lower === 'face_palm') return 'face-palm';
+    if (lower === 'quote' || lower === 'animu-quote' || lower === 'animuquote') return 'quote';
+    return lower;
+}
+
+async function sendAnimu(sock, chatId, message, type) {
+    const userId = message.key.remoteJid;
+    // Handle waifu, neko, and loli from different APIs
+    if (type === 'waifu' || type === 'neko') {
+        try {
+            const endpoint = `https://api.siputzx.my.id/api/r/${type}`;
+            const res = await axios.get(endpoint, { responseType: 'arraybuffer' });
+            
+            if (res.status === 200 && res.data) {
+                await sock.sendMessage(
+                    chatId,
+                    { image: res.data, caption: getText(userId, 'ANIME_CAPTION').replace('{type}', type) },
+                    { quoted: message }
+                );
+                return;
+            }
+        } catch (error) {
+            console.error(`Error fetching ${type}:`, error.message);
+            await sock.sendMessage(
+                chatId,
+                { text: getText(userId, 'messages.failed_to_fetch') },
+                { quoted: message }
+            );
+            return;
+        }
+    }
+
+    if (type === 'loli') {
+        try {
+            const endpoint = 'https://shizoapi.onrender.com/api/sfw/loli?apikey=shizo';
+            const res = await axios.get(endpoint, { responseType: 'arraybuffer' });
+            
+            if (res.status === 200 && res.data) {
+                await sock.sendMessage(
+                    chatId,
+                    { image: res.data, caption: getText(userId, 'ANIME_CAPTION').replace('{type}', type) },
+                    { quoted: message }
+                );
+                return;
+            }
+        } catch (error) {
+            console.error(`Error fetching ${type}:`, error.message);
+            await sock.sendMessage(
+                chatId,
+                { text: getText(userId, 'messages.failed_to_fetch') },
+                { quoted: message }
+            );
+            return;
+        }
+    }
+
+    // Handle other anime types from some-random-api
+    const endpoint = `${ANIMU_BASE}/${type}`;
+    const res = await axios.get(endpoint);
+    const data = res.data || {};
+
+    // Prefer link (gif/image). Fallback to text quote if available
+    if (data.link) {
+        await sock.sendMessage(
+            chatId,
+            { image: { url: data.link }, caption: getText(message.key.remoteJid, 'ANIME_CAPTION').replace('{type}', type) },
+            { quoted: message }
+        );
+        return;
+    }
+    if (data.quote) {
+        await sock.sendMessage(
+            chatId,
+            { text: data.quote },
+            { quoted: message }
+        );
+        return;
+    }
+
+    await sock.sendMessage(
+        chatId,
+        { text: getText(userId, 'messages.failed_to_fetch') },
+        { quoted: message }
+    );
+}
+
+async function animeCommand(sock, chatId, message, args) {
+    const subArg = args && args[0] ? args[0] : '';
+    const sub = normalizeType(subArg);
+
+    const supported = [
+        'nom', 'poke', 'cry', 'kiss', 'pat', 'hug', 'wink', 'face-palm', 'quote', 'waifu', 'neko', 'loli'
+    ];
+
+    try {
+        if (!sub) {
+            // Fetch supported types from API for dynamic help
+            try {
+                const res = await axios.get(ANIMU_BASE);
+                const apiTypes = res.data && res.data.types ? res.data.types.map(s => s.replace('/animu/', '')).join(', ') : supported.join(', ');
+                await sock.sendMessage(chatId, { text: getText(message.key.remoteJid, 'ANIME_USAGE_WITH_TYPES').replace('{types}', apiTypes) }, { quoted: message });
+            } catch {
+                await sock.sendMessage(chatId, { text: getText(message.key.remoteJid, 'ANIME_USAGE_WITH_TYPES').replace('{types}', supported.join(', ')) }, { quoted: message });
+            }
+            return;
+        }
+
+        if (!supported.includes(sub)) {
+            await sock.sendMessage(chatId, { text: getText(message.key.remoteJid, 'ANIME_UNSUPPORTED_TYPE').replace('{type}', sub).replace('{types}', supported.join(', ')) }, { quoted: message });
+            return;
+        }
+
+        await sendAnimu(sock, chatId, message, sub);
+    } catch (err) {
+        console.error('Error in animu command:', err);
+        await sock.sendMessage(chatId, { text: getText(message.key.remoteJid, 'ANIME_ERROR') }, { quoted: message });
+    }
+}
+
+module.exports = { animeCommand };
+
+
