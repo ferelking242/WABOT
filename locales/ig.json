@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "language": "Igbo",
+    "code": "ig",
+    "flag": "🇳🇬",
+    "completion": "95%"
+  },
+  "bot": {
+    "name": "wabot",
+    "version": "Ụdị",
+    "status": {
+      "online": "Nọ na ntanetị",
+      "offline": "Anọghị na ntanetị",
+      "ready": "Njikere",
+      "processing": "⏳ Na-emepụta..."
+    }
+  },
+  "messages": {
+    "success": "✅ Ihe ịga nke ọma",
+    "error": "❌ Njehie",
+    "permission_denied": "❌ Ajụla ikike",
+    "admin_only": "❌ Naanị ndị nlekọta",
+    "owner_only": "❌ Naanị onye nwe bot",
+    "bot_admin_required": "🤖 Mee bot ka ọ bụrụ onye nlekọta iji jiri iwu nlekọta.",
+    "user_not_found": "❌ Ahụghị onye ọrụ",
+    "provide_text": "❌ Nye ederede",
+    "reply_to_message": "❌ Zaa ozi",
+    "reply_to_media": "❌ Zaa foto/vidiyo",
+    "invalid_url": "❌ URL na-adịghị mma",
+    "failed_to_fetch": "❌ Enweghị ike nweta data",
+    "group_only": "Iwu a na-arụ ọrụ naanị na otu.",
+    "provide_city": "Biko kwuo obodo, dịka: .ihu igwe Lagos",
+    "provide_minutes": "Biko nye ọnụọgụgụ nkeji kwesiri ekwesi.\nọmụmaatụ maka imechi nkeji 10\n.mute 10",
+    "bot_mode_read_failed": "Enweghị ike ịgụ ọnọdụ ụdị bot",
+    "bot_mode_update_failed": "Enweghị ike imelite ụzọ inweta bot",
+    "tagall_admin_only": "Ndo, naanị ndị nlekọta otu nwere ike iji iwu .tagall.",
+    "provide_position": "Biko nye ọnụọgụgụ ọnọdụ kwesiri ekwesi maka mmegharị Tic-Tac-Toe.",
+    "guess_letter": "Chọọ mkpụrụedemede site na iji .guess <mkpụrụedemede>",
+    "provide_answer": "Nye azịza site na iji .answer <azịza>",
+    "bot_must_be_admin": "*Bot ga-abụ onye nlekọta iji jiri njirimara a*",
+    "admin_or_owner_only": "*Naanị ndị nlekọta ma ọ bụ onye nwe bot nwere ike iji iwu a*",
+    "processing_error": "❌ Njehie mere mgbe ana-ahazi ozi gị."
+  },
+  "antidelete": {
+    "setup_title": "NHAZI ANTIDELETE",
+    "current_status": "Ọnọdụ Ugbu a",
+    "enabled": "Gbanyere",
+    "disabled": "Gbanyụrụ",
+    "enable": "Gbanye",
+    "disable": "Gbanyụ",
+    "invalid_command": "Iwu na-adịghị mma. Jiri .antidelete hụ ojiji."
+  },
+  "autoread": {
+    "invalid_option": "Nhọrọ na-adịghị mma! Jiri: .autoread on/off"
+  },
+  "companion": {
+    "creating": "⏳ *Na-emepụta CompanionBot...*\n\n📱 Ekwentị: +{phoneNumber}\n🤖 Aha: {companionName}\n\nBiko chere ka anyị na-emepụta koodu njikọ...",
+    "created": "🤝 *Nhazi CompanionBot*\n\n✅ *{companionName}* dị njikere maka njikọ!\n\n📱 *KOODU ỊDE:*\n```{pairingCode}```\n\n*Usoro njikọ:*\n1. Meghee WhatsApp na ekwentị gị\n2. Gaa na Ntọala > Ngwa njikọ\n3. Pịa \"Jikọọ ngwa\"\n4. 👆 *Pịa koodu dị n'elu ka ịdeghachi*\n\n⏱️ Koodu ga-agwụ na nkeji 5\n🔄 CompanionBot gị ga-amalite na-akpaaka mgbe ị na-eji iwu!",
+    "permission_denied": "❌ *Ajụla Ikike*\n\nNaanị ndị nwe bot nwere ike iji iwu CompanionBot.",
+    "no_companions": "📭 *Enweghị CompanionBot*\n\nE mepebeghị CompanionBot ọ bụla ugbu a.\n\n*Mepụta otu:* .companion create [ekwentị] [aha]"
+  },
+  "MENTION_USER_TO_COMPLIMENT": "Biko kpọrọ onye ọrụ ka ịto! Ọmụmaatụ: .compliment @user",
+  "companion_help": {
+    "title": "📖 *Onye Nlekọta Companion Bot*",
+    "commands": "*Iwu:*",
+    "create_code": "• `.companion create [ekwentị] [aha]` - Koodu njikọ",
+    "create_qr": "• `.companion create [ekwentị] [aha] qr` - Koodu QR",
+    "list": "• `.companion list` - Depụta ndị companions niile (na-arụ ọrụ + na-ehi ụra)",
+    "status": "• `.companion status` - Ọnọdụ ndị companions",
+    "wake": "• `.companion wake [aha]` - Kpọtee companion na-ehi ụra",
+    "sleep": "• `.companion sleep [aha]` - Mee ka companion hie ụra",
+    "wake_all": "• `.companion wake all` - Kpọtee ndị companions niile",
+    "close": "• `.companion close [aha]` - Mechie companion",
+    "close_all": "• `.companion close all` - Mechie ndị companions niile",
+    "cleanup": "• `.companion cleanup` - Kpochaa nnọkọ ndị na-enweghị nne",
+    "examples": "*Ọmụmaatụ:*",
+    "example1": "• `.companion create 242065491040 bobo` (koodu)",
+    "example2": "• `.companion create 242065491040 marie qr` (QR)",
+    "example3": "• `.companion close bobo` - Mechie companion bobo",
+    "features": "*Njirimara:*",
+    "feature1": "✅ Nkwado ọtụtụ ndị ọrụ",
+    "feature2": "✅ Nnọkọ dị iche",
+    "feature3": "✅ Njikwa companions zuru ezu",
+    "feature4": "✅ Ọkwa na-akpaaka"
+  },
+  "commands": {
+    "help": {
+      "name": "enyemaka",
+      "desc": "Menu enyemaka isi",
+      "usage": ".enyemaka [iwu]",
+      "example": ".enyemaka sticker"
+    },
+    "ping": {
+      "name": "ping",
+      "desc": "Nyochaa igbu oge bot",
+      "usage": ".ping",
+      "example": ".ping"
+    },
+    "joke": {
+      "name": "ihe ọchị",
+      "desc": "Kwuo ihe ọchị na-enweghị usoro",
+      "usage": ".ihe ọchị",
+      "example": ".ihe ọchị"
+    },
+    "sticker": {
+      "name": "stika",
+      "desc": "Mepụta stika site na foto",
+      "usage": ".stika [zaa foto]",
+      "example": ".stika"
+    },
+    "weather": {
+      "name": "ihu igwe",
+      "desc": "Gosi ihu igwe obodo",
+      "usage": ".ihu igwe <obodo>",
+      "example": ".ihu igwe Lagos"
+    },
+    "translate": {
+      "name": "tụgharịa",
+      "desc": "Tụgharịa ederede",
+      "usage": ".tụgharịa <ederede> <asụsụ>",
+      "example": ".tụgharịa Ndewo en"
+    }
+  },
+  "categories": {
+    "general": "🌐 Iwu Izugbe",
+    "admin": "👮‍♂️ Iwu Nlekọta",
+    "owner": "🔒 Iwu Onye Nwe",
+    "image": "🎨 Foto/Stika",
+    "games": "🎮 Egwuregwu",
+    "ai": "🤖 Ọgụgụ Isi Artificial",
+    "fun": "🎯 Ntụrụndụ",
+    "download": "📥 Budata"
+  },
+  "admin": {
+    "bot_admin_first": "Biko mee bot ka ọ bụrụ onye nlekọta nke mbụ.",
+    "admin_only_kick": "Naanị ndị nlekọta otu nwere ike iji iwu ịchụpụ.",
+    "mention_or_reply": "Biko kpọrọ onye ọrụ ma ọ bụ zaa ozi ya ka ịchụpụ ya!",
+    "cannot_kick_self": "Enweghị m ike ịchụpụ onwe m! 🤖",
+    "kick_success": "Achụpụla {users} nke ọma!",
+    "kick_failed": "Enweghị ike ịchụpụ onye ọrụ/ndị ọrụ!"
+  },
+  "group": {
+    "info_header": "┌──「 *OZI OTU* 」",
+    "info_id": "▢ *♻️ID:*\n   • {id}",
+    "info_name": "▢ *🔖AHA* : \n• {name}",
+    "info_members": "▢ *👥Ndị Otu* :\n• {count}",
+    "info_owner": "▢ *🤿Onye Nwe Otu:*\n• @{owner}",
+    "info_admins": "▢ *🕵🏻‍♂️Ndị Nlekọta:*\n{admins}",
+    "info_description": "▢ *📌Nkọwa* :\n   • {desc}",
+    "no_description": "Enweghị nkọwa",
+    "info_failed": "Enweghị ike nweta ozi otu!"
+  },
+  "fun": {
+    "emojimix_example": "🎴 Ọmụmaatụ: .emojimix 😎+🥰",
+    "emojimix_separator": "✳️ Kewa emoji na akara *+*\n\n📌 Ọmụmaatụ: \n*.emojimix* 😎+🥰",
+    "emojimix_cannot_mix": "❌ Emoji ndị a enweghị ike ịgwakọta! Nwalee ndị ọzọ.",
+    "emojimix_failed": "❌ Enweghị ike ịgwakọta emoji! Gbaa mbọ hụ na ị na-eji emoji kwesiri ekwesi.\n\nỌmụmaatụ: .emojimix 😎+🥰"
+  },
+  "responses": {
+    "joke_failed": "Ndo, enweghị m ike nweta ihe ọchị.",
+    "weather_not_found": "Ahụghị obodo",
+    "sticker_success": "E mepụtala stika nke ọma!",
+    "translate_success": "Ntụgharị zuru ezu",
+    "pong": "Pong!",
+    "failed_get_status": "❌ Enweghị ike nweta ọnọdụ bot.",
+    "welcome_enabled": "⚠️ Ozi nnabata *agbanyela na mbụ*.",
+    "welcome_disabled": "⚠️ Ozi nnabata *agbanyụla na mbụ*.",
+    "welcome_set": "✅ Ozi nnabata ahaziri *setịpụrụ nke ọma*.",
+    "provide_welcome_msg": "⚠️ Biko nye ozi nnabata ahaziri. Ọmụmaatụ: *.welcome set Nnọọ n'otu a!*",
+    "check_warnings": "Biko kpọrọ onye ọrụ ka ịlele ịdọ aka ná ntị.",
+    "warning_count": "Onye ọrụ nwere ịdọ aka ná ntị {count}.",
+    "roseday_failed": "❌ Enweghị ike nweta okwu roseday. Biko nwalee ọzọ ma e mesịa!",
+    "groupinfo_failed": "Enweghị ike nweta ozi otu!",
+    "viewonce_reply": "❌ Biko zaa foto ma ọ bụ vidiyo view-once.",
+    "dare_failed": "❌ Enweghị ike nweta ịma aka. Biko nwalee ọzọ ma e mesịa!",
+    "goodnight_failed": "❌ Enweghị ike nweta ozi abalị ọma. Biko nwalee ọzọ ma e mesịa!",
+    "group_unmuted": "E mepegharịla otu.",
+    "reset_link_admin_only": "❌ Naanị ndị nlekọta nwere ike iji iwu a!",
+    "reset_link_bot_admin": "❌ Bot ga-abụ onye nlekọta ka ọ setịpụ njikọ otu ọzọ!",
+    "reset_link_failed": "Enweghị ike isetịpụ njikọ otu ọzọ!",
+    "reset_link_success": "✅ E setịpụla njikọ otu ọzọ nke ọma\n\n📌 Njikọ ọhụrụ:\nhttps://chat.whatsapp.com/{code}",
+    "github_fetch_failed": "❌ Njehie n'ịnweta ozi repository.",
+    "truth_failed": "❌ Enweghị ike nweta eziokwu. Biko nwalee ọzọ ma e mesịa!",
+    "flirt_failed": "❌ Enweghị ike nweta ozi ịhụnanya. Biko nwalee ọzọ ma e mesịa!",
+    "promote_failed": "Enweghị ike ikwalite onye ọrụ/ndị ọrụ!",
+    "provide_gif_term": "Biko nye okwu ọchụchọ maka GIF.",
+    "no_gifs_found": "Ahụghị GIF ọ bụla maka okwu ọchụchọ gị.",
+    "gif_fetch_failed": "Enweghị ike nweta GIF. Biko nwalee ọzọ ma e mesịa.",
+    "jid_info": "Ozi JID",
+    "group_jid": "JID Otu",
+    "your_jid": "JID Gị"
+  },
+  "like": {
+    "provide_url": "❌ Biko nye URL ka ịhụ n'anya.\nOjiji: `.like <URL>`\nỌmụmaatụ: `.like https://youtube.com/watch?v=...",
+    "invalid_url": "❌ URL na-adịghị mma. Biko nye URL kwesiri ekwesi.\nỌmụmaatụ: `.like https://youtube.com/watch?v=...",
+    "platform_not_supported": "❌ Anaghị akwado ikpo okwu. Ikpo okwu ndị a na-akwado:\n• YouTube\n• Instagram\n• TikTok\n• Facebook\n• Twitter/X",
+    "success": "✅ **Ahụla ọnọdụ n'anya nke ọma!**\n\n📱 **Ikpo okwu:** {platform}\n🎬 **Isiokwu:** {title}\n👤 **Onye dee:** {author}\n\n💡 **Ndụmọdụ:** Jiri `.dlliked` budata ọnọdụ niile ị hụrụ n'anya!",
+    "already_liked": "⚠️ Ọnọdụ a dị na ndị kacha amasị gị!",
+    "save_error": "❌ Njehie n'ịchekwa. Nwalee ma e mesịa.",
+    "processing_error": "❌ Njehie mere. Biko nwalee ọzọ."
+  },
+  "dlliked": {
+    "no_liked_statuses": "❌ **Ahụghị ọnọdụ ndị ahụrụ n'anya!**\n\n💡 **Ndụmọdụ:** Jiri `.like <URL>` tinye ọnọdụ na ndị kacha amasị gị.",
+    "start_download": "🚀 **Na-ebudata ọnọdụ ndị ị hụrụ n'anya**\n\n📊 **Ngụkọta:** Achọtara ọnọdụ {count}\n⏳ **Ọnọdụ:** Na-ahazi...\n\n⚠️ **Rịba ama:** Nke a nwere ike were ọtụtụ nkeji dabere na nha faịlụ.",
+    "progress_update": "🚀 **Nbudata na-aga n'ihu...**\n\n📊 **Ọganihu:** {current}/{total}\n✅ **Ihe ịga nke ọma:** {success}\n❌ **Ọdịda:** {failures}",
+    "completion_success": "✅ **Nbudata zuru ezu!**\n\n📊 **Ọnụọgụgụ:**\n• Ngụkọta ahaziri: {total}\n• Ihe ịga nke ọma: {success}\n• Ọdịda: {failures}\n\n",
+    "errors_section": "❌ **Njehie:**\n{errors}\n\n",
+    "errors_many": "❌ **Njehie:** Njehie {count} zutere\n\n",
+    "tip_message": "💡 **Ndụmọdụ:** Jiri `.like <URL>` tinye ndị kacha amasị gị ọzọ!",
+    "download_error": "❌ **Njehie n'ịbudata ọnọdụ ndị ahụrụ n'anya.**\n\nBiko nwalee ọzọ ma e mesịa.",
+    "media_caption": "🎯 **{title}**\n🌐 **Ikpo okwu:** {platform}\n📅 **Ahụrụ n'anya na:** {date}",
+    "platform_not_supported": "{title}: Anaghị akwado ikpo okwu",
+    "download_failed": "{title}: {error}"
+  }
+}

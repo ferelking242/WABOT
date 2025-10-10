@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "language": "Fulfulde",
+    "code": "ff",
+    "flag": "🇳🇪",
+    "completion": "95%"
+  },
+  "bot": {
+    "name": "wabot",
+    "version": "Yamre",
+    "status": {
+      "online": "Siftude",
+      "offline": "Alaa siftude",
+      "ready": "Heɓti",
+      "processing": "⏳ Huutorde..."
+    }
+  },
+  "messages": {
+    "success": "✅ Moƴƴaani",
+    "error": "❌ Juumre",
+    "permission_denied": "❌ Jaɓaaki jaawangol",
+    "admin_only": "❌ Ardiiɓe tan",
+    "owner_only": "❌ Jom bot tan",
+    "bot_admin_required": "🤖 Waɗ bot oo ardiiɗo ngam huutoraade jasɗe ardiiɓe.",
+    "user_not_found": "❌ Huutorɗo yiytaaka",
+    "provide_text": "❌ Hokku binndi",
+    "reply_to_message": "❌ Jaabi fiildu",
+    "reply_to_media": "❌ Jaabi naatol/wideyoo",
+    "invalid_url": "❌ URL motaaka",
+    "failed_to_fetch": "❌ Horiima yiyde keɓe",
+    "group_only": "Ngal jaasor huutoroo e topirɗe tan.",
+    "provide_city": "Tiiɗno inno lesdi, sifaa: .kisal Dakar",
+    "provide_minutes": "Tiiɗno hokku maɓɓe minit ngaaɗi.\nmiisaal ngam suttude minit 10\n.mute 10",
+    "bot_mode_read_failed": "Horiima tare haal laamu bot noo",
+    "bot_mode_update_failed": "Horiima hesɗitinde laana naatde bot",
+    "tagall_admin_only": "Yaafoore, ardiiɓe topirde tan ɓe mbaawi huutoraade jaasor .tagall.",
+    "provide_position": "Tiiɗno hokku limre ɗemngal ngaaɗi ngam sokkitaago Tic-Tac-Toe.",
+    "guess_letter": "Taƴo harof huunde .guess <harof>",
+    "provide_answer": "Hokku jaabi huunde .answer <jaabi>",
+    "bot_must_be_admin": "*Bot foti wonde ardiiɗo ngam huutoraade ngol golle*",
+    "admin_or_owner_only": "*Ardiiɓe walla jom bot tan ɓe mbaawi huutoraade ngal jaasor*",
+    "processing_error": "❌ Juumre waɗii e sahaa huutoraade fiildu maa."
+  },
+  "antidelete": {
+    "setup_title": "TEELTOL ANTIDELETE",
+    "current_status": "Haal Jooni",
+    "enabled": "Uddii",
+    "disabled": "Daaɓii",
+    "enable": "Uddir",
+    "disable": "Daaɓan",
+    "invalid_command": "Jaasor motaaka. Huutoro .antidelete ngam yiyde huutoraade."
+  },
+  "autoread": {
+    "invalid_option": "Cuɓol motaaka! Huutoro: .autoread on/off"
+  },
+  "companion": {
+    "creating": "⏳ *Mahinde CompanionBot...*\n\n📱 Telefon: +{phoneNumber}\n🤖 Innde: {companionName}\n\nTiiɗno makko haa min mahata kod coppital...",
+    "created": "🤝 *Teeltol CompanionBot*\n\n✅ *{companionName}* heɓii ngam coppital!\n\n📱 *KOD TOO NAATDE:*\n```{pairingCode}```\n\n*Deftere coppital:*\n1. Uddu WhatsApp e telefon maa\n2. Yah to Teelte > Kaɓirɗi coppitiiɗi\n3. Toppu \"Coppit kaɓirde\"\n4. 👆 *Toppu kod oo dow ngam naatude*\n\n⏱️ Kod ndon gasata e minit 5\n🔄 CompanionBot maa maa fuddii jahdinde tiiɗno no feewii jasɗe!",
+    "permission_denied": "❌ *Jaawangol Daaɓiiɗo*\n\nJamɓe bot tan ɓe mbaawi huutoraade jasɗe CompanionBot.",
+    "no_companions": "📭 *Alaa CompanionBot*\n\nCompanionBot gootel mahaaka jooni.\n\n*Mah gootel:* .companion create [telefon] [innde]"
+  },
+  "MENTION_USER_TO_COMPLIMENT": "Tiiɗno inno huutorɗo ngam moƴƴinde! Miisaal: .compliment @user",
+  "companion_help": {
+    "title": "📖 *Ardiiɗo Companion Bot*",
+    "commands": "*Jasɗe:*",
+    "create_code": "• `.companion create [telefon] [innde]` - Kod coppital",
+    "create_qr": "• `.companion create [telefon] [innde] qr` - Kod QR",
+    "list": "• `.companion list` - Cakkita fof companions (golle + njeeɗo)",
+    "status": "• `.companion status` - Haal companions",
+    "wake": "• `.companion wake [innde]` - Faijo companion njeeɗo",
+    "sleep": "• `.companion sleep [innde]` - Njeedii companion",
+    "wake_all": "• `.companion wake all` - Faijo companions fof",
+    "close": "• `.companion close [innde]` - Uddu companion",
+    "close_all": "• `.companion close all` - Uddu companions fof",
+    "cleanup": "• `.companion cleanup` - Momtu sessions ɓeeyniiɗi",
+    "examples": "*Miisaale:*",
+    "example1": "• `.companion create 242065491040 bobo` (kod)",
+    "example2": "• `.companion create 242065491040 marie qr` (QR)",
+    "example3": "• `.companion close bobo` - Uddu companion bobo",
+    "features": "*Golle:*",
+    "feature1": "✅ Wallugo huutorɓe keewɗi",
+    "feature2": "✅ Sessions momtiiɗi",
+    "feature3": "✅ Ardaagal companions timmi",
+    "feature4": "✅ Hollitaale jahdinde"
+  },
+  "commands": {
+    "help": {
+      "name": "ballal",
+      "desc": "Fiiro ballal ndii",
+      "usage": ".ballal [jaasor]",
+      "example": ".ballal sticker"
+    },
+    "ping": {
+      "name": "ping",
+      "desc": "Seɗtu palliingo bot",
+      "usage": ".ping",
+      "example": ".ping"
+    },
+    "joke": {
+      "name": "koɗol",
+      "desc": "Seertu koɗol ngol",
+      "usage": ".koɗol",
+      "example": ".koɗol"
+    },
+    "sticker": {
+      "name": "stiker",
+      "desc": "Mah stiker ummoraade naatol",
+      "usage": ".stiker [jaabi naatol]",
+      "example": ".stiker"
+    },
+    "weather": {
+      "name": "kisal",
+      "desc": "Hollit kisal gure",
+      "usage": ".kisal <gure>",
+      "example": ".kisal Dakar"
+    },
+    "translate": {
+      "name": "firtu",
+      "desc": "Firtu binndi",
+      "usage": ".firtu <binndi> <ɗemngal>",
+      "example": ".firtu Salam en"
+    }
+  },
+  "categories": {
+    "general": "🌐 Jasɗe Keeɓal",
+    "admin": "👮‍♂️ Jasɗe Ardiiɓe",
+    "owner": "🔒 Jasɗe Jom",
+    "image": "🎨 Naatoje/Stikere",
+    "games": "🎮 Mbayle",
+    "ai": "🤖 Pinal Mahol",
+    "fun": "🎯 Renndo",
+    "download": "📥 Aawte"
+  },
+  "admin": {
+    "bot_admin_first": "Tiiɗno waɗ bot oo ardiiɗo hade.",
+    "admin_only_kick": "Ardiiɓe topirde tan ɓe mbaawi huutoraade jaasor njafde.",
+    "mention_or_reply": "Tiiɗno inno huutorɗo walla jaabi fiildu makko ngam njafaade mo!",
+    "cannot_kick_self": "Miɗon horiimi njafaade hoore am! 🤖",
+    "kick_success": "Njafeede {users} mo'atti!",
+    "kick_failed": "Horiima njafaade huutorɗo/huutorɓe!"
+  },
+  "group": {
+    "info_header": "┌──「 *HUMPITO TOPIRDE* 」",
+    "info_id": "▢ *♻️ID:*\n   • {id}",
+    "info_name": "▢ *🔖INNDE* : \n• {name}",
+    "info_members": "▢ *👥Gollooɓe* :\n• {count}",
+    "info_owner": "▢ *🤿Jom Topirde:*\n• @{owner}",
+    "info_admins": "▢ *🕵🏻‍♂️Ardiiɓe:*\n{admins}",
+    "info_description": "▢ *📌Cifagol* :\n   • {desc}",
+    "no_description": "Alaa cifagol",
+    "info_failed": "Horiima heɓde humpito topirde!"
+  },
+  "fun": {
+    "emojimix_example": "🎴 Miisaal: .emojimix 😎+🥰",
+    "emojimix_separator": "✳️ Momtu emoji e maande *+*\n\n📌 Miisaal: \n*.emojimix* 😎+🥰",
+    "emojimix_cannot_mix": "❌ Ɗee emoji mbaawaa wallude! Eeto goɗɗe.",
+    "emojimix_failed": "❌ Horiima wallude emoji! Ƴeewto mi aɗa huutoroo emoji njaaɗi.\n\nMiisaal: .emojimix 😎+🥰"
+  },
+  "responses": {
+    "joke_failed": "Yaafoore, horiimi heɓde koɗol.",
+    "weather_not_found": "Gure yiytaaka",
+    "sticker_success": "Stiker mahii no mo'atti!",
+    "translate_success": "Firtoore gasii",
+    "pong": "Pong!",
+    "failed_get_status": "❌ Horiima heɓde haal bot.",
+    "welcome_enabled": "⚠️ Piilde marɓitaare *uddiima hade*.",
+    "welcome_disabled": "⚠️ Piilde marɓitaare *daaɓaama hade*.",
+    "welcome_set": "✅ Fiildu marɓitaare jinnaande *teelteemi no mo'atti*.",
+    "provide_welcome_msg": "⚠️ Tiiɗno hokku fiildu marɓitaare jinnaande. Miisaal: *.welcome set Marɓaa e topirde ndee!*",
+    "check_warnings": "Tiiɗno inno huutorɗo ngam seɗde ɓeyditte.",
+    "warning_count": "Huutorɗo heɓii ɓeyditte {count}.",
+    "roseday_failed": "❌ Horiima heɓde haala roseday. Tiiɗno eeto caggal!",
+    "groupinfo_failed": "Horiima heɓde humpito topirde!",
+    "viewonce_reply": "❌ Tiiɗno jaabi naatol walla wideyoo view-once.",
+    "dare_failed": "❌ Horiima heɓde ƴewtere. Tiiɗno eeto caggal!",
+    "goodnight_failed": "❌ Horiima heɓde fiildu hiirde heɓde. Tiiɗno eeto caggal!",
+    "group_unmuted": "Topirde nde uddiima.",
+    "reset_link_admin_only": "❌ Ardiiɓe tan ɓe mbaawi huutoraade ngal jaasor!",
+    "reset_link_bot_admin": "❌ Bot foti wonde ardiiɗo ngam firde jokkol topirde!",
+    "reset_link_failed": "Horiima firde jokkol topirde!",
+    "reset_link_success": "✅ Jokkol topirde firteeɗo no mo'atti\n\n📌 Jokkol hesere:\nhttps://chat.whatsapp.com/{code}",
+    "github_fetch_failed": "❌ Juumre e aawteede humpito warehouse.",
+    "truth_failed": "❌ Horiima heɓde goonga. Tiiɗno eeto caggal!",
+    "flirt_failed": "❌ Horiima heɓde fiildu birndam. Tiiɗno eeto caggal!",
+    "promote_failed": "Horiima ɓeydude huutorɗo/huutorɓe!",
+    "provide_gif_term": "Tiiɗno hokku daɓɓitol ngollol GIF.",
+    "no_gifs_found": "GIF gootel yiytaaka e daɓɓitol maa ngollol.",
+    "gif_fetch_failed": "Horiima heɓde GIF. Tiiɗno eeto caggal.",
+    "jid_info": "Humpito JID",
+    "group_jid": "JID Topirde",
+    "your_jid": "JID Maa"
+  },
+  "like": {
+    "provide_url": "❌ Tiiɗno hokku URL ngam baalle.\nHuutoraade: `.like <URL>`\nMiisaal: `.like https://youtube.com/watch?v=...",
+    "invalid_url": "❌ URL motaaka. Tiiɗno hokku URL njaaɗi.\nMiisaal: `.like https://youtube.com/watch?v=...",
+    "platform_not_supported": "❌ Paltofoore wallaaka. Paltofoore walliiɗe:\n• YouTube\n• Instagram\n• TikTok\n• Facebook\n• Twitter/X",
+    "success": "✅ **Haal baaleede no mo'atti!**\n\n📱 **Paltofoore:** {platform}\n🎬 **Tiitoonde:** {title}\n👤 **Winndiɗo:** {author}\n\n💡 **Andal:** Huutoro `.dlliked` ngam aawteede haal kala maa baalii!",
+    "already_liked": "⚠️ Ngal haal ɗon woni e lollude maa!",
+    "save_error": "❌ Juumre e danndugol. Eeto caggal.",
+    "processing_error": "❌ Juumre waɗii. Tiiɗno eeto keeroog."
+  },
+  "dlliked": {
+    "no_liked_statuses": "❌ **Haal baaliiɗe gootel yiytaaka!**\n\n💡 **Andal:** Huutoro `.like <URL>` ngam ɓeydude haal e lollude maa.",
+    "start_download": "🚀 **Daññude haal maa baalii**\n\n📊 **Fof:** haal {count} yiytaama\n⏳ **Haal:** E huutoraade...\n\n⚠️ **Teskol:** Ɗum mbaawi naatde sakaani keewɗi en ko faati e ɓetuɗe fiile.",
+    "progress_update": "🚀 **Aawteede fuɗɗii...**\n\n📊 **Yaltaare:** {current}/{total}\n✅ **Mo'ataare:** {success}\n❌ **Palliinge:** {failures}",
+    "completion_success": "✅ **Aawteede gasii!**\n\n📊 **Limce:**\n• Fof huutoraande: {total}\n• Mo'ataare: {success}\n• Palliinge: {failures}\n\n",
+    "errors_section": "❌ **Jummje:**\n{errors}\n\n",
+    "errors_many": "❌ **Jummje:** jummje {count} yiytaama\n\n",
+    "tip_message": "💡 **Andal:** Huutoro `.like <URL>` ngam ɓeydude lollude goɗɗe!",
+    "download_error": "❌ **Juumre e aawteede haal baaliiɗe.**\n\nTiiɗno eeto caggal.",
+    "media_caption": "🎯 **{title}**\n🌐 **Paltofoore:** {platform}\n📅 **Baalaaɗo e:** {date}",
+    "platform_not_supported": "{title}: Paltofoore wallaaka",
+    "download_failed": "{title}: {error}"
+  }
+}

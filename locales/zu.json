@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "language": "isiZulu",
+    "code": "zu",
+    "flag": "🇿🇦",
+    "completion": "95%"
+  },
+  "bot": {
+    "name": "wabot",
+    "version": "Inguqulo",
+    "status": {
+      "online": "Ku-inthanethi",
+      "offline": "Akukho ku-inthanethi",
+      "ready": "Kulungele",
+      "processing": "⏳ Kusenziwayo..."
+    }
+  },
+  "messages": {
+    "success": "✅ Kuphumelele",
+    "error": "❌ Iphutha",
+    "permission_denied": "❌ Imvume ayinikiwe",
+    "admin_only": "❌ Abaphathi kuphela",
+    "owner_only": "❌ Umninii-bot kuphela",
+    "bot_admin_required": "🤖 Yenza i-bot ibe umphathi ukuze usebenzise imiyalo yokuphatha.",
+    "user_not_found": "❌ Umsebenzisi akekho",
+    "provide_text": "❌ Nikeza umbhalo",
+    "reply_to_message": "❌ Phendula kumlayezo",
+    "reply_to_media": "❌ Phendula kusithombe/ividiyo",
+    "invalid_url": "❌ I-URL engalungile",
+    "failed_to_fetch": "❌ Kuhluleke ukuthola idatha",
+    "group_only": "Lomyalo usebenza emaqenjini kuphela.",
+    "provide_city": "Sicela ubalule idolobha, isibonelo: .isimo sezulu eThekwini",
+    "provide_minutes": "Sicela unikeze inombolo efanele yamaminithi.\nisibonelo sokuthulisa imaminithi angu-10\n.mute 10",
+    "bot_mode_read_failed": "Kuhlulekile ukufunda isimo se-bot mode",
+    "bot_mode_update_failed": "Kuhlulekile ukuvuselela indlela yokufinyelela i-bot",
+    "tagall_admin_only": "Uxolo, abaphathi beqembu kuphela abangasebenzisa umyalo ka-.tagall.",
+    "provide_position": "Sicela unikeze inombolo yendawo eyiyo yokunyakaza kwe-Tic-Tac-Toe.",
+    "guess_letter": "Qagela uhlamvu usebenzisa .guess <uhlamvu>",
+    "provide_answer": "Nikeza impendulo usebenzisa .answer <impendulo>",
+    "bot_must_be_admin": "*I-bot kufanele ibe umphathi ukuze isebenzise lesi sici*",
+    "admin_or_owner_only": "*Abaphathi noma umninii-bot kuphela abangasebenzisa lomyalo*",
+    "processing_error": "❌ Kuhluleke ukucubungula umlayezo wakho."
+  },
+  "antidelete": {
+    "setup_title": "UKUSETHA KWE-ANTIDELETE",
+    "current_status": "Isimo Samanje",
+    "enabled": "Kuvulwe",
+    "disabled": "Kuvalwe",
+    "enable": "Vula",
+    "disable": "Vala",
+    "invalid_command": "Umyalo ongalungile. Sebenzisa .antidelete ukubona ukusetshenziswa."
+  },
+  "autoread": {
+    "invalid_option": "Inketho engalungile! Sebenzisa: .autoread on/off"
+  },
+  "companion": {
+    "creating": "⏳ *Ukudala i-CompanionBot...*\n\n📱 Ifoni: +{phoneNumber}\n🤖 Igama: {companionName}\n\nSicela ulinde ngenkathi sikhiqiza ikhodi yokuhlanganisa...",
+    "created": "🤝 *Ukusetha kwe-CompanionBot*\n\n✅ *{companionName}* kulungele ukuhlanganiswa!\n\n📱 *IKHODI YOKUKOPISHA:*\n```{pairingCode}```\n\n*Izinyathelo zokuhlanganisa:*\n1. Vula i-WhatsApp efonini yakho\n2. Iya ku-Settings > Linked devices\n3. Thepha \"Link a device\"\n4. 👆 *Thepha ikhodi engenhla ukuyikopisha*\n\n⏱️ Ikhodi izophelelwa isikhathi emaminithini angu-5\n🔄 I-CompanionBot yakho izoqala ngokuzenzakalela lapho usebenzisa imiyalo!",
+    "permission_denied": "❌ *Imvume Yenqatshelwe*\n\nAbaninizanke be-bot kuphela abangasebenzisa imiyalo ye-CompanionBot.",
+    "no_companions": "📭 *Ayikho i-CompanionBot*\n\nAkukho CompanionBot edale okwamanje.\n\n*Dala eyodwa:* .companion create [ifoni] [igama]"
+  },
+  "MENTION_USER_TO_COMPLIMENT": "Sicela ubalule umsebenzisi ozomncoma! Isibonelo: .compliment @user",
+  "companion_help": {
+    "title": "📖 *Umphathi we-Companion Bot*",
+    "commands": "*Imiyalo:*",
+    "create_code": "• `.companion create [ifoni] [igama]` - Ikhodi yokuhlanganisa",
+    "create_qr": "• `.companion create [ifoni] [igama] qr` - Ikhodi ye-QR",
+    "list": "• `.companion list` - Bhalisa zonke ama-companions (asebenzayo + alele)",
+    "status": "• `.companion status` - Isimo sama-companions",
+    "wake": "• `.companion wake [igama]` - Vusa i-companion elele",
+    "sleep": "• `.companion sleep [igama]` - Laza i-companion",
+    "wake_all": "• `.companion wake all` - Vusa wonke ama-companions",
+    "close": "• `.companion close [igama]` - Vala i-companion",
+    "close_all": "• `.companion close all` - Vala wonke ama-companions",
+    "cleanup": "• `.companion cleanup` - Hlanza ama-sessions ayizintandane",
+    "examples": "*Izibonelo:*",
+    "example1": "• `.companion create 242065491040 bobo` (ikhodi)",
+    "example2": "• `.companion create 242065491040 marie qr` (QR)",
+    "example3": "• `.companion close bobo` - Vala i-companion bobo",
+    "features": "*Izici:*",
+    "feature1": "✅ Ukusekela abasebenzisi abaningi",
+    "feature2": "✅ Ama-sessions ahlukanisiwe",
+    "feature3": "✅ Ukuphatha ama-companions okugcwele",
+    "feature4": "✅ Izaziso ezizenzakalelayo"
+  },
+  "commands": {
+    "help": {
+      "name": "usizo",
+      "desc": "Imenyu yokusiza eyinhloko",
+      "usage": ".usizo [umyalo]",
+      "example": ".usizo sticker"
+    },
+    "ping": {
+      "name": "ping",
+      "desc": "Hlola ukulibaziseka kwe-bot",
+      "usage": ".ping",
+      "example": ".ping"
+    },
+    "joke": {
+      "name": "ihlaya",
+      "desc": "Xoxa ihlaya elingazelelwe",
+      "usage": ".ihlaya",
+      "example": ".ihlaya"
+    },
+    "sticker": {
+      "name": "isitembu",
+      "desc": "Dala isitembu esithombeni",
+      "usage": ".isitembu [phendula esithombeni]",
+      "example": ".isitembu"
+    },
+    "weather": {
+      "name": "isimo sezulu",
+      "desc": "Bonisa isimo sezulu sedolobha",
+      "usage": ".isimo sezulu <idolobha>",
+      "example": ".isimo sezulu eThekwini"
+    },
+    "translate": {
+      "name": "humusha",
+      "desc": "Humusha umbhalo",
+      "usage": ".humusha <umbhalo> <ulimi>",
+      "example": ".humusha Sawubona en"
+    }
+  },
+  "categories": {
+    "general": "🌐 Imiyalo Yonke",
+    "admin": "👮‍♂️ Imiyalo Yabaphathi",
+    "owner": "🔒 Imiyalo Yomnikazi",
+    "image": "🎨 Izithombe/Izitembu",
+    "games": "🎮 Imidlalo",
+    "ai": "🤖 Ubuhlakani Bokwenziwa",
+    "fun": "🎯 Ukuzijabulisa",
+    "download": "📥 Ukulanda"
+  },
+  "admin": {
+    "bot_admin_first": "Sicela wenze i-bot ibe umphathi kuqala.",
+    "admin_only_kick": "Abaphathi beqembu kuphela abangasebenzisa umyalo wokukhupha.",
+    "mention_or_reply": "Sicela ubalule umsebenzisi noma uphendule emlayezweni wakhe ukuze umkhuphele ngaphandle!",
+    "cannot_kick_self": "Angikwazi ukuzikhupha! 🤖",
+    "kick_success": "U-{users} ukukhutshwe ngempumelelo!",
+    "kick_failed": "Kuhluleke ukukhupha umsebenzisi/abasebenzisi!"
+  },
+  "group": {
+    "info_header": "┌──「 *ULWAZI LWEQEMBU* 」",
+    "info_id": "▢ *♻️ID:*\n   • {id}",
+    "info_name": "▢ *🔖IGAMA* : \n• {name}",
+    "info_members": "▢ *👥Amalungu* :\n• {count}",
+    "info_owner": "▢ *🤿Umnikazi Weqembu:*\n• @{owner}",
+    "info_admins": "▢ *🕵🏻‍♂️Abaphathi:*\n{admins}",
+    "info_description": "▢ *📌Incazelo* :\n   • {desc}",
+    "no_description": "Ayikho incazelo",
+    "info_failed": "Kuhluleke ukuthola ulwazi lweqembu!"
+  },
+  "fun": {
+    "emojimix_example": "🎴 Isibonelo: .emojimix 😎+🥰",
+    "emojimix_separator": "✳️ Hlukanisa ama-emoji ngophawu luka-*+*\n\n📌 Isibonelo: \n*.emojimix* 😎+🥰",
+    "emojimix_cannot_mix": "❌ Lawa ma-emoji awakwazi ukuxubana! Zama amanye.",
+    "emojimix_failed": "❌ Kuhluleke ukuxuba ama-emoji! Qiniseka ukuthi usebenzisa ama-emoji avumelekile.\n\nIsibonelo: .emojimix 😎+🥰"
+  },
+  "responses": {
+    "joke_failed": "Ngiyaxolisa, angikwazanga ukuthola ihlaya.",
+    "weather_not_found": "Idolobha alikho",
+    "sticker_success": "Isitembu sidaleke ngempumelelo!",
+    "translate_success": "Ukuhumusha kuqediwe",
+    "pong": "Pong!",
+    "failed_get_status": "❌ Kuhluleke ukuthola isimo se-bot.",
+    "welcome_enabled": "⚠️ Imilayezo yokumukelwa *seyivulwe ngaphambilini*.",
+    "welcome_disabled": "⚠️ Imilayezo yokumukelwa *sezikhiwe ngaphambilini*.",
+    "welcome_set": "✅ Umlayezo wokumukelwa owenziwe ngokwezifiso *usethelwe ngempumelelo*.",
+    "provide_welcome_msg": "⚠️ Sicela unikeze umlayezo wokumukelwa owenziwe ngokwezifiso. Isibonelo: *.welcome set Siyakwamukela eqenjini!*",
+    "check_warnings": "Sicela ubalule umsebenzisi ukuze uhlole izixwayiso.",
+    "warning_count": "Umsebenzisi une(zi)xwayiso {count}.",
+    "roseday_failed": "❌ Kuhluleke ukuthola isitatimende se-roseday. Sicela uzame futhi kamuva!",
+    "groupinfo_failed": "Kuhluleke ukuthola ulwazi lweqembu!",
+    "viewonce_reply": "❌ Sicela uphendule esithombeni noma evidhiyeni ye-view-once.",
+    "dare_failed": "❌ Kuhluleke ukuthola inselelo. Sicela uzame futhi kamuva!",
+    "goodnight_failed": "❌ Kuhluleke ukuthola umlayezo wobusuku obuhle. Sicela uzame futhi kamuva!",
+    "group_unmuted": "Iqembu selithulisiwe.",
+    "reset_link_admin_only": "❌ Abaphathi kuphela abangasebenzisa lomyalo!",
+    "reset_link_bot_admin": "❌ I-bot kufanele ibe umphathi ukuze isethe kabusha isixhumanisi seqembu!",
+    "reset_link_failed": "Kuhluleke ukusetha kabusha isixhumanisi seqembu!",
+    "reset_link_success": "✅ Isixhumanisi seqembu sisethwe kabusha ngempumelelo\n\n📌 Isixhumanisi esisha:\nhttps://chat.whatsapp.com/{code}",
+    "github_fetch_failed": "❌ Iphutha ekutholeni ulwazi lwesitoreji.",
+    "truth_failed": "❌ Kuhluleke ukuthola iqiniso. Sicela uzame futhi kamuva!",
+    "flirt_failed": "❌ Kuhluleke ukuthola umlayezo wokufeba. Sicela uzame futhi kamuva!",
+    "promote_failed": "Kuhluleke ukukhuphula umsebenzisi/abasebenzisi!",
+    "provide_gif_term": "Sicela unikeze igama lokusesha le-GIF.",
+    "no_gifs_found": "Awekho ama-GIF atholiwe egameni lakho lokusesha.",
+    "gif_fetch_failed": "Kuhluleke ukuthola i-GIF. Sicela uzame futhi kamuva.",
+    "jid_info": "Ulwazi lwe-JID",
+    "group_jid": "I-JID Yeqembu",
+    "your_jid": "I-JID Yakho"
+  },
+  "like": {
+    "provide_url": "❌ Sicela unikeze i-URL yokuthanda.\nUkusebenzisa: `.like <URL>`\nIsibonelo: `.like https://youtube.com/watch?v=...",
+    "invalid_url": "❌ I-URL engalungile. Sicela unikeze i-URL efanelekile.\nIsibonelo: `.like https://youtube.com/watch?v=...",
+    "platform_not_supported": "❌ Ipulatifomu ayisekelwe. Amapulatifomu asekelwayo:\n• YouTube\n• Instagram\n• TikTok\n• Facebook\n• Twitter/X",
+    "success": "✅ **Isimo sithande ngempumelelo!**\n\n📱 **Ipulatifomu:** {platform}\n🎬 **Isihloko:** {title}\n👤 **Umbhali:** {author}\n\n💡 **Ithiphu:** Sebenzisa `.dlliked` ukuze ulandele zonke izimo ozithandile!",
+    "already_liked": "⚠️ Lesi simo sesikhona ezintandokazi zakho!",
+    "save_error": "❌ Iphutha ekusindiseni. Zama kamuva.",
+    "processing_error": "❌ Kuhluleke. Sicela uzame futhi."
+  },
+  "dlliked": {
+    "no_liked_statuses": "❌ **Azikho izimo ezithandekile ezitholiwe!**\n\n💡 **Ithiphu:** Sebenzisa `.like <URL>` ukuze wengeze izimo ezintandokazi zakho.",
+    "start_download": "🚀 **Kulanjwa izimo zakho ozithandile**\n\n📊 **Inani Lonke:** izimo ezingu-{count} zitholiwe\n⏳ **Isimo:** Kucutshungulwa...\n\n⚠️ **Qaphela:** Lokhu kungathatha imaminithi eminingi kuye ngosayizi wamafayela.",
+    "progress_update": "🚀 **Ukulanda kuqhubeka...**\n\n📊 **Inqubekelaphambili:** {current}/{total}\n✅ **Impumelelo:** {success}\n❌ **Ukuhluleka:** {failures}",
+    "completion_success": "✅ **Ukulanda kuqediwe!**\n\n📊 **Izibalo:**\n• Inani elicutshungulwe: {total}\n• Impumelelo: {success}\n• Ukuhluleka: {failures}\n\n",
+    "errors_section": "❌ **Amaphutha:**\n{errors}\n\n",
+    "errors_many": "❌ **Amaphutha:** amaphutha angu-{count} ahlangane\n\n",
+    "tip_message": "💡 **Ithiphu:** Sebenzisa `.like <URL>` ukuze wengeze ezinye izintandokazi!",
+    "download_error": "❌ **Iphutha ekulandeni izimo ezithandekile.**\n\nSicela uzame futhi kamuva.",
+    "media_caption": "🎯 **{title}**\n🌐 **Ipulatifomu:** {platform}\n📅 **Kuthandwe nga:** {date}",
+    "platform_not_supported": "{title}: Ipulatifomu ayisekelwe",
+    "download_failed": "{title}: {error}"
+  }
+}

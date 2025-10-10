@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "language": "Português",
+    "code": "pt",
+    "flag": "🇵🇹",
+    "completion": "95%"
+  },
+  "bot": {
+    "name": "wabot",
+    "version": "Versão",
+    "status": {
+      "online": "Online",
+      "offline": "Offline",
+      "ready": "Pronto",
+      "processing": "⏳ Processando..."
+    }
+  },
+  "messages": {
+    "success": "✅ Sucesso",
+    "error": "❌ Erro",
+    "permission_denied": "❌ Permissão negada",
+    "admin_only": "❌ Apenas administradores",
+    "owner_only": "❌ Apenas o dono do bot",
+    "bot_admin_required": "🤖 Torne o bot administrador para usar comandos administrativos.",
+    "user_not_found": "❌ Usuário não encontrado",
+    "provide_text": "❌ Forneça um texto",
+    "reply_to_message": "❌ Responda a uma mensagem",
+    "reply_to_media": "❌ Responda a uma imagem/vídeo",
+    "invalid_url": "❌ URL inválida",
+    "failed_to_fetch": "❌ Falha ao buscar dados",
+    "group_only": "Este comando funciona apenas em grupos.",
+    "provide_city": "Por favor, mencione uma cidade, exemplo: .tempo Luanda",
+    "provide_minutes": "Por favor, forneça um número válido de minutos.\nexemplo para silenciar por 10 minutos\n.mute 10",
+    "bot_mode_read_failed": "Falha ao ler o estado do modo do bot",
+    "bot_mode_update_failed": "Falha ao atualizar o modo de acesso do bot",
+    "tagall_admin_only": "Desculpe, apenas administradores do grupo podem usar o comando .tagall.",
+    "provide_position": "Por favor, forneça um número de posição válido para movimento do Tic-Tac-Toe.",
+    "guess_letter": "Adivinhe uma letra usando .guess <letra>",
+    "provide_answer": "Forneça uma resposta usando .answer <resposta>",
+    "bot_must_be_admin": "*O bot deve ser administrador para usar este recurso*",
+    "admin_or_owner_only": "*Apenas administradores ou dono do bot podem usar este comando*",
+    "processing_error": "❌ Ocorreu um erro ao processar sua mensagem."
+  },
+  "antidelete": {
+    "setup_title": "CONFIGURAÇÃO ANTIDELETE",
+    "current_status": "Status Atual",
+    "enabled": "Ativado",
+    "disabled": "Desativado",
+    "enable": "Ativar",
+    "disable": "Desativar",
+    "invalid_command": "Comando inválido. Use .antidelete para ver o uso."
+  },
+  "autoread": {
+    "invalid_option": "Opção inválida! Use: .autoread on/off"
+  },
+  "companion": {
+    "creating": "⏳ *Criando CompanionBot...*\n\n📱 Telefone: +{phoneNumber}\n🤖 Nome: {companionName}\n\nPor favor aguarde enquanto geramos o código de emparelhamento...",
+    "created": "🤝 *Configuração do CompanionBot*\n\n✅ *{companionName}* está pronto para emparelhar!\n\n📱 *CÓDIGO PARA COPIAR:*\n```{pairingCode}```\n\n*Passos para emparelhar:*\n1. Abra o WhatsApp no seu telefone\n2. Vá para Configurações > Dispositivos vinculados\n3. Toque em \"Vincular um dispositivo\"\n4. 👆 *Toque no código acima para copiar*\n\n⏱️ O código expira em 5 minutos\n🔄 Seu CompanionBot iniciará automaticamente ao usar comandos!",
+    "permission_denied": "❌ *Permissão Negada*\n\nApenas donos do bot podem usar comandos CompanionBot.",
+    "no_companions": "📭 *Nenhum CompanionBot*\n\nNenhum CompanionBot foi criado ainda.\n\n*Crie um:* .companion create [telefone] [nome]"
+  },
+  "MENTION_USER_TO_COMPLIMENT": "Por favor mencione um usuário para elogiar! Exemplo: .compliment @user",
+  "companion_help": {
+    "title": "📖 *Gerenciador Companion Bot*",
+    "commands": "*Comandos:*",
+    "create_code": "• `.companion create [telefone] [nome]` - Código de emparelhamento",
+    "create_qr": "• `.companion create [telefone] [nome] qr` - Código QR",
+    "list": "• `.companion list` - Listar todos os companions (ativos + dormindo)",
+    "status": "• `.companion status` - Status dos companions",
+    "wake": "• `.companion wake [nome]` - Acordar companion dormindo",
+    "sleep": "• `.companion sleep [nome]` - Adormecer companion",
+    "wake_all": "• `.companion wake all` - Acordar todos os companions",
+    "close": "• `.companion close [nome]` - Fechar companion",
+    "close_all": "• `.companion close all` - Fechar todos os companions",
+    "cleanup": "• `.companion cleanup` - Limpar sessões órfãs",
+    "examples": "*Exemplos:*",
+    "example1": "• `.companion create 242065491040 bobo` (código)",
+    "example2": "• `.companion create 242065491040 marie qr` (QR)",
+    "example3": "• `.companion close bobo` - Fechar companion bobo",
+    "features": "*Recursos:*",
+    "feature1": "✅ Suporte a múltiplos usuários",
+    "feature2": "✅ Sessões isoladas",
+    "feature3": "✅ Gerenciamento completo de companions",
+    "feature4": "✅ Notificações automáticas"
+  },
+  "commands": {
+    "help": {
+      "name": "ajuda",
+      "desc": "Menu principal de ajuda",
+      "usage": ".ajuda [comando]",
+      "example": ".ajuda sticker"
+    },
+    "ping": {
+      "name": "ping",
+      "desc": "Verificar latência do bot",
+      "usage": ".ping",
+      "example": ".ping"
+    },
+    "joke": {
+      "name": "piada",
+      "desc": "Contar uma piada aleatória",
+      "usage": ".piada",
+      "example": ".piada"
+    },
+    "sticker": {
+      "name": "sticker",
+      "desc": "Criar sticker de uma imagem",
+      "usage": ".sticker [responder a imagem]",
+      "example": ".sticker"
+    },
+    "weather": {
+      "name": "tempo",
+      "desc": "Mostrar clima de uma cidade",
+      "usage": ".tempo <cidade>",
+      "example": ".tempo Luanda"
+    },
+    "translate": {
+      "name": "traduzir",
+      "desc": "Traduzir texto",
+      "usage": ".traduzir <texto> <idioma>",
+      "example": ".traduzir Olá en"
+    }
+  },
+  "categories": {
+    "general": "🌐 Comandos Gerais",
+    "admin": "👮‍♂️ Comandos Administrativos",
+    "owner": "🔒 Comandos do Proprietário",
+    "image": "🎨 Imagens/Stickers",
+    "games": "🎮 Jogos",
+    "ai": "🤖 Inteligência Artificial",
+    "fun": "🎯 Diversão",
+    "download": "📥 Downloads"
+  },
+  "admin": {
+    "bot_admin_first": "Por favor, torne o bot administrador primeiro.",
+    "admin_only_kick": "Apenas administradores do grupo podem usar o comando de expulsar.",
+    "mention_or_reply": "Por favor mencione o usuário ou responda à mensagem dele para expulsar!",
+    "cannot_kick_self": "Não posso me expulsar! 🤖",
+    "kick_success": "{users} foi expulso com sucesso!",
+    "kick_failed": "Falha ao expulsar o usuário/usuários!"
+  },
+  "group": {
+    "info_header": "┌──「 *INFORMAÇÕES DO GRUPO* 」",
+    "info_id": "▢ *♻️ID:*\n   • {id}",
+    "info_name": "▢ *🔖NOME* : \n• {name}",
+    "info_members": "▢ *👥Membros* :\n• {count}",
+    "info_owner": "▢ *🤿Dono do Grupo:*\n• @{owner}",
+    "info_admins": "▢ *🕵🏻‍♂️Administradores:*\n{admins}",
+    "info_description": "▢ *📌Descrição* :\n   • {desc}",
+    "no_description": "Sem descrição",
+    "info_failed": "Falha ao obter informações do grupo!"
+  },
+  "fun": {
+    "emojimix_example": "🎴 Exemplo: .emojimix 😎+🥰",
+    "emojimix_separator": "✳️ Separe emojis com sinal *+*\n\n📌 Exemplo: \n*.emojimix* 😎+🥰",
+    "emojimix_cannot_mix": "❌ Estes emojis não podem ser misturados! Tente outros.",
+    "emojimix_failed": "❌ Falha ao misturar emojis! Certifique-se de usar emojis válidos.\n\nExemplo: .emojimix 😎+🥰"
+  },
+  "responses": {
+    "joke_failed": "Desculpe, não consegui obter uma piada.",
+    "weather_not_found": "Cidade não encontrada",
+    "sticker_success": "Sticker criado com sucesso!",
+    "translate_success": "Tradução concluída",
+    "pong": "Pong!",
+    "failed_get_status": "❌ Falha ao obter status do bot.",
+    "welcome_enabled": "⚠️ Mensagens de boas-vindas *já estão ativadas*.",
+    "welcome_disabled": "⚠️ Mensagens de boas-vindas *já estão desativadas*.",
+    "welcome_set": "✅ Mensagem de boas-vindas personalizada *definida com sucesso*.",
+    "provide_welcome_msg": "⚠️ Por favor forneça uma mensagem de boas-vindas personalizada. Exemplo: *.welcome set Bem-vindos ao grupo!*",
+    "check_warnings": "Por favor mencione um usuário para verificar avisos.",
+    "warning_count": "Usuário tem {count} aviso(s).",
+    "roseday_failed": "❌ Falha ao obter citação roseday. Tente novamente mais tarde!",
+    "groupinfo_failed": "Falha ao obter informações do grupo!",
+    "viewonce_reply": "❌ Por favor responda a uma imagem ou vídeo view-once.",
+    "dare_failed": "❌ Falha ao obter desafio. Tente novamente mais tarde!",
+    "goodnight_failed": "❌ Falha ao obter mensagem de boa noite. Tente novamente mais tarde!",
+    "group_unmuted": "Grupo foi dessilenciado.",
+    "reset_link_admin_only": "❌ Apenas administradores podem usar este comando!",
+    "reset_link_bot_admin": "❌ Bot deve ser administrador para redefinir link do grupo!",
+    "reset_link_failed": "Falha ao redefinir link do grupo!",
+    "reset_link_success": "✅ Link do grupo redefinido com sucesso\n\n📌 Novo link:\nhttps://chat.whatsapp.com/{code}",
+    "github_fetch_failed": "❌ Erro ao buscar informações do repositório.",
+    "truth_failed": "❌ Falha ao obter verdade. Tente novamente mais tarde!",
+    "flirt_failed": "❌ Falha ao obter mensagem de flerte. Tente novamente mais tarde!",
+    "promote_failed": "Falha ao promover usuário/usuários!",
+    "provide_gif_term": "Por favor forneça um termo de busca para GIF.",
+    "no_gifs_found": "Nenhum GIF encontrado para seu termo de busca.",
+    "gif_fetch_failed": "Falha ao buscar GIF. Tente novamente mais tarde.",
+    "jid_info": "Informações JID",
+    "group_jid": "JID do Grupo",
+    "your_jid": "Seu JID"
+  },
+  "like": {
+    "provide_url": "❌ Por favor forneça uma URL para curtir.\nUso: `.like <URL>`\nExemplo: `.like https://youtube.com/watch?v=...",
+    "invalid_url": "❌ URL inválida. Por favor forneça uma URL válida.\nExemplo: `.like https://youtube.com/watch?v=...",
+    "platform_not_supported": "❌ Plataforma não suportada. Plataformas suportadas:\n• YouTube\n• Instagram\n• TikTok\n• Facebook\n• Twitter/X",
+    "success": "✅ **Status curtido com sucesso!**\n\n📱 **Plataforma:** {platform}\n🎬 **Título:** {title}\n👤 **Autor:** {author}\n\n💡 **Dica:** Use `.dlliked` para baixar todos os status que você curtiu!",
+    "already_liked": "⚠️ Este status já está nos seus favoritos!",
+    "save_error": "❌ Erro ao salvar. Tente mais tarde.",
+    "processing_error": "❌ Ocorreu um erro. Tente novamente."
+  },
+  "dlliked": {
+    "no_liked_statuses": "❌ **Nenhum status curtido encontrado!**\n\n💡 **Dica:** Use `.like <URL>` para adicionar status aos seus favoritos.",
+    "start_download": "🚀 **Baixando seus status curtidos**\n\n📊 **Total:** {count} status encontrados\n⏳ **Status:** Processando...\n\n⚠️ **Nota:** Isso pode levar vários minutos dependendo dos tamanhos dos arquivos.",
+    "progress_update": "🚀 **Download em andamento...**\n\n📊 **Progresso:** {current}/{total}\n✅ **Sucesso:** {success}\n❌ **Falhas:** {failures}",
+    "completion_success": "✅ **Download concluído!**\n\n📊 **Estatísticas:**\n• Total processado: {total}\n• Sucesso: {success}\n• Falhas: {failures}\n\n",
+    "errors_section": "❌ **Erros:**\n{errors}\n\n",
+    "errors_many": "❌ **Erros:** {count} erros encontrados\n\n",
+    "tip_message": "💡 **Dica:** Use `.like <URL>` para adicionar mais favoritos!",
+    "download_error": "❌ **Erro ao baixar status curtidos.**\n\nTente novamente mais tarde.",
+    "media_caption": "🎯 **{title}**\n🌐 **Plataforma:** {platform}\n📅 **Curtido em:** {date}",
+    "platform_not_supported": "{title}: Plataforma não suportada",
+    "download_failed": "{title}: {error}"
+  }
+}

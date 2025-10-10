@@ -1,0 +1,219 @@
+{
+  "meta": {
+    "language": "Kiswahili",
+    "code": "sw",
+    "flag": "🇹🇿",
+    "completion": "95%"
+  },
+  "bot": {
+    "name": "wabot",
+    "version": "Toleo",
+    "status": {
+      "online": "Inafanya kazi",
+      "offline": "Haifanyi kazi",
+      "ready": "Imeandaliwa",
+      "processing": "⏳ Inafanya kazi..."
+    }
+  },
+  "messages": {
+    "success": "✅ Imefanikiwa",
+    "error": "❌ Hitilafu",
+    "permission_denied": "❌ Ruhusa haikuidhinishwa",
+    "admin_only": "❌ Msimamizi pekee anaweza kutumia",
+    "owner_only": "❌ Mmiliki wa bot pekee anaweza kutumia",
+    "bot_admin_required": "🤖 Fanya bot iwe msimamizi ili kutumia amri za uongozi.",
+    "user_not_found": "❌ Mtumiaji hajapatikana",
+    "provide_text": "❌ Toa maandishi",
+    "reply_to_message": "❌ Jibu ujumbe",
+    "reply_to_media": "❌ Jibu picha/video",
+    "invalid_url": "❌ URL batili",
+    "failed_to_fetch": "❌ Imeshindwa kupata data",
+    "group_only": "Amri hii inatumika katika makundi tu.",
+    "provide_city": "Tafadhali taja jiji, mfano: .hali ya hewa Dar es Salaam",
+    "provide_minutes": "Tafadhali toa idadi sahihi ya dakika.\nmfano kwa kunyamazisha kwa dakika 10\n.mute 10",
+    "bot_mode_read_failed": "Imeshindwa kusoma hali ya njia ya bot",
+    "bot_mode_update_failed": "Imeshindwa kusasisha njia ya upatikanaji wa bot",
+    "tagall_admin_only": "Samahani, wasimamizi wa kikundi pekee wanaweza kutumia amri .tagall.",
+    "provide_position": "Tafadhali toa nambari sahihi ya nafasi kwa mwendo wa Tic-Tac-Toe.",
+    "guess_letter": "Tafadhali burudisha herufi kwa kutumia .guess <herufi>",
+    "provide_answer": "Tafadhali toa jibu kwa kutumia .answer <jibu>",
+    "bot_must_be_admin": "*Bot lazima iwe msimamizi ili kutumia kipengele hiki*",
+    "admin_or_owner_only": "*Wasimamizi au mmiliki wa bot pekee wanaweza kutumia amri hii*",
+    "processing_error": "❌ Hitilafu imetokea wakati wa kuchakata ujumbe wako."
+  },
+  "antidelete": {
+    "setup_title": "MPANGILIO WA ANTIDELETE",
+    "current_status": "Hali ya Sasa",
+    "enabled": "Imewashwa",
+    "disabled": "Imezimwa",
+    "enable": "Washa",
+    "disable": "Zima",
+    "invalid_command": "Amri batili. Tumia .antidelete kuona matumizi."
+  },
+  "autoread": {
+    "invalid_option": "Chaguo batili! Tumia: .autoread on/off"
+  },
+  "companion": {
+    "creating": "⏳ *Kuunda CompanionBot...*\n\n📱 Simu: +{phoneNumber}\n🤖 Jina: {companionName}\n\nTafadhali subiri wakati wa kutengeneza msimbo wa kuunganisha...",
+    "created": "🤝 *Usanidi wa CompanionBot*\n\n✅ *{companionName}* iko tayari kwa kuunganisha!\n\n📱 *MSIMBO WA KUNAKILI:*\n```{pairingCode}```\n\n*Hatua za kuunganisha:*\n1. Fungua WhatsApp kwenye simu yako\n2. Nenda kwenye Mipangilio > Vifaa vilivyounganishwa\n3. Gusa \"Unganisha kifaa\"\n4. 👆 *Gusa msimbo huu hapo juu ili kuunakili*\n\n⏱️ Msimbo utaisha kwa dakika 5\n🔄 CompanionBot yako itaanza kiotomatiki wakati wa kutumia amri!",
+    "created_without_code": "🤝 *Usanidi wa CompanionBot*\n\n✅ *{companionName}* iko tayari kwa kuunganisha!\n\n*Hatua za kuunganisha:*\n1. Fungua WhatsApp kwenye simu yako\n2. Nenda kwenye Mipangilio > Vifaa vilivyounganishwa\n3. Gusa \"Unganisha kifaa\"\n4. 👆 *Gusa msimbo huu chini ili kuunakili*\n\n⏱️ Msimbo utaisha kwa dakika 5\n🔄 CompanionBot yako itaanza kiotomatiki wakati wa kutumia amri!",
+    "duplicate_phone": "❌ *Nambari ya Simu Iliyorudiwa*\n\nCompanionBot \"{existingName}\" tayari ipo na simu +{phoneNumber}.\n\nKila nambari ya simu inaweza kuwa na CompanionBot moja tu.\nTumia .companion remove {existingName} ikiwa ni lazima.",
+    "limit_reached": "❌ *Kikomo Kimefikiwa*\n\nUpeo wa {maxInstances} CompanionBots unaruhusiwa.\nTafadhali simamisha mifano isiyotumiwa kwanza.",
+    "creation_failed": "❌ *Uundaji Umeshindwa*\n\nHaikuweza kuunda CompanionBot. Hii inaweza kuwa kutokana na:\n• Vikwazo vya rasilimali za mfumo\n• Hitilafu ya kiufundi\n\nTafadhali jaribu tena au wasiliana na mmiliki wa mfumo.",
+    "permission_denied": "❌ *Ruhusa Imekataliwa*\n\nWamiliki wa bot pekee wanaweza kutumia amri za CompanionBot.",
+    "no_companions": "📭 *Hakuna CompanionBot*\n\nHakuna CompanionBot iliyoundwa bado.\n\n*Unda moja:* .companion create [simu] [jina]"
+  },
+  "commands": {
+    "help": {
+      "name": "msaada",
+      "desc": "Menyu kuu ya msaada",
+      "usage": ".msaada [amri]",
+      "example": ".msaada sticker"
+    },
+    "ping": {
+      "name": "ping",
+      "desc": "Angalia kuchelewa kwa bot",
+      "usage": ".ping",
+      "example": ".ping"
+    },
+    "joke": {
+      "name": "utani",
+      "desc": "Sema utani wa bahati nasibu",
+      "usage": ".utani",
+      "example": ".utani"
+    },
+    "weather": {
+      "name": "hali ya hewa",
+      "desc": "Onyesha hali ya hewa ya jiji",
+      "usage": ".hali ya hewa <jiji>",
+      "example": ".hali ya hewa Dar es Salaam"
+    },
+    "translate": {
+      "name": "tafsiri",
+      "desc": "Tafsiri maandishi",
+      "usage": ".tafsiri <maandishi> <lugha>",
+      "example": ".tafsiri Habari en"
+    },
+    "sticker": {
+      "name": "sticker",
+      "desc": "Unda sticker kutoka picha",
+      "usage": ".sticker [jibu picha]",
+      "example": ".sticker"
+    }
+  },
+  "MENTION_USER_TO_COMPLIMENT": "Tafadhali mtaje mtumiaji wa kusifa! Mfano: .compliment @user",
+  "companion_help": {
+    "title": "📖 *Msimamizi wa Companion Bot*",
+    "commands": "*Amri:*",
+    "create_code": "• `.companion create [simu] [jina]` - Msimbo wa kuunganisha",
+    "create_qr": "• `.companion create [simu] [jina] qr` - Msimbo wa QR",
+    "list": "• `.companion list` - Orodha ya companions zote (zinazofanya kazi + zinazolala)",
+    "status": "• `.companion status` - Hali ya companions",
+    "wake": "• `.companion wake [jina]` - Amsha companion iliyolala",
+    "sleep": "• `.companion sleep [jina]` - Laza companion",
+    "wake_all": "• `.companion wake all` - Amsha companions zote",
+    "close": "• `.companion close [jina]` - Funga companion",
+    "close_all": "• `.companion close all` - Funga companions zote",
+    "cleanup": "• `.companion cleanup` - Safisha sessions zilizotelekezwa",
+    "examples": "*Mifano:*",
+    "example1": "• `.companion create 242065491040 bobo` (msimbo)",
+    "example2": "• `.companion create 242065491040 marie qr` (QR)",
+    "example3": "• `.companion close bobo` - Funga companion bobo",
+    "features": "*Vipengele:*",
+    "feature1": "✅ Msaada wa watumiaji wengi",
+    "feature2": "✅ Sessions zilizotengwa",
+    "feature3": "✅ Usimamizi kamili wa companions",
+    "feature4": "✅ Arifa za kiotomatiki"
+  },
+  "admin": {
+    "bot_admin_first": "Tafadhali fanya bot iwe msimamizi kwanza.",
+    "admin_only_kick": "Wasimamizi wa kikundi pekee wanaweza kutumia amri ya kufukuza.",
+    "mention_or_reply": "Tafadhali mtaje mtumiaji au ujibu ujumbe wake ili kumfukuza!",
+    "cannot_kick_self": "Siwezi kujifukuza mwenyewe! 🤖",
+    "kick_success": "{users} amefukuzwa kwa ufanisi!",
+    "kick_failed": "Imeshindwa kumfukuza mtumiaji/watumiaji!"
+  },
+  "group": {
+    "info_header": "┌──「 *MAELEZO YA KIKUNDI* 」",
+    "info_id": "▢ *♻️ID:*\n   • {id}",
+    "info_name": "▢ *🔖JINA* : \n• {name}",
+    "info_members": "▢ *👥Wanachama* :\n• {count}",
+    "info_owner": "▢ *🤿Mmiliki wa kikundi:*\n• @{owner}",
+    "info_admins": "▢ *🕵🏻‍♂️Wasimamizi:*\n{admins}",
+    "info_description": "▢ *📌Maelezo* :\n   • {desc}",
+    "no_description": "Hakuna maelezo",
+    "info_failed": "Imeshindwa kupata maelezo ya kikundi!"
+  },
+  "fun": {
+    "emojimix_example": "🎴 Mfano: .emojimix 😎+🥰",
+    "emojimix_separator": "✳️ Tenganisha emoji kwa ishara ya *+*\n\n📌 Mfano: \n*.emojimix* 😎+🥰",
+    "emojimix_cannot_mix": "❌ Emoji hizi haziwezi kuchanganywa! Jaribu nyingine.",
+    "emojimix_failed": "❌ Imeshindwa kuchanganya emoji! Hakikisha unatumia emoji halali.\n\nMfano: .emojimix 😎+🥰"
+  },
+  "categories": {
+    "general": "🌐 Amri za Kawaida",
+    "admin": "👮‍♂️ Amri za Msimamizi",
+    "owner": "🔒 Amri za Mmiliki",
+    "image": "🎨 Picha/Stickers",
+    "games": "🎮 Michezo",
+    "ai": "🤖 Intelligence Artificielle",
+    "fun": "🎯 Burudani",
+    "download": "📥 Pakua"
+  },
+  "responses": {
+    "joke_failed": "Samahani, sikuweza kupata utani.",
+    "weather_not_found": "Jiji halijapatikana",
+    "sticker_success": "Sticker imetengenezwa kwa ufanisi!",
+    "translate_success": "Utafsiri umemalizika",
+    "pong": "Pong!",
+    "welcome_set": "✅ Ujumbe wa kukaribisha *umewekwa kwa ufanisi*.",
+    "failed_get_status": "❌ Imeshindwa kupata hali ya bot.",
+    "welcome_enabled": "⚠️ Ujumbe wa kukaribisha *tayari umewashwa*.",
+    "welcome_disabled": "⚠️ Ujumbe wa kukaribisha *tayari umezimwa*.",
+    "provide_welcome_msg": "⚠️ Tafadhali toa ujumbe wa kukaribisha wa kibinafsi. Mfano: *.welcome set Karibu kikundi!*",
+    "check_warnings": "Tafadhali mtaje mtumiaji ili kuangalia maonyo.",
+    "warning_count": "Mtumiaji ana onyo(maonyo) {count}.",
+    "roseday_failed": "❌ Imeshindwa kupata nukuu ya roseday. Tafadhali jaribu tena baadaye!",
+    "groupinfo_failed": "Imeshindwa kupata maelezo ya kikundi!",
+    "viewonce_reply": "❌ Tafadhali jibu picha au video ya mara moja.",
+    "dare_failed": "❌ Imeshindwa kupata changamoto. Tafadhali jaribu tena baadaye!",
+    "goodnight_failed": "❌ Imeshindwa kupata ujumbe wa usiku mwema. Tafadhali jaribu tena baadaye!",
+    "group_unmuted": "Kikundi kimewashwa.",
+    "reset_link_admin_only": "❌ Wasimamizi pekee wanaweza kutumia amri hii!",
+    "reset_link_bot_admin": "❌ Bot lazima iwe msimamizi ili kubadilisha kiunga cha kikundi!",
+    "reset_link_failed": "Imeshindwa kubadilisha kiunga cha kikundi!",
+    "reset_link_success": "✅ Kiunga cha kikundi kimebadilishwa kwa ufanisi\n\n📌 Kiunga kipya:\nhttps://chat.whatsapp.com/{code}",
+    "github_fetch_failed": "❌ Hitilafu katika kupata maelezo ya hazina.",
+    "truth_failed": "❌ Imeshindwa kupata ukweli. Tafadhali jaribu tena baadaye!",
+    "flirt_failed": "❌ Imeshindwa kupata ujumbe wa kumbembeleza. Tafadhali jaribu tena baadaye!",
+    "promote_failed": "Imeshindwa kupandisha mtumiaji/watumiaji!",
+    "provide_gif_term": "Tafadhali toa neno la kutafuta GIF.",
+    "no_gifs_found": "Hakuna GIF zilizopatikana kwa neno lako la kutafuta.",
+    "gif_fetch_failed": "Imeshindwa kupata GIF. Tafadhali jaribu tena baadaye.",
+    "jid_info": "Maelezo ya JID",
+    "group_jid": "JID ya Kikundi",
+    "your_jid": "JID Yako"
+  },
+  "like": {
+    "provide_url": "❌ Tafadhali toa URL ya kupenda.\nMatumizi: `.like <URL>`\nMfano: `.like https://youtube.com/watch?v=...",
+    "invalid_url": "❌ URL batili. Tafadhali toa URL halali.\nMfano: `.like https://youtube.com/watch?v=...",
+    "platform_not_supported": "❌ Jukwaa halisaidiwi. Majukwaa yanayosaidika:\n• YouTube\n• Instagram\n• TikTok\n• Facebook\n• Twitter/X",
+    "success": "✅ **Hali imependwa kwa ufanisi!**\n\n📱 **Jukwaa:** {platform}\n🎬 **Kichwa:** {title}\n👤 **Mwandishi:** {author}\n\n💡 **Kidokezo:** Tumia `.dlliked` kupakua hali zako zote ulizozipenda!",
+    "already_liked": "⚠️ Hali hii tayari ipo katika vipendwa vyako!",
+    "save_error": "❌ Hitilafu katika kuhifadhi. Jaribu tena baadaye.",
+    "processing_error": "❌ Hitilafu imetokea. Tafadhali jaribu tena."
+  },
+  "dlliked": {
+    "no_liked_statuses": "❌ **Hakuna hali zilizopendwa zilizopatikana!**\n\n💡 **Kidokezo:** Tumia `.like <URL>` kuongeza hali kwenye vipendwa vyako.",
+    "start_download": "🚀 **Kunapakua hali zako zilizopendwa**\n\n📊 **Jumla:** hali {count} zimepatikana\n⏳ **Hali:** Inachakata...\n\n⚠️ **Kumbuka:** Hii inaweza kuchukua dakika nyingi kulingana na ukubwa wa mafaili.",
+    "progress_update": "🚀 **Upakamuzi unaendelea...**\n\n📊 **Maendeleo:** {current}/{total}\n✅ **Imefanikiwa:** {success}\n❌ **Imeshindwa:** {failures}",
+    "completion_success": "✅ **Upakamuzi umekamilika!**\n\n📊 **Takwimu:**\n• Jumla iliyochakatwa: {total}\n• Imefanikiwa: {success}\n• Imeshindwa: {failures}\n\n",
+    "errors_section": "❌ **Makosa:**\n{errors}\n\n",
+    "errors_many": "❌ **Makosa:** makosa {count} yamekutana\n\n",
+    "tip_message": "💡 **Kidokezo:** Tumia `.like <URL>` kuongeza vipendwa zaidi!",
+    "download_error": "❌ **Hitilafu katika kupakua hali zilizopendwa.**\n\nTafadhali jaribu tena baadaye.",
+    "media_caption": "🎯 **{title}**\n🌐 **Jukwaa:** {platform}\n📅 **Ilipendwa:** {date}",
+    "platform_not_supported": "{title}: Jukwaa halisaidiwi",
+    "download_failed": "{title}: {error}"
+  }
+}

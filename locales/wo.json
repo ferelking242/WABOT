@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "language": "Wolof",
+    "code": "wo",
+    "flag": "🇸🇳",
+    "completion": "95%"
+  },
+  "bot": {
+    "name": "wabot",
+    "version": "Version",
+    "status": {
+      "online": "Dafa liggéey",
+      "offline": "Liggéeyu ko",
+      "ready": "Pare na",
+      "processing": "⏳ Dafay liggéey..."
+    }
+  },
+  "messages": {
+    "success": "✅ Baax na",
+    "error": "❌ Njumte",
+    "permission_denied": "❌ Njariñu ko",
+    "admin_only": "❌ Administrateur bi rek mën na liggéey ak sa",
+    "owner_only": "❌ Kilifa bot bi rek mën na liggéey ak sa",
+    "bot_admin_required": "🤖 Def bot bi administrator ngir liggéey ak commandes admin yi.",
+    "user_not_found": "❌ Kii gisul ko",
+    "provide_text": "❌ Jox bind",
+    "reply_to_message": "❌ Tontu ci bataaxal bi",
+    "reply_to_media": "❌ Tontu ci nataal/video",
+    "invalid_url": "❌ URL bu bon",
+    "failed_to_fetch": "❌ Mënu jël données yi",
+    "group_only": "Commande bii groupe bi rek la mën a liggéey ak.",
+    "provide_city": "Wax dëkk bi, misaal: .météo Londres",
+    "provide_minutes": "Jox number bu baax ci minutes.\nmisaal ngir mute 10 minutes\n.mute 10",
+    "bot_mode_read_failed": "Mënu jàng état bu mode bot",
+    "bot_mode_update_failed": "Mënu soppiku mode accès bu bot",
+    "tagall_admin_only": "Baal ma, administrateurs yu groupe bi rek mën na liggéey ak commande .tagall.",
+    "provide_position": "Jox number bu position bu baax ngir mouvement Tic-Tac-Toe.",
+    "guess_letter": "Xibaar lettre ci .guess <lettre>",
+    "provide_answer": "Jox jaabte ci .answer <jaabte>",
+    "bot_must_be_admin": "*Bot bi war na am admin ngir liggéey ak fonctionnalité bii*",
+    "admin_or_owner_only": "*Administrateurs walla kilifa bot bi rek mën na liggéey ak commande bii*",
+    "processing_error": "❌ Njumte am na ci defar bataaxal bi."
+  },
+  "companion": {
+    "creating": "⏳ *Dafay def CompanionBot...*\n\n📱 Telefoon: +{phoneNumber}\n🤖 Tur: {companionName}\n\nXaar ba code yu apparié defar...",
+    "created": "🤝 *Configuration CompanionBot*\n\n✅ *{companionName}* pare na ngir apparié !\n\n📱 *CODE BU KOPIY:*\n```{pairingCode}```\n\n*Jëfandikuwaay yu connexion:*\n1. Ubbi WhatsApp ci sa telefoon\n2. Dem ci Paramètres > Appareils liés\n3. Bëgg \"Lier un appareil\"\n4. 👆 *Bëgg code bii ci kaw ngir kopiy*\n\n⏱️ Code bi dina jeex ci fukki simis\n🔄 Sa CompanionBot dina liggéey bopp am bu jëfandikoo commandes !",
+    "permission_denied": "❌ *Njariñu ko*\n\nKilifa bot bi rek mën na liggéey ak commandes CompanionBot.",
+    "no_companions": "📭 *CompanionBot amul*\n\nCompanionBot defaru ko.\n\n*Def benn:* .companion create [telefoon] [tur]"
+  },
+  "commands": {
+    "help": {
+      "name": "ndimbal",
+      "desc": "Menu ndimbal bu njëkk",
+      "usage": ".ndimbal [commande]",
+      "example": ".ndimbal sticker"
+    },
+    "ping": {
+      "name": "ping",
+      "desc": "Xoolal latence bu bot",
+      "usage": ".ping",
+      "example": ".ping"
+    },
+    "joke": {
+      "name": "aay",
+      "desc": "Koy aay bu yeneen",
+      "usage": ".aay",
+      "example": ".aay"
+    },
+    "sticker": {
+      "name": "autocollant",
+      "desc": "Def sticker ci nataal",
+      "usage": ".autocollant [tontu ci nataal]",
+      "example": ".autocollant"
+    },
+    "weather": {
+      "name": "météo",
+      "desc": "Wone météo bu dëkk",
+      "usage": ".météo <dëkk>",
+      "example": ".météo Dakar"
+    },
+    "translate": {
+      "name": "tekki",
+      "desc": "Tekki bind",
+      "usage": ".tekki <bind> <làkk>",
+      "example": ".tekki Asalaa maleekum en"
+    }
+  },
+  "categories": {
+    "general": "🌐 Commandes yu Mbooleem",
+    "admin": "👮‍♂️ Commandes Admin",
+    "owner": "🔒 Commandes Kilifa",
+    "image": "🎨 Nataal/Stickers",
+    "games": "🎮 Xeex",
+    "ai": "🤖 Intelligence Artificielle",
+    "fun": "🎯 Nitt",
+    "download": "📥 Téléchargements"
+  },
+  "admin": {
+    "bot_admin_first": "Def bot bi admin bu njëkk.",
+    "admin_only_kick": "Administrateurs yu groupe bi rek mën na liggéey ak commande bu gën.",
+    "mention_or_reply": "Teg kii walla tontu ci bataaxal am ngir gën !",
+    "cannot_kick_self": "Mënu gën bopp am ! 🤖",
+    "kick_success": "{users} gën na baax !",
+    "kick_failed": "Mënu gën kii/ñoo !"
+  },
+  "group": {
+    "info_header": "┌──「 *XIBAAR GROUPE BI* 」",
+    "info_id": "▢ *♻️ID:*\n   • {id}",
+    "info_name": "▢ *🔖TUR* : \n• {name}",
+    "info_members": "▢ *👥Members* :\n• {count}",
+    "info_owner": "▢ *🤿Kilifa groupe bi:*\n• @{owner}",
+    "info_admins": "▢ *🕵🏻‍♂️Administrateurs:*\n{admins}",
+    "info_description": "▢ *📌Fàtteu* :\n   • {desc}",
+    "no_description": "Fàtteu amul",
+    "info_failed": "Mënu jël xibaar groupe bi !"
+  },
+  "fun": {
+    "emojimix_example": "🎴 Misaal: .emojimix 😎+🥰",
+    "emojimix_separator": "✳️ Jëlle emoji yi ak tëdd *+*\n\n📌 Misaal: \n*.emojimix* 😎+🥰",
+    "emojimix_cannot_mix": "❌ Emoji yii mënuñu jëlle ! Jëm yeneen.",
+    "emojimix_failed": "❌ Mënu jëlle emoji yi ! Liggéey ak emoji yu baax.\n\nMisaal: .emojimix 😎+🥰"
+  },
+  "responses": {
+    "joke_failed": "Baal ma, mënu jël aay.",
+    "weather_not_found": "Dëkk bi gisul ko",
+    "sticker_success": "Sticker def na baax!",
+    "translate_success": "Tekki jeex na",
+    "pong": "Pong!",
+    "failed_get_status": "❌ Mënu jël état bu bot.",
+    "welcome_enabled": "⚠️ Bataaxal yu dalal *ubbi na ñu dëkk*.",
+    "welcome_disabled": "⚠️ Bataaxal yu dalal *tëj na ñu*.",
+    "welcome_set": "✅ Bataaxal dalal bu sa xel *daf na dëkk*.",
+    "provide_welcome_msg": "⚠️ Jox bataaxal dalal bu sa xel. Misaal: *.welcome set Dalal ci groupe bi!*"
+  },
+  "like": {
+    "provide_url": "❌ Jox URL ngir bëgg.\nJëfandikoo: `.like <URL>`\nMisaal: `.like https://youtube.com/watch?v=...",
+    "invalid_url": "❌ URL bu bon. Jox URL bu baax.\nMisaal: `.like https://youtube.com/watch?v=...",
+    "platform_not_supported": "❌ Plateforme bi ñu ngi ko sàmm. Plateformes yu jëfandikoo:\n• YouTube\n• Instagram\n• TikTok\n• Facebook\n• Twitter/X",
+    "success": "✅ **Statut bëgg na baax !**\n\n📱 **Plateforme:** {platform}\n🎬 **Titre:** {title}\n👤 **Bind:** {author}\n\n💡 **Xamale:** Jëfandikoo `.dlliked` ngir télécharger statuts yi nga bëgg !",
+    "already_liked": "⚠️ Statut bii nekk na ci sa favoris !",
+    "save_error": "❌ Njumte ci marral. Jëm ceeb.",
+    "processing_error": "❌ Njumte am na. Jëm ceeb."
+  }
+}

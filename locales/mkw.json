@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "language": "Mbochi",
+    "code": "mkw",
+    "flag": "🇨🇬",
+    "completion": "95%"
+  },
+  "bot": {
+    "name": "wabot",
+    "version": "Version",
+    "status": {
+      "online": "A sala",
+      "offline": "A sala te",
+      "ready": "A bongisi",
+      "processing": "⏳ A sala mosala..."
+    }
+  },
+  "messages": {
+    "success": "✅ Esali malamu",
+    "error": "❌ Libunga",
+    "permission_denied": "❌ Bopesi te",
+    "admin_only": "❌ Administrateur kaka akoki kosalela",
+    "owner_only": "❌ Nkolo wa bot kaka akoki kosalela",
+    "bot_admin_required": "🤖 Salá bot akóma admin mpo na kosalela mibeko ya admin.",
+    "user_not_found": "❌ Moto oyo azali te",
+    "provide_text": "❌ Pesa makomi",
+    "reply_to_message": "❌ Zongisa nsango",
+    "reply_to_media": "❌ Zongisa elilingi/video",
+    "invalid_url": "❌ URL ya mabe",
+    "failed_to_fetch": "❌ Akokaki te kozwa ba données",
+    "group_only": "Etinda oyo ekoki kosalelama na ba groupes kaka.",
+    "provide_city": "Lakisa engumba, ndakisa: .météo Londres",
+    "provide_minutes": "Pesa motango ya ba minutes malamu.\nndakisa mpo na ko muter 10 minutes\n.mute 10",
+    "bot_mode_read_failed": "Akokaki te kotanga état ya mode bot",
+    "bot_mode_update_failed": "Akokaki te ko update mode ya accès ya bot",
+    "tagall_admin_only": "Bolimbisi, ba administrateurs ya groupe kaka bakoki kosalela commande .tagall.",
+    "provide_position": "Pesa motango ya position malamu mpo na mouvement Tic-Tac-Toe.",
+    "guess_letter": "Kanisa lettre na kosalelaka .guess <lettre>",
+    "provide_answer": "Pesa eyano na kosalelaka .answer <eyano>",
+    "bot_must_be_admin": "*Bot esengeli kozala admin mpo na kosalela fonctionnalité oyo*",
+    "admin_or_owner_only": "*Ba administrateurs to nkolo ya bot kaka bakoki kosalela commande oyo*",
+    "processing_error": "❌ Libunga esalemi na kotya nsango na yo."
+  },
+  "companion": {
+    "creating": "⏳ *Kosala CompanionBot...*\n\n📱 Telefone: +{phoneNumber}\n🤖 Kombo: {companionName}\n\nZela libela tango bakosala code ya kopara...",
+    "created": "🤝 *Configuration CompanionBot*\n\n✅ *{companionName}* amibongisi mpo na kopara !\n\n📱 *CODE YA KOKOPISA:*\n```{pairingCode}```\n\n*Makambo ya kokangisa:*\n1. Fungola WhatsApp na telefone na yo\n2. Kende na Paramètres > Appareils liés\n3. Finga \"Lier un appareil\"\n4. 👆 *Simba code oyo likolo mpo na kokopisa*\n\n⏱️ Code ekokufa na minute 5\n🔄 CompanionBot na yo ekotambwisa ye moko tango bakosalela ba commandes !",
+    "permission_denied": "❌ *Bopesi te*\n\nBa propriétaires ya bot kaka bakoki kosalela ba commandes CompanionBot.",
+    "no_companions": "📭 *CompanionBot moko te*\n\nCompanionBot moko te asalami naino.\n\n*Kosala moko:* .companion create [telefone] [kombo]"
+  },
+  "commands": {
+    "help": {
+      "name": "lisalisi",
+      "desc": "Menu ya lisalisi ya liboso",
+      "usage": ".lisalisi [commande]",
+      "example": ".lisalisi sticker"
+    },
+    "ping": {
+      "name": "ping",
+      "desc": "Koluka latence ya bot",
+      "usage": ".ping",
+      "example": ".ping"
+    },
+    "joke": {
+      "name": "masano",
+      "desc": "Loyemba masano ya libaku",
+      "usage": ".masano",
+      "example": ".masano"
+    },
+    "sticker": {
+      "name": "autocollant",
+      "desc": "Kosala sticker na elilingi",
+      "usage": ".autocollant [zongisa na elilingi]",
+      "example": ".autocollant"
+    },
+    "weather": {
+      "name": "météo",
+      "desc": "Kolakisa météo ya engumba",
+      "usage": ".météo <engumba>",
+      "example": ".météo Brazzaville"
+    },
+    "translate": {
+      "name": "kobongola",
+      "desc": "Kobongola makomi",
+      "usage": ".kobongola <makomi> <monoko>",
+      "example": ".kobongola Mbote en"
+    }
+  },
+  "categories": {
+    "general": "🌐 Ba Commandes ya Mobimba",
+    "admin": "👮‍♂️ Ba Commandes Admin",
+    "owner": "🔒 Ba Commandes Nkolo",
+    "image": "🎨 Bilili/Stickers",
+    "games": "🎮 Masano",
+    "ai": "🤖 Intelligence Artificielle",
+    "fun": "🎯 Bondimi",
+    "download": "📥 Ba Téléchargements"
+  },
+  "admin": {
+    "bot_admin_first": "Salá bot ekóma admin yambo.",
+    "admin_only_kick": "Ba administrateurs ya groupe kaka bakoki kosalela commande ya kobengana.",
+    "mention_or_reply": "Tanga moto to zongisa nsango na ye mpo na kobengana ye !",
+    "cannot_kick_self": "Nakoki te komibengana ! 🤖",
+    "kick_success": "{users} abengani malamu !",
+    "kick_failed": "Akokaki te kobengana moto/bato !"
+  },
+  "group": {
+    "info_header": "┌──「 *MAKAMBO YA GROUPE* 」",
+    "info_id": "▢ *♻️ID:*\n   • {id}",
+    "info_name": "▢ *🔖KOMBO* : \n• {name}",
+    "info_members": "▢ *👥Ba membres* :\n• {count}",
+    "info_owner": "▢ *🤿Nkolo ya groupe:*\n• @{owner}",
+    "info_admins": "▢ *🕵🏻‍♂️Ba administrateurs:*\n{admins}",
+    "info_description": "▢ *📌Ndimbola* :\n   • {desc}",
+    "no_description": "Ndimbola ezali te",
+    "info_failed": "Akokaki te kozwa makambo ya groupe !"
+  },
+  "fun": {
+    "emojimix_example": "🎴 Ndakisa: .emojimix 😎+🥰",
+    "emojimix_separator": "✳️ Kabola ba emoji na elembo *+*\n\n📌 Ndakisa: \n*.emojimix* 😎+🥰",
+    "emojimix_cannot_mix": "❌ Ba emojis oyo bakoki kosangisa te ! Meka basusu.",
+    "emojimix_failed": "❌ Akokaki te kosangisa ba emojis ! Salá na ba emojis ya solo.\n\nNdakisa: .emojimix 😎+🥰"
+  },
+  "responses": {
+    "joke_failed": "Bolimbisi, nakokaki te kozwa masano.",
+    "weather_not_found": "Engumba emonani te",
+    "sticker_success": "Sticker esalemi malamu!",
+    "translate_success": "Kobongola esili",
+    "pong": "Pong!",
+    "failed_get_status": "❌ Akokaki te kozwa état ya bot.",
+    "welcome_enabled": "⚠️ Ba messages ya boyambi *epelami nanu*.",
+    "welcome_disabled": "⚠️ Ba messages ya boyambi *epelami te nanu*.",
+    "welcome_set": "✅ Message ya boyambi ya motema *etyami malamu*.",
+    "provide_welcome_msg": "⚠️ Pesa message ya boyambi ya motema. Ndakisa: *.welcome set Boyambi na groupe!*"
+  },
+  "like": {
+    "provide_url": "❌ Pesa URL mpo na ko lika.\nBosaleli: `.like <URL>`\nNdakisa: `.like https://youtube.com/watch?v=...",
+    "invalid_url": "❌ URL ya mabe. Pesa URL ya malamu.\nNdakisa: `.like https://youtube.com/watch?v=...",
+    "platform_not_supported": "❌ Plateforme esungami te. Ba plateformes ya kosalela:\n• YouTube\n• Instagram\n• TikTok\n• Facebook\n• Twitter/X",
+    "success": "✅ **Statut elikemi malamu !**\n\n📱 **Plateforme:** {platform}\n🎬 **Titre:** {title}\n👤 **Mokomi:** {author}\n\n💡 **Toli:** Salela `.dlliked` mpo na ko télécharger ba statuts oyo o likaki !",
+    "already_liked": "⚠️ Statut oyo ezali nanu na ba favoris na yo !",
+    "save_error": "❌ Libunga na kobomba. Meka lisusu sima.",
+    "processing_error": "❌ Libunga moko esalemi. Meka lisusu."
+  }
+}

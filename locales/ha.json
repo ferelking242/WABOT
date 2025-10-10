@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "language": "Hausa",
+    "code": "ha",
+    "flag": "🇳🇬",
+    "completion": "95%"
+  },
+  "bot": {
+    "name": "wabot",
+    "version": "Version",
+    "status": {
+      "online": "Yana aiki",
+      "offline": "Baya aiki",
+      "ready": "Yana shirye",
+      "processing": "⏳ Yana aiki..."
+    }
+  },
+  "messages": {
+    "success": "✅ Ya yi nasara",
+    "error": "❌ Kuskure",
+    "permission_denied": "❌ Babu izini",
+    "admin_only": "❌ Admin ne kawai zai iya amfani",
+    "owner_only": "❌ Mai bot ne kawai zai iya amfani",
+    "bot_admin_required": "🤖 Sanya bot ya zama admin don amfani da admin commands.",
+    "user_not_found": "❌ Babu wannan mai amfani",
+    "provide_text": "❌ Bayar da rubutu",
+    "reply_to_message": "❌ Amsa saƙo",
+    "reply_to_media": "❌ Amsa hoto/video",
+    "invalid_url": "❌ URL mara inganci",
+    "failed_to_fetch": "❌ Ya kasa ɗaukan data",
+    "group_only": "Wannan umarni ana amfani dashi a cikin ƙungiyoyi kawai.",
+    "provide_city": "Ka bayyana birni, misali: .yanayi Lagos",
+    "provide_minutes": "Ka bayar da ingantaccen lamba na mintuna.\nmisali don yin mute 10 mintuna\n.mute 10",
+    "bot_mode_read_failed": "Ya kasa karanta yanayin hanyar bot",
+    "bot_mode_update_failed": "Ya kasa sabunta hanyar samun bot",
+    "tagall_admin_only": "Yi haƙuri, masu kula da ƙungiya kawai suke iya amfani da umarni .tagall.",
+    "provide_position": "Ka bayar da ingantaccen lamba na matsayi don motsi na Tic-Tac-Toe.",
+    "guess_letter": "Ka hankali harafi ta amfani da .guess <harafi>",
+    "provide_answer": "Ka bayar da amsa ta amfani da .answer <amsa>",
+    "bot_must_be_admin": "*Bot dole ne ya zama admin don amfani da wannan aiki*",
+    "admin_or_owner_only": "*Masu kula ko mai bot kawai suke iya amfani da wannan umarni*",
+    "processing_error": "❌ Kuskure ya faru yayin sarrafa saƙonka."
+  },
+  "antidelete": {
+    "setup_title": "SAITI NA ANTIDELETE",
+    "current_status": "Halin Yanzu",
+    "enabled": "An kunna",
+    "disabled": "An kashe",
+    "enable": "Kunna",
+    "disable": "Kashe",
+    "invalid_command": "Umarni mara inganci. Yi amfani da .antidelete don ganin amfani."
+  },
+  "autoread": {
+    "invalid_option": "Zaɓi mara inganci! Yi amfani da: .autoread on/off"
+  },
+  "companion": {
+    "creating": "⏳ *Ana ƙirƙirar CompanionBot...*\n\n📱 Wayar: +{phoneNumber}\n🤖 Suna: {companionName}\n\nDa fatan za a jira yayin samar da lambar haɗawa...",
+    "created": "🤝 *Saiti na CompanionBot*\n\n✅ *{companionName}* yana shirye don haɗawa!\n\n📱 *LAMBAR DA ZA A KWAFI:*\n```{pairingCode}```\n\n*Matakan haɗawa:*\n1. Buɗe WhatsApp akan wayarka\n2. Je zuwa Saiti > Na'urori da aka haɗa\n3. Danna \"Haɗa na'ura\"\n4. 👆 *Danna lambar a sama don kwafawa*\n\n⏱️ Lambar za ta ƙare cikin minti 5\n🔄 CompanionBot ɗinku zai fara aiki ta atomatik lokacin amfani da umarni!",
+    "permission_denied": "❌ *An hana izini*\n\nMasu bot kawai suke iya amfani da umarni na CompanionBot.",
+    "no_companions": "📭 *Babu CompanionBot*\n\nBa a ƙirƙiri CompanionBot ba tukuna.\n\n*Ƙirƙiri ɗaya:* .companion create [waya] [suna]"
+  },
+  "commands": {
+    "help": {
+      "name": "taimako",
+      "desc": "Babban menu na taimako",
+      "usage": ".taimako [umarni]",
+      "example": ".taimako sticker"
+    },
+    "ping": {
+      "name": "ping",
+      "desc": "Duba jinkirin bot",
+      "usage": ".ping",
+      "example": ".ping"
+    },
+    "joke": {
+      "name": "barkwanci",
+      "desc": "Faɗi barkwanci",
+      "usage": ".barkwanci",
+      "example": ".barkwanci"
+    },
+    "weather": {
+      "name": "yanayi",
+      "desc": "Nuna yanayin birni",
+      "usage": ".yanayi <birni>",
+      "example": ".yanayi Lagos"
+    },
+    "translate": {
+      "name": "fassara",
+      "desc": "Fassara rubutu",
+      "usage": ".fassara <rubutu> <harshe>",
+      "example": ".fassara Sannu en"
+    },
+    "sticker": {
+      "name": "sticker",
+      "desc": "Ƙirƙiri sticker daga hoto",
+      "usage": ".sticker [amsa hoto]",
+      "example": ".sticker"
+    }
+  },
+  "MENTION_USER_TO_COMPLIMENT": "Da fatan za a ambaci mai amfani don yabawa! Misali: .compliment @user",
+  "companion_help": {
+    "title": "📖 *Masimamizi na Companion Bot*",
+    "commands": "*Umarni:*",
+    "create_code": "• `.companion create [waya] [suna]` - Lambar haɗawa",
+    "create_qr": "• `.companion create [waya] [suna] qr` - Lambar QR",
+    "list": "• `.companion list` - Jeri dukkan companions (masu aiki + masu barci)",
+    "status": "• `.companion status` - Halin companions",
+    "wake": "• `.companion wake [suna]` - Farkar companion mai barci",
+    "sleep": "• `.companion sleep [suna]` - Kwantar companion",
+    "wake_all": "• `.companion wake all` - Farkar dukkan companions",
+    "close": "• `.companion close [suna]` - Rufe companion",
+    "close_all": "• `.companion close all` - Rufe dukkan companions",
+    "cleanup": "• `.companion cleanup` - Goge sessions marasa amfani",
+    "examples": "*Misalai:*",
+    "example1": "• `.companion create 242065491040 bobo` (lambar)",
+    "example2": "• `.companion create 242065491040 marie qr` (QR)",
+    "example3": "• `.companion close bobo` - Rufe companion bobo",
+    "features": "*Fasaloli:*",
+    "feature1": "✅ Tallafi na masu amfani da yawa",
+    "feature2": "✅ Sessions keɓantacce",
+    "feature3": "✅ Cikakken sarrafa companions",
+    "feature4": "✅ Sanarwar atomatik"
+  },
+  "admin": {
+    "bot_admin_first": "Da fatan za a sanya bot ya zama admin da farko.",
+    "admin_only_kick": "Masu kula da ƙungiya kawai suke iya amfani da umarni na kora.",
+    "mention_or_reply": "Da fatan za a ambaci mai amfani ko amsa saƙonsa don korawa!",
+    "cannot_kick_self": "Ba zan iya korar kaina ba! 🤖",
+    "kick_success": "An kori {users} da nasara!",
+    "kick_failed": "Ya kasa korar mai amfani/masu amfani!"
+  },
+  "group": {
+    "info_header": "┌──「 *BAYANAN ƘUNGIYA* 」",
+    "info_id": "▢ *♻️ID:*\n   • {id}",
+    "info_name": "▢ *🔖SUNA* : \n• {name}",
+    "info_members": "▢ *👥Membobi* :\n• {count}",
+    "info_owner": "▢ *🤿Mai ƙungiya:*\n• @{owner}",
+    "info_admins": "▢ *🕵🏻‍♂️Masu gudanarwa:*\n{admins}",
+    "info_description": "▢ *📌Bayanin* :\n   • {desc}",
+    "no_description": "Babu bayanin",
+    "info_failed": "Ya kasa samun bayanan ƙungiya!"
+  },
+  "fun": {
+    "emojimix_example": "🎴 Misali: .emojimix 😎+🥰",
+    "emojimix_separator": "✳️ Raba emoji tare da alamar *+*\n\n📌 Misali: \n*.emojimix* 😎+🥰",
+    "emojimix_cannot_mix": "❌ Ba za a iya hada waɗannan emoji ba! Gwada wasu.",
+    "emojimix_failed": "❌ Ya kasa hada emoji! Tabbatar da kana amfani da ingantattun emoji.\n\nMisali: .emojimix 😎+🥰"
+  },
+  "categories": {
+    "general": "🌐 Umarnan Gabaɗaya",
+    "admin": "👮‍♂️ Umarnan Admin",
+    "owner": "🔒 Umarnan Mai shi",
+    "image": "🎨 Hotuna/Stickers",
+    "games": "🎮 Wasanni",
+    "ai": "🤖 Intelligence Artificielle",
+    "fun": "🎯 Nishaɗi",
+    "download": "📥 Zazzagewa"
+  },
+  "responses": {
+    "joke_failed": "Yi haƙuri, ban sami barkwanci ba.",
+    "weather_not_found": "Ba a sami birnin ba",
+    "sticker_success": "An yi sticker da nasara!",
+    "translate_success": "Fassarar ta ƙare",
+    "pong": "Pong!",
+    "welcome_set": "✅ An saita saƙon maraba *da nasara*.",
+    "failed_get_status": "❌ Ya kasa samun halin bot.",
+    "welcome_enabled": "⚠️ Saƙonnin maraba *sun riga sun kunna*.",
+    "welcome_disabled": "⚠️ Saƙonnin maraba *sun riga sun kashe*.",
+    "provide_welcome_msg": "⚠️ Da fatan za a bayar da saƙon maraba na musamman. Misali: *.welcome set Maraba zuwa ƙungiya!*",
+    "check_warnings": "Da fatan za a ambaci mai amfani don duba gargaɗi.",
+    "warning_count": "Mai amfani yana da gargaɗi {count}.",
+    "roseday_failed": "❌ Ya kasa samun maganar roseday. Da fatan za a sake gwadawa daga baya!",
+    "groupinfo_failed": "Ya kasa samun bayanan ƙungiya!",
+    "viewonce_reply": "❌ Da fatan za a amsa hoto ko bidiyo na sau ɗaya.",
+    "dare_failed": "❌ Ya kasa samun ƙalubale. Da fatan za a sake gwadawa daga baya!",
+    "goodnight_failed": "❌ Ya kasa samun saƙon dare mai kyau. Da fatan za a sake gwadawa daga baya!",
+    "group_unmuted": "An sake kunna ƙungiyar.",
+    "reset_link_admin_only": "❌ Masu gudanarwa kawai suke iya amfani da wannan umarni!",
+    "reset_link_bot_admin": "❌ Bot dole ne ya zama admin don sake saita hanyar haɗin ƙungiya!",
+    "reset_link_failed": "Ya kasa sake saita hanyar haɗin ƙungiya!",
+    "reset_link_success": "✅ Hanyar haɗin ƙungiya ta sake saiti da nasara\n\n📌 Sabuwar hanya:\nhttps://chat.whatsapp.com/{code}",
+    "github_fetch_failed": "❌ Kuskure wajen ɗaukar bayanan ma'ajiya.",
+    "truth_failed": "❌ Ya kasa samun gaskiya. Da fatan za a sake gwadawa daga baya!",
+    "flirt_failed": "❌ Ya kasa samun saƙon kwadayi. Da fatan za a sake gwadawa daga baya!",
+    "promote_failed": "Ya kasa ɗaga mai amfani/masu amfani!",
+    "provide_gif_term": "Da fatan za a bayar da kalmar bincike don GIF.",
+    "no_gifs_found": "Ba a sami GIF ba don kalmar bincikenka.",
+    "gif_fetch_failed": "Ya kasa ɗaukar GIF. Da fatan za a sake gwadawa daga baya.",
+    "jid_info": "Bayanan JID",
+    "group_jid": "JID na Ƙungiya",
+    "your_jid": "JID ɗinka"
+  },
+  "like": {
+    "provide_url": "❌ Da fatan za a bayar da URL don so.\nAmfani: `.like <URL>`\nMisali: `.like https://youtube.com/watch?v=...",
+    "invalid_url": "❌ URL mara inganci. Da fatan za a bayar da ingantacciyar URL.\nMisali: `.like https://youtube.com/watch?v=...",
+    "platform_not_supported": "❌ Ba a tallafa wa dandalin ba. Dandali da ake tallafawa:\n• YouTube\n• Instagram\n• TikTok\n• Facebook\n• Twitter/X",
+    "success": "✅ **An so matsayin da nasara!**\n\n📱 **Dandali:** {platform}\n🎬 **Taken:** {title}\n👤 **Marubucin:** {author}\n\n💡 **Shawara:** Yi amfani da `.dlliked` don zazzagewa dukkan matsayin da kuka so!",
+    "already_liked": "⚠️ Wannan matsayin ya riga ya kasance a cikin abubuwan da kuke so!",
+    "save_error": "❌ Kuskure wajen adanawa. Sake gwadawa daga baya.",
+    "processing_error": "❌ Kuskure ya faru. Da fatan za a sake gwadawa."
+  },
+  "dlliked": {
+    "no_liked_statuses": "❌ **Ba a sami matsayi da aka so ba!**\n\n💡 **Shawara:** Yi amfani da `.like <URL>` don ƙara matsayi zuwa abubuwan da kuke so.",
+    "start_download": "🚀 **Ana zazzagewa matsayin da kuke so**\n\n📊 **Jimillar:** An sami matsayi {count}\n⏳ **Matsayi:** Ana sarrafa...\n\n⚠️ **Lura:** Wannan na iya ɗaukar mintuna da yawa dangane da girman fayiloli.",
+    "progress_update": "🚀 **Zazzagewa yana gudana...**\n\n📊 **Ci gaba:** {current}/{total}\n✅ **Nasara:** {success}\n❌ **Gazawa:** {failures}",
+    "completion_success": "✅ **Zazzagewa ya ƙare!**\n\n📊 **Ƙididdiga:**\n• Jimillar da aka sarrafa: {total}\n• Nasara: {success}\n• Gazawa: {failures}\n\n",
+    "errors_section": "❌ **Kurakurai:**\n{errors}\n\n",
+    "errors_many": "❌ **Kurakurai:** An gamu da kurakurai {count}\n\n",
+    "tip_message": "💡 **Shawara:** Yi amfani da `.like <URL>` don ƙara ƙarin abubuwan da kuke so!",
+    "download_error": "❌ **Kuskure wajen zazzagewa matsayin da aka so.**\n\nDa fatan za a sake gwadawa daga baya.",
+    "media_caption": "🎯 **{title}**\n🌐 **Dandali:** {platform}\n📅 **An so a:** {date}",
+    "platform_not_supported": "{title}: Ba a tallafa wa dandalin ba",
+    "download_failed": "{title}: {error}"
+  }
+}

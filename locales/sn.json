@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "language": "chiShona",
+    "code": "sn",
+    "flag": "🇿🇼",
+    "completion": "95%"
+  },
+  "bot": {
+    "name": "wabot",
+    "version": "Shanduro",
+    "status": {
+      "online": "Pane internet",
+      "offline": "Hapana internet",
+      "ready": "Yakagadzirira",
+      "processing": "⏳ Iri kushanda..."
+    }
+  },
+  "messages": {
+    "success": "✅ Zvabudirira",
+    "error": "❌ Chakakanganisa",
+    "permission_denied": "❌ Mvumo yarambwa",
+    "admin_only": "❌ Vatungamiri chete",
+    "owner_only": "❌ Muridzi we-bot chete",
+    "bot_admin_required": "🤖 Ita kuti bot ive mutungamiri kuti ushandise mirairo yevakuru.",
+    "user_not_found": "❌ Mushandisi haana kuwanikwa",
+    "provide_text": "❌ Ipa runyoro",
+    "reply_to_message": "❌ Pindura meseji",
+    "reply_to_media": "❌ Pindura mufananidzo/vhidhiyo",
+    "invalid_url": "❌ URL isina kuramba",
+    "failed_to_fetch": "❌ Kundotora data kwakundikana",
+    "group_only": "Ino mirairo inoshanda mumagroup chete.",
+    "provide_city": "Ndapota taura guta, muenzaniso: .mamiriro ekunze Harare",
+    "provide_minutes": "Ndapota ipa nhamba yeminutes yakakodzera.\nmuenzaniso wekudzivirira maminiti 10\n.mute 10",
+    "bot_mode_read_failed": "Kundoverenga mamiriro ebot mode kwakundikana",
+    "bot_mode_update_failed": "Kushandura nzira yekuwana bot kwakundikana",
+    "tagall_admin_only": "Pamusoroi, vatungamiri veboka chete vanogona kushandisa mirairo ye.tagall.",
+    "provide_position": "Ndapota ipa nhamba yenzvimbo yakakodzera yekufamba kweTic-Tac-Toe.",
+    "guess_letter": "Fungidzira bhii uchishandisa .guess <bhii>",
+    "provide_answer": "Ipa mhinduro uchishandisa .answer <mhinduro>",
+    "bot_must_be_admin": "*Bot inofanira kuve mutungamiri kuti ishandise chishandiso ichi*",
+    "admin_or_owner_only": "*Vatungamiri kana muridzi webot chete vanogona kushandisa ino mirairo*",
+    "processing_error": "❌ Chakakanganisa chakaitika panguva yekushanda nemeseji yako."
+  },
+  "antidelete": {
+    "setup_title": "KUGADZIRISA ANTIDELETE",
+    "current_status": "Mamiriro Arizvino",
+    "enabled": "Yakabatanidzwa",
+    "disabled": "Yamiswa",
+    "enable": "Batanidza",
+    "disable": "Dzima",
+    "invalid_command": "Mirairo isina kuramba. Shandisa .antidelete kuona mashandisiro."
+  },
+  "autoread": {
+    "invalid_option": "Sarudzo isina kuramba! Shandisa: .autoread on/off"
+  },
+  "companion": {
+    "creating": "⏳ *Kugadzira CompanionBot...*\n\n📱 Runhare: +{phoneNumber}\n🤖 Zita: {companionName}\n\nNdapota mirira patiri kugadzira kodhi yekubatanidza...",
+    "created": "🤝 *Kugadzirisa CompanionBot*\n\n✅ *{companionName}* yakagadzirira kubatanidza!\n\n📱 *KODHI YEKUKOPA:*\n```{pairingCode}```\n\n*Matanho ekubatanidza:*\n1. Vhura WhatsApp parunhare rwako\n2. Enda kuSettings > Linked devices\n3. Dzvanya \"Link a device\"\n4. 👆 *Dzvanya kodhi iri pamusoro kuti ukope*\n\n⏱️ Kodhi ichapera mumaminiti mashanu\n🔄 CompanionBot yako ichatanga ega kana uchishandisa mirairo!",
+    "permission_denied": "❌ *Mvumo Yarambwa*\n\nVaridzi vebot chete vanogona kushandisa mirairo yeCompanionBot.",
+    "no_companions": "📭 *Hapana CompanionBot*\n\nHapana CompanionBot yakagadzirwa parizvino.\n\n*Gadzira imwe:* .companion create [runhare] [zita]"
+  },
+  "MENTION_USER_TO_COMPLIMENT": "Ndapota taura mushandisi kuti umurumbidze! Muenzaniso: .compliment @user",
+  "companion_help": {
+    "title": "📖 *Mutungamiri weCompanion Bot*",
+    "commands": "*Mirairo:*",
+    "create_code": "• `.companion create [runhare] [zita]` - Kodhi yekubatanidza",
+    "create_qr": "• `.companion create [runhare] [zita] qr` - Kodhi yeQR",
+    "list": "• `.companion list` - Nyora ese companions (anoshanda + akarara)",
+    "status": "• `.companion status` - Mamiriro ecompanions",
+    "wake": "• `.companion wake [zita]` - Muka companion akarara",
+    "sleep": "• `.companion sleep [zita]` - Rarisa companion",
+    "wake_all": "• `.companion wake all` - Muka companions ese",
+    "close": "• `.companion close [zita]` - Vhara companion",
+    "close_all": "• `.companion close all` - Vhara companions ese",
+    "cleanup": "• `.companion cleanup` - Chenesa sessions dzisina hukama",
+    "examples": "*Mienzaniso:*",
+    "example1": "• `.companion create 242065491040 bobo` (kodhi)",
+    "example2": "• `.companion create 242065491040 marie qr` (QR)",
+    "example3": "• `.companion close bobo` - Vhara companion bobo",
+    "features": "*Zvinhu:*",
+    "feature1": "✅ Kutsigira vashandisi vakawanda",
+    "feature2": "✅ Sessions dzakaparadzaniswa",
+    "feature3": "✅ Kutungamira companions kuzere",
+    "feature4": "✅ Zviziviso zvinoita zvazvoga"
+  },
+  "commands": {
+    "help": {
+      "name": "rubatsiro",
+      "desc": "Menu huru yerubatsiro",
+      "usage": ".rubatsiro [mirairo]",
+      "example": ".rubatsiro sticker"
+    },
+    "ping": {
+      "name": "ping",
+      "desc": "Ongorora kunonoka kwebot",
+      "usage": ".ping",
+      "example": ".ping"
+    },
+    "joke": {
+      "name": "joke",
+      "desc": "Taurira joke isina kuronga",
+      "usage": ".joke",
+      "example": ".joke"
+    },
+    "sticker": {
+      "name": "sticker",
+      "desc": "Gadzira sticker kubva pamufananidzo",
+      "usage": ".sticker [pindura pamufananidzo]",
+      "example": ".sticker"
+    },
+    "weather": {
+      "name": "mamiriro ekunze",
+      "desc": "Ratidza mamiriro ekunze eguta",
+      "usage": ".mamiriro ekunze <guta>",
+      "example": ".mamiriro ekunze Harare"
+    },
+    "translate": {
+      "name": "shandura",
+      "desc": "Shandura runyoro",
+      "usage": ".shandura <runyoro> <mutauro>",
+      "example": ".shandura Mhoro en"
+    }
+  },
+  "categories": {
+    "general": "🌐 Mirairo Yese",
+    "admin": "👮‍♂️ Mirairo Yevatungamiri",
+    "owner": "🔒 Mirairo Yemuridzi",
+    "image": "🎨 Mifananidzo/Stickers",
+    "games": "🎮 Mitambo",
+    "ai": "🤖 Hungwaru Hwakagadzirwa",
+    "fun": "🎯 Kufadza",
+    "download": "📥 Kudhawunirodha"
+  },
+  "admin": {
+    "bot_admin_first": "Ndapota ita bot ive mutungamiri kutanga.",
+    "admin_only_kick": "Vatungamiri veboka chete vanogona kushandisa mirairo yekudzinga.",
+    "mention_or_reply": "Ndapota taura mushandisi kana kuti upindure meseji yake kuti umudzinge!",
+    "cannot_kick_self": "Handikwanise kuzvikandira kunze! 🤖",
+    "kick_success": "Vakandirwa {users} zvabudirira!",
+    "kick_failed": "Kudzinga mushandisi/vashandisi hakuna kubudirira!"
+  },
+  "group": {
+    "info_header": "┌──「 *RUZIVO RWEBOKA* 」",
+    "info_id": "▢ *♻️ID:*\n   • {id}",
+    "info_name": "▢ *🔖ZITA* : \n• {name}",
+    "info_members": "▢ *👥Nhengo* :\n• {count}",
+    "info_owner": "▢ *🤿Muridzi weBoka:*\n• @{owner}",
+    "info_admins": "▢ *🕵🏻‍♂️Vatungamiri:*\n{admins}",
+    "info_description": "▢ *📌Tsanangudzo* :\n   • {desc}",
+    "no_description": "Hapana tsanangudzo",
+    "info_failed": "Kuwana ruzivo rweboka hakuna kubudirira!"
+  },
+  "fun": {
+    "emojimix_example": "🎴 Muenzaniso: .emojimix 😎+🥰",
+    "emojimix_separator": "✳️ Paradzanisa emoji nechiratidzo che*+*\n\n📌 Muenzaniso: \n*.emojimix* 😎+🥰",
+    "emojimix_cannot_mix": "❌ Emoji idzi hadzigone kusanganiswa! Edza dzimwe.",
+    "emojimix_failed": "❌ Kusanganisa emoji hakuna kubudirira! Iva nechokwadi kuti unoshandisa emoji dzakakodzera.\n\nMuenzaniso: .emojimix 😎+🥰"
+  },
+  "responses": {
+    "joke_failed": "Pamusoroi, handina kukwanisa kuwana joke.",
+    "weather_not_found": "Guta harina kuwanikwa",
+    "sticker_success": "Sticker yakagadzirwa zvabudirira!",
+    "translate_success": "Kushandura kwapera",
+    "pong": "Pong!",
+    "failed_get_status": "❌ Kuwana mamiriro ebot hakuna kubudirira.",
+    "welcome_enabled": "⚠️ Mameseji ekugamuchira *atobatanidzwa kare*.",
+    "welcome_disabled": "⚠️ Mameseji ekugamuchira *amiswa kare*.",
+    "welcome_set": "✅ Meseji yekugamuchira yakagadzirwa *yaiswa zvabudirira*.",
+    "provide_welcome_msg": "⚠️ Ndapota ipa meseji yekugamuchira yakagadzirwa. Muenzaniso: *.welcome set Makagamuchirwa muboka!*",
+    "check_warnings": "Ndapota taura mushandisi kuti uone mayambiro.",
+    "warning_count": "Mushandisi ane mayambiro {count}.",
+    "roseday_failed": "❌ Kuwana quote yeroseday hakuna kubudirira. Ndapota edza gare gare!",
+    "groupinfo_failed": "Kuwana ruzivo rweboka hakuna kubudirira!",
+    "viewonce_reply": "❌ Ndapota pindura mufananidzo kana vhidhiyo ye-view-once.",
+    "dare_failed": "❌ Kuwana dambudziko hakuna kubudirira. Ndapota edza gare gare!",
+    "goodnight_failed": "❌ Kuwana meseji yehusiku hwakanaka hakuna kubudirira. Ndapota edza gare gare!",
+    "group_unmuted": "Boka rakatendeudzwa.",
+    "reset_link_admin_only": "❌ Vatungamiri chete vanogona kushandisa ino mirairo!",
+    "reset_link_bot_admin": "❌ Bot inofanira kuve mutungamiri kuti idzorere link yeboka!",
+    "reset_link_failed": "Kudzoreredza link yeboka hakuna kubudirira!",
+    "reset_link_success": "✅ Link yeboka yadzoreredwa zvabudirira\n\n📌 Link itsva:\nhttps://chat.whatsapp.com/{code}",
+    "github_fetch_failed": "❌ Chakakanganisa pakuwana ruzivo rwekuchengetera.",
+    "truth_failed": "❌ Kuwana chokwadi hakuna kubudirira. Ndapota edza gare gare!",
+    "flirt_failed": "❌ Kuwana meseji yerudo hakuna kubudirira. Ndapota edza gare gare!",
+    "promote_failed": "Kukwidzira mushandisi/vashandisi hakuna kubudirira!",
+    "provide_gif_term": "Ndapota ipa shoko rekutsvaga GIF.",
+    "no_gifs_found": "Hapana GIFs dzakawanikwa pashoko rako rekutsvaga.",
+    "gif_fetch_failed": "Kuwana GIF hakuna kubudirira. Ndapota edza gare gare.",
+    "jid_info": "Ruzivo rweJID",
+    "group_jid": "JID yeBoka",
+    "your_jid": "JID Yako"
+  },
+  "like": {
+    "provide_url": "❌ Ndapota ipa URL yekuda.\nKushandisa: `.like <URL>`\nMuenzaniso: `.like https://youtube.com/watch?v=...",
+    "invalid_url": "❌ URL isina kuramba. Ndapota ipa URL yakakodzera.\nMuenzaniso: `.like https://youtube.com/watch?v=...",
+    "platform_not_supported": "❌ Platform haisina kutsigirwa. Mapuratifomu anotsigirwa:\n• YouTube\n• Instagram\n• TikTok\n• Facebook\n• Twitter/X",
+    "success": "✅ **Status yakadwa zvabudirira!**\n\n📱 **Platform:** {platform}\n🎬 **Musoro:** {title}\n👤 **Munyori:** {author}\n\n💡 **Chipangamazano:** Shandisa `.dlliked` kudhaunirodha status dzese dzawakada!",
+    "already_liked": "⚠️ Status iyi irimo muzvaunoda!",
+    "save_error": "❌ Chakakanganisa pakuchengetera. Edza gare gare.",
+    "processing_error": "❌ Chakakanganisa chakaitika. Ndapota edza zvakare."
+  },
+  "dlliked": {
+    "no_liked_statuses": "❌ **Hapana status dzakadikanwa dzakawanikwa!**\n\n💡 **Chipangamazano:** Shandisa `.like <URL>` kuwedzera status kune zvaunoda.",
+    "start_download": "🚀 **Kudhaunirodha status dzako dzakadikanwa**\n\n📊 **Uwandu:** status {count} dzakawanikwa\n⏳ **Mamiriro:** Kushanda...\n\n⚠️ **Cherechedza:** Izvi zvinogona kutora maminiti akawanda zvichienderana nehukuru hwemafaira.",
+    "progress_update": "🚀 **Kudhaunirodha kuri kuenda...**\n\n📊 **Kufambira mberi:** {current}/{total}\n✅ **Budiriro:** {success}\n❌ **Kutadza:** {failures}",
+    "completion_success": "✅ **Kudhaunirodha kwapera!**\n\n📊 **Manhamba:**\n• Yese yakashanda: {total}\n• Budiriro: {success}\n• Kutadza: {failures}\n\n",
+    "errors_section": "❌ **Zvinonetsa:**\n{errors}\n\n",
+    "errors_many": "❌ **Zvinonetsa:** zvikanganiso {count} zvakasangana\n\n",
+    "tip_message": "💡 **Chipangamazano:** Shandisa `.like <URL>` kuwedzera zvaunoda!",
+    "download_error": "❌ **Chakakanganisa pakudhaunirodha status dzakadikanwa.**\n\nNdapota edza gare gare.",
+    "media_caption": "🎯 **{title}**\n🌐 **Platform:** {platform}\n📅 **Yakadwa pa:** {date}",
+    "platform_not_supported": "{title}: Platform haisina kutsigirwa",
+    "download_failed": "{title}: {error}"
+  }
+}

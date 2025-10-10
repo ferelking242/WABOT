@@ -1,0 +1,222 @@
+{
+  "meta": {
+    "language": "Español",
+    "code": "es",
+    "flag": "🇪🇸",
+    "completion": "95%"
+  },
+  "bot": {
+    "name": "wabot",
+    "version": "Versión",
+    "status": {
+      "online": "En línea",
+      "offline": "Desconectado",
+      "ready": "Listo",
+      "processing": "⏳ Procesando..."
+    }
+  },
+  "messages": {
+    "success": "✅ Éxito",
+    "error": "❌ Error",
+    "permission_denied": "❌ Permiso denegado",
+    "admin_only": "Lo siento, solo los administradores del grupo pueden usar este comando.",
+    "owner_only": "❌ Este comando solo está disponible para el propietario o sudo!",
+    "bot_admin_required": "🤖 Haz que el bot sea administrador para usar comandos de administración.",
+    "user_not_found": "❌ Usuario no encontrado",
+    "provide_text": "❌ Proporciona texto",
+    "reply_to_message": "❌ Responde a un mensaje",
+    "reply_to_media": "❌ Responde a imagen/video",
+    "invalid_url": "❌ URL inválida",
+    "failed_to_fetch": "❌ Error al obtener datos",
+    "group_only": "Este comando solo se puede usar en grupos.",
+    "provide_city": "Especifica una ciudad, ej: .clima Londres",
+    "provide_minutes": "Proporciona un número válido de minutos.\nej para silenciar 10 minutos\n.mute 10",
+    "bot_mode_read_failed": "Error al leer el estado del modo bot",
+    "bot_mode_update_failed": "Error al actualizar el modo de acceso del bot",
+    "tagall_admin_only": "Lo siento, solo los administradores del grupo pueden usar el comando .tagall.",
+    "provide_position": "Proporciona un número de posición válido para el movimiento de Tres en Raya.",
+    "guess_letter": "Adivina una letra usando .guess <letra>",
+    "provide_answer": "Proporciona una respuesta usando .answer <respuesta>",
+    "bot_must_be_admin": "*El bot debe ser admin para usar esta característica*",
+    "admin_or_owner_only": "*Solo administradores o propietario del bot pueden usar este comando*",
+    "processing_error": "❌ Ocurrió un error al procesar tu mensaje.",
+    "rate_limit_exceeded": "⏰ Límite de tasa superado. Espere antes de intentar de nuevo."
+  },
+  "rate_limiting": {
+    "global_limit_exceeded": "🚫 El servidor está ocupado. Demasiadas solicitudes globales. Inténtelo de nuevo en {retryAfter} segundos.",
+    "user_limit_exceeded": "{statusEmoji} Límite de tasa superado para {userType}. Espere {retryAfter} segundos.",
+    "command_limit_exceeded": "{emoji} Límite del comando '.{command}' superado. Espere {retryAfter} segundos antes de usar este comando de nuevo.",
+    "burst_limit_exceeded": "🔥 Límite de ráfaga superado. Reduzca la velocidad de sus solicitudes. Inténtelo de nuevo en {retryAfter} segundos.",
+    "concurrent_limit_exceeded": "⚡ Demasiados comandos ejecutándose en paralelo ({current}/{limit}). Espere a que termine un comando antes de iniciar uno nuevo.",
+    "user_type_normal": "usuario",
+    "user_type_vip": "usuario VIP",
+    "owner_unlimited": "👑 Propietario: Acceso ilimitado activado"
+  },
+  "commands": {
+    "help": {
+      "name": "ayuda",
+      "desc": "Menú de ayuda principal",
+      "usage": ".ayuda [comando]",
+      "example": ".ayuda sticker"
+    },
+    "ping": {
+      "name": "ping",
+      "desc": "Verificar latencia del bot",
+      "usage": ".ping",
+      "example": ".ping"
+    },
+    "joke": {
+      "name": "chiste",
+      "desc": "Contar un chiste aleatorio",
+      "usage": ".chiste",
+      "example": ".chiste"
+    },
+    "sticker": {
+      "name": "pegatina",
+      "desc": "Crear pegatina desde imagen",
+      "usage": ".pegatina [responder a imagen]",
+      "example": ".pegatina"
+    },
+    "weather": {
+      "name": "clima",
+      "desc": "Mostrar clima de una ciudad",
+      "usage": ".clima <ciudad>",
+      "example": ".clima Madrid"
+    },
+    "translate": {
+      "name": "traducir",
+      "desc": "Traducir texto a cualquier idioma", 
+      "usage": ".traducir <texto> <idioma> O responder a mensaje con .trt <idioma>",
+      "example": ".traducir Hola en O .trt en",
+      "help_title": "🌍 *TRADUCTOR INTELIGENTE*",
+      "help_desc": "¡Traduce instantáneamente a más de 100 idiomas!",
+      "usage_method1": "**📝 Método 1:** Escribir directamente",
+      "usage_example1": "`.trt Hola en` → Hello",
+      "usage_method2": "**💬 Método 2:** Responder a mensaje",
+      "usage_example2": "Responder a mensaje con `.trt en`",
+      "supported_languages": "**🗣️ Idiomas populares:**",
+      "language_list": "• `fr` - Francés 🇫🇷\n• `en` - Inglés 🇺🇸\n• `es` - Español 🇪🇸\n• `de` - Alemán 🇩🇪\n• `it` - Italiano 🇮🇹\n• `pt` - Portugués 🇵🇹\n• `ru` - Ruso 🇷🇺\n• `ja` - Japonés 🇯🇵\n• `ko` - Coreano 🇰🇷\n• `zh` - Chino 🇨🇳\n• `ar` - Árabe 🇸🇦\n• `hi` - Hindi 🇮🇳",
+      "aliases": "**🔄 Alias:** `.tr`, `.traduire`",
+      "no_text_error": "❌ No se encontró texto para traducir. Proporcione texto o responda a un mensaje.",
+      "translation_failed": "❌ Error al traducir texto. Inténtelo de nuevo más tarde.\n\n💡 **Consejo:** Verifique el código de idioma e inténtelo de nuevo.",
+      "invalid_language": "❌ Código de idioma inválido: `{lang}`\n\n💡 Use códigos como: fr, en, es, de, it, pt, ru, ja, ko, zh, ar, hi"
+    },
+    "cmd": {
+      "name": "cmd",
+      "desc": "Menú detallado de comandos",
+      "usage": ".cmd [comando]",
+      "example": ".cmd sticker"
+    },
+    "bug": {
+      "name": "bug",
+      "desc": "Reportar un error o problema",
+      "usage": ".bug <título> | <descripción> [| pasos | comportamiento esperado | comportamiento actual]",
+      "example": ".bug Traducción falla | El comando .trt no funciona con ciertos idiomas",
+      "help_title": "🐛 *REPORTE DE ERROR*",
+      "help_desc": "¡Reporta errores para ayudar a mejorar el bot!",
+      "usage_format": "**📝 Formato:**",
+      "usage_example": "`.bug Título del error | Descripción detallada`",
+      "advanced_format": "**🔧 Formato avanzado:**",
+      "advanced_example": "`.bug Título | Descripción | Pasos para reproducir | Comportamiento esperado | Comportamiento actual`",
+      "severity_info": "**⚡ Niveles de prioridad:**\n• 🟢 `low` - Problema menor\n• 🟡 `medium` - Problema estándar\n• 🔴 `high` - Problema importante\n• 🚨 `critical` - Problema crítico",
+      "tips": "**💡 Consejos:**\n• Sé preciso en la descripción\n• Incluye el comando exacto usado\n• Menciona si es reproducible",
+      "success": "✅ **¡Error reportado exitosamente!**\n\n🆔 **ID:** #{id}\n📋 **Título:** {title}\n📄 **Descripción:** {description}\n🔧 **Estado:** {status}\n\n💡 **¡Gracias por tu contribución!** Tu reporte ayuda a mejorar el bot para todos los usuarios.",
+      "error": "❌ Error al crear el reporte de error. Inténtalo de nuevo más tarde.",
+      "invalid_format": "❌ Formato inválido. Usa:\n`.bug <título> | <descripción>`\n\nEjemplo: `.bug Comando lento | El comando .weather toma mucho tiempo`",
+      "title_too_long": "❌ El título es muy largo. Máximo 255 caracteres.",
+      "description_required": "❌ Se requiere una descripción después del título."
+    },
+    "suggest": {
+      "name": "sugerencia",
+      "desc": "Sugerir una mejora o nueva funcionalidad",
+      "usage": ".suggest <título> | <descripción> [| categoría]",
+      "example": ".suggest Clima en tiempo real | Agregar alertas automáticas del clima",
+      "help_title": "💡 *SUGERENCIA DE MEJORA*",
+      "help_desc": "¡Sugiere mejoras para hacer el bot aún mejor!",
+      "usage_format": "**📝 Formato:**",
+      "usage_example": "`.suggest Título de sugerencia | Descripción detallada`",
+      "category_format": "**🏷️ Formato con categoría:**",
+      "category_example": "`.suggest Título | Descripción | feature`",
+      "categories": "**📂 Categorías disponibles:**\n• `feature` - Nueva funcionalidad\n• `improvement` - Mejora existente\n• `ui/ux` - Interfaz de usuario\n• `performance` - Rendimiento\n• `general` - General (por defecto)",
+      "priority_info": "**⭐ Niveles de prioridad:**\n• 🟢 `low` - Mejora menor\n• 🟡 `medium` - Mejora estándar\n• 🔴 `high` - Mejora importante",
+      "tips": "**💡 Consejos:**\n• Explica por qué es útil\n• Da ejemplos de uso\n• Sé creativo pero realista",
+      "success": "✅ **¡Sugerencia enviada exitosamente!**\n\n🆔 **ID:** #{id}\n📋 **Título:** {title}\n📄 **Descripción:** {description}\n🏷️ **Categoría:** {category}\n🔧 **Estado:** {status}\n\n🗳️ **Vota por tus sugerencias favoritas con:** `.vote {id} up`\n\n💡 **¡Gracias por tu creatividad!** Tus ideas moldean el futuro del bot.",
+      "error": "❌ Error al crear la sugerencia. Inténtalo de nuevo más tarde.",
+      "invalid_format": "❌ Formato inválido. Usa:\n`.suggest <título> | <descripción>`\n\nEjemplo: `.suggest Modo oscuro | Agregar un tema oscuro para la interfaz`",
+      "title_too_long": "❌ El título es muy largo. Máximo 255 caracteres.",
+      "description_required": "❌ Se requiere una descripción después del título.",
+      "invalid_category": "❌ Categoría inválida. Usa: feature, improvement, ui/ux, performance, general"
+    }
+  },
+  "companion": {
+    "creating": "⏳ *Creando CompanionBot...*\n\n📱 Teléfono: +{phoneNumber}\n🤖 Nombre: {companionName}\n\nPor favor espera mientras se genera el código de emparejamiento...",
+    "created": "🤝 *Configuración CompanionBot*\n\n✅ *{companionName}* está listo para el emparejamiento!\n\n📱 *CÓDIGO PARA COPIAR:*\n```{pairingCode}```\n\n*Pasos de conexión:*\n1. Abre WhatsApp en tu teléfono\n2. Ve a Configuración > Dispositivos vinculados\n3. Toca \"Vincular un dispositivo\"\n4. 👆 *Toca el código de arriba para copiarlo*\n\n⏱️ El código expira en 5 minutos\n🔄 ¡Tu CompanionBot se activará automáticamente al usar comandos!",
+    "duplicate_phone": "❌ *Número de teléfono duplicado*\n\nEl CompanionBot \"{existingName}\" ya existe con el teléfono +{phoneNumber}.\n\nCada número de teléfono solo puede tener un CompanionBot.\nUsa .companion remove {existingName} si es necesario.",
+    "limit_reached": "❌ *Límite alcanzado*\n\nMáximo {maxInstances} CompanionBots permitidos.\nPor favor detén las instancias no utilizadas primero.",
+    "creation_failed": "❌ *Creación fallida*\n\nNo se pudo crear el CompanionBot. Esto puede ser debido a:\n• Restricciones de recursos del sistema\n• Error técnico\n\nIntenta de nuevo o contacta al propietario del sistema.",
+    "creation_timeout": "⏰ *Tiempo de espera de creación*\n\nLa generación del código de emparejamiento tardó demasiado.\n\nEsto puede ser debido a:\n• Conexión de red lenta\n• Alta carga del sistema\n\nIntenta de nuevo en unos minutos.",
+    "creation_connection_closed": "🔌 *Conexión cerrada*\n\nLa conexión se cerró durante la generación del código.\n\nEsto puede ser debido a:\n• Problema de conexión a internet\n• Limitación temporal de WhatsApp\n\nIntenta de nuevo en 30 segundos.",
+    "creation_pairing_failed": "📱 *Solicitud de emparejamiento falló*\n\nNo se pudo solicitar el código de emparejamiento de WhatsApp.\n\nEsto puede ser debido a:\n• Número de teléfono inválido\n• Limitaciones de WhatsApp\n\nVerifica el número e intenta de nuevo.",
+    "creation_auth_failed": "🔐 *Error de autenticación*\n\nError durante la inicialización de autenticación.\n\nEsto puede ser debido a:\n• Sesiones corruptas\n• Permisos de archivos\n\nContacta al administrador del sistema.",
+    "creation_error": "💥 *Error de creación*\n\nError inesperado durante la creación del CompanionBot.\n\nDetalles técnicos disponibles en los logs.\n\nContacta al soporte técnico.",
+    "concurrent_pairing": "⏳ *Emparejamiento en progreso*\n\nYa hay un proceso de emparejamiento en progreso para este teléfono.\n\nPor favor espera a que termine el proceso actual o inténtalo de nuevo en unos minutos.",
+    "invalid_format": "❌ *Formato inválido*\n\n*Uso:* .companion create [teléfono] [nombre]\n\n*Ejemplo:* .companion create 15551234567 JohnBot\n\n📱 *Formato del número de teléfono:*\n• US: 15551234567\n• UK: 447911123456\n• ES: 34123456789\n(No se necesita + o espacios)",
+    "invalid_phone": "❌ *Número de teléfono inválido*\n\nEl número de teléfono debe contener 10-15 dígitos.\nFormato: Código de país + número (sin + o espacios)\n\nEjemplo: 15551234567 para un número de US",
+    "invalid_name": "❌ *Nombre inválido*\n\nEl nombre del CompanionBot debe tener 3-20 caracteres.\n\nBuenos ejemplos: JohnBot, MikeAssistant, SarahHelper",
+    "permission_denied": "❌ *Permiso denegado*\n\nSolo los propietarios del bot pueden usar comandos CompanionBot."
+  },
+  "admin": {
+    "bot_admin_first": "Por favor, haz que el bot sea administrador primero.",
+    "admin_only_kick": "Solo los administradores del grupo pueden usar el comando de expulsión.",
+    "mention_or_reply": "¡Por favor menciona al usuario o responde a su mensaje para expulsarlo!",
+    "cannot_kick_self": "¡No puedo expulsarme a mí mismo! 🤖",
+    "kick_success": "¡{users} ha sido expulsado exitosamente!",
+    "kick_failed": "¡Fallo al expulsar usuario(s)!"
+  },
+  "group": {
+    "info_header": "┌──「 *INFO GRUPO* 」",
+    "info_id": "▢ *♻️ID:*\n   • {id}",
+    "info_name": "▢ *🔖NOMBRE* : \n• {name}",
+    "info_members": "▢ *👥Miembros* :\n• {count}",
+    "info_owner": "▢ *🤿Propietario del grupo:*\n• @{owner}",
+    "info_admins": "▢ *🕵🏻‍♂️Administradores:*\n{admins}",
+    "info_description": "▢ *📌Descripción* :\n   • {desc}",
+    "no_description": "Sin descripción",
+    "info_failed": "¡Fallo al obtener información del grupo!"
+  },
+  "fun": {
+    "emojimix_example": "🎴 Ejemplo: .emojimix 😎+🥰",
+    "emojimix_separator": "✳️ Separa los emoji con un signo *+*\n\n📌 Ejemplo: \n*.emojimix* 😎+🥰",
+    "emojimix_cannot_mix": "❌ ¡Estos emojis no se pueden mezclar! Prueba con otros diferentes.",
+    "emojimix_failed": "❌ ¡Fallo al mezclar emojis! Asegúrate de usar emojis válidos.\n\nEjemplo: .emojimix 😎+🥰"
+  },
+  "categories": {
+    "general": "🌐 Comandos Generales",
+    "admin": "👮‍♂️ Comandos Admin",
+    "owner": "🔒 Comandos Propietario",
+    "image": "🎨 Imágenes/Stickers",
+    "games": "🎮 Juegos",
+    "ai": "🤖 Inteligencia Artificial",
+    "fun": "🎯 Diversión",
+    "download": "📥 Descargas"
+  },
+  "responses": {
+    "joke_failed": "Lo siento, no pude obtener un chiste.",
+    "weather_not_found": "Ciudad no encontrada",
+    "sticker_success": "¡Pegatina creada con éxito!",
+    "translate_success": "Traducción completada",
+    "pong": "Pong!",
+    "failed_get_status": "❌ Error al obtener el estado del bot.",
+    "check_warnings": "Menciona un usuario para verificar advertencias.",
+    "warning_count": "El usuario tiene {count} advertencia(s).",
+    "viewonce_reply": "❌ Responde a una imagen o video de vista única.",
+    "group_unmuted": "El grupo ha sido dessilenciado.",
+    "reset_link_admin_only": "❌ Solo los administradores pueden usar este comando!",
+    "reset_link_bot_admin": "❌ El bot debe ser admin para restablecer el enlace del grupo!",
+    "reset_link_failed": "Error al restablecer el enlace del grupo!",
+    "reset_link_success": "✅ El enlace del grupo ha sido restablecido exitosamente\n\n📌 Nuevo enlace:\nhttps://chat.whatsapp.com/{code}",
+    "jid_info": "Información JID",
+    "group_jid": "JID del Grupo",
+    "your_jid": "Tu JID"
+  }
+}
