@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "node index.js",
+    "discord:start": "node discord-bot/index.js",
+    "discord:deploy": "node discord-bot/deploy.js deploy",
+    "discord:deploy-test": "node discord-bot/deploy.js deploy-test",
+    "integration:run": "node integration-manager.js",
+    "integration:check": "node integration-manager.js check-env",
+    "db:push": "npx drizzle-kit push --config=db/drizzle.config.ts",
+    "db:push:force": "npx drizzle-kit push --config=db/drizzle.config.ts --force"
+  }
+}

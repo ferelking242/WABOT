@@ -1,0 +1,21 @@
+[build]
+buildCommand = "npm install --no-audit --no-fund"
+
+[deploy]
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+[experimental]
+nixpacks = true
+
+[[services]]
+name = "wabot"
+startCommand = "node index.js"
+
+[[services.volumes]]
+name = "wabot-data"
+mountPath = "/app/data"
+
+[env]
+NODE_ENV = "production"
+NIXPACKS_PKGS = "ffmpeg libvips"
