@@ -1,0 +1,665 @@
+{
+  "aliases": {
+    "help": {
+      "primary": {
+        "en": "help",
+        "fr": "aide",
+        "es": "ayuda"
+      },
+      "aliases": {
+        "en": ["menu", "commands", "h"],
+        "fr": ["menu", "commandes", "a"],
+        "es": ["menu", "comandos", "ay"]
+      }
+    },
+    "ping": {
+      "primary": {
+        "en": "ping",
+        "fr": "ping",
+        "es": "ping"
+      },
+      "aliases": {
+        "en": ["speed", "p"],
+        "fr": ["vitesse", "p"],
+        "es": ["velocidad", "p"]
+      }
+    },
+    "alive": {
+      "primary": {
+        "en": "alive",
+        "fr": "vivant",
+        "es": "vivo"
+      },
+      "aliases": {
+        "en": ["status", "running", "al"],
+        "fr": ["statut", "actif", "vv"],
+        "es": ["estado", "activo", "vi"]
+      }
+    },
+    "owner": {
+      "primary": {
+        "en": "owner",
+        "fr": "propriétaire",
+        "es": "propietario"
+      },
+      "aliases": {
+        "en": ["admin", "creator", "ow"],
+        "fr": ["admin", "créateur", "pr"],
+        "es": ["admin", "creador", "prop"]
+      }
+    },
+    "language": {
+      "primary": {
+        "en": "language",
+        "fr": "langue",
+        "es": "idioma"
+      },
+      "aliases": {
+        "en": ["lang", "lng"],
+        "fr": ["lg", "langue"],
+        "es": ["idioma", "id"]
+      }
+    },
+    "weather": {
+      "primary": {
+        "en": "weather",
+        "fr": "météo",
+        "es": "clima"
+      },
+      "aliases": {
+        "en": ["wt", "forecast", "temp"],
+        "fr": ["mt", "temps", "tp"],
+        "es": ["cl", "tiempo", "tm"]
+      }
+    },
+    "news": {
+      "primary": {
+        "en": "news",
+        "fr": "actualités",
+        "es": "noticias"
+      },
+      "aliases": {
+        "en": ["info", "update", "nw"],
+        "fr": ["infos", "actu", "ac"],
+        "es": ["info", "not", "nt"]
+      }
+    },
+    "translate": {
+      "primary": {
+        "en": "translate",
+        "fr": "traduire",
+        "es": "traducir"
+      },
+      "aliases": {
+        "en": ["trt", "tr", "trans"],
+        "fr": ["trd", "tr", "trad"],
+        "es": ["trd", "tr", "trad"]
+      }
+    },
+    "quote": {
+      "primary": {
+        "en": "quote",
+        "fr": "citation",
+        "es": "cita"
+      },
+      "aliases": {
+        "en": ["qt", "wisdom", "saying"],
+        "fr": ["ct", "sagesse", "proverbe"],
+        "es": ["ct", "sabiduría", "dicho"]
+      }
+    },
+    "fact": {
+      "primary": {
+        "en": "fact",
+        "fr": "fait",
+        "es": "hecho"
+      },
+      "aliases": {
+        "en": ["random", "trivia", "ft"],
+        "fr": ["aléatoire", "culture", "ft"],
+        "es": ["aleatorio", "cultura", "hc"]
+      }
+    },
+    "joke": {
+      "primary": {
+        "en": "joke",
+        "fr": "blague",
+        "es": "broma"
+      },
+      "aliases": {
+        "en": ["funny", "laugh", "j"],
+        "fr": ["rigolo", "rire", "bl"],
+        "es": ["gracioso", "risa", "br"]
+      }
+    },
+    "compliment": {
+      "primary": {
+        "en": "compliment",
+        "fr": "compliment",
+        "es": "cumplido"
+      },
+      "aliases": {
+        "en": ["nice", "sweet", "cp"],
+        "fr": ["gentil", "mignon", "cp"],
+        "es": ["lindo", "dulce", "cu"]
+      }
+    },
+    "insult": {
+      "primary": {
+        "en": "insult",
+        "fr": "insulte",
+        "es": "insulto"
+      },
+      "aliases": {
+        "en": ["roast", "burn", "in"],
+        "fr": ["griller", "brûler", "in"],
+        "es": ["quemar", "asar", "ins"]
+      }
+    },
+    "flirt": {
+      "primary": {
+        "en": "flirt",
+        "fr": "draguer",
+        "es": "coquetear"
+      },
+      "aliases": {
+        "en": ["charm", "pickup", "fl"],
+        "fr": ["charmer", "séduire", "dr"],
+        "es": ["ligar", "seducir", "co"]
+      }
+    },
+    "dare": {
+      "primary": {
+        "en": "dare",
+        "fr": "défi",
+        "es": "desafío"
+      },
+      "aliases": {
+        "en": ["challenge", "action", "dr"],
+        "fr": ["challenge", "action", "df"],
+        "es": ["reto", "acción", "ds"]
+      }
+    },
+    "truth": {
+      "primary": {
+        "en": "truth",
+        "fr": "vérité",
+        "es": "verdad"
+      },
+      "aliases": {
+        "en": ["honest", "real", "tr"],
+        "fr": ["honnête", "réel", "vr"],
+        "es": ["honesto", "real", "vd"]
+      }
+    },
+    "sticker": {
+      "primary": {
+        "en": "sticker",
+        "fr": "autocollant",
+        "es": "sticker"
+      },
+      "aliases": {
+        "en": ["s", "stk", "stick"],
+        "fr": ["s", "auto", "ac"],
+        "es": ["s", "stk", "pegatina"]
+      }
+    },
+    "imagine": {
+      "primary": {
+        "en": "imagine",
+        "fr": "imaginer",
+        "es": "imaginar"
+      },
+      "aliases": {
+        "en": ["img", "create", "ai"],
+        "fr": ["img", "créer", "ia"],
+        "es": ["img", "crear", "ia"]
+      }
+    },
+    "play": {
+      "primary": {
+        "en": "play",
+        "fr": "jouer",
+        "es": "reproducir"
+      },
+      "aliases": {
+        "en": ["music", "yt", "pl"],
+        "fr": ["musique", "yt", "jr"],
+        "es": ["música", "yt", "rp"]
+      }
+    },
+    "song": {
+      "primary": {
+        "en": "song",
+        "fr": "chanson",
+        "es": "canción"
+      },
+      "aliases": {
+        "en": ["audio", "mp3", "sg"],
+        "fr": ["audio", "mp3", "ch"],
+        "es": ["audio", "mp3", "ca"]
+      }
+    },
+    "video": {
+      "primary": {
+        "en": "video",
+        "fr": "vidéo",
+        "es": "video"
+      },
+      "aliases": {
+        "en": ["vid", "mp4", "vd"],
+        "fr": ["vid", "mp4", "vd"],
+        "es": ["vid", "mp4", "vd"]
+      }
+    },
+    "tictactoe": {
+      "primary": {
+        "en": "tictactoe",
+        "fr": "morpion",
+        "es": "tateti"
+      },
+      "aliases": {
+        "en": ["ttt", "xo", "tic"],
+        "fr": ["mp", "xo", "morpion"],
+        "es": ["tt", "xo", "tres"]
+      }
+    },
+    "hangman": {
+      "primary": {
+        "en": "hangman",
+        "fr": "pendu",
+        "es": "ahorcado"
+      },
+      "aliases": {
+        "en": ["hang", "word", "hm"],
+        "fr": ["pd", "mot", "pendu"],
+        "es": ["ah", "palabra", "ahorc"]
+      }
+    },
+    "trivia": {
+      "primary": {
+        "en": "trivia",
+        "fr": "quiz",
+        "es": "trivia"
+      },
+      "aliases": {
+        "en": ["question", "qz", "tv"],
+        "fr": ["question", "qz", "quiz"],
+        "es": ["pregunta", "qz", "tv"]
+      }
+    },
+    "ban": {
+      "primary": {
+        "en": "ban",
+        "fr": "bannir",
+        "es": "banear"
+      },
+      "aliases": {
+        "en": ["remove", "kick", "bn"],
+        "fr": ["supprimer", "virer", "ba"],
+        "es": ["eliminar", "expulsar", "bn"]
+      }
+    },
+    "kick": {
+      "primary": {
+        "en": "kick",
+        "fr": "virer",
+        "es": "expulsar"
+      },
+      "aliases": {
+        "en": ["remove", "out", "kk"],
+        "fr": ["sortir", "dehors", "vr"],
+        "es": ["sacar", "fuera", "ex"]
+      }
+    },
+    "promote": {
+      "primary": {
+        "en": "promote",
+        "fr": "promouvoir",
+        "es": "promover"
+      },
+      "aliases": {
+        "en": ["admin", "up", "pm"],
+        "fr": ["admin", "élever", "pr"],
+        "es": ["admin", "subir", "pm"]
+      }
+    },
+    "demote": {
+      "primary": {
+        "en": "demote",
+        "fr": "rétrograder",
+        "es": "degradar"
+      },
+      "aliases": {
+        "en": ["down", "remove", "dm"],
+        "fr": ["descendre", "enlever", "rt"],
+        "es": ["bajar", "quitar", "dg"]
+      }
+    },
+    "warn": {
+      "primary": {
+        "en": "warn",
+        "fr": "avertir",
+        "es": "advertir"
+      },
+      "aliases": {
+        "en": ["warning", "alert", "wr"],
+        "fr": ["avertissement", "alerte", "av"],
+        "es": ["advertencia", "alerta", "ad"]
+      }
+    },
+    "mute": {
+      "primary": {
+        "en": "mute",
+        "fr": "muet",
+        "es": "silenciar"
+      },
+      "aliases": {
+        "en": ["silence", "quiet", "mt"],
+        "fr": ["silence", "taire", "mt"],
+        "es": ["silencio", "callar", "sl"]
+      }
+    },
+    "unmute": {
+      "primary": {
+        "en": "unmute",
+        "fr": "démuter",
+        "es": "activar"
+      },
+      "aliases": {
+        "en": ["unsilence", "speak", "um"],
+        "fr": ["activer", "parler", "dm"],
+        "es": ["hablar", "activar", "ac"]
+      }
+    },
+    "groupinfo": {
+      "primary": {
+        "en": "groupinfo",
+        "fr": "infogroupe",
+        "es": "infogrupo"
+      },
+      "aliases": {
+        "en": ["ginfo", "groupdata", "gi"],
+        "fr": ["infogp", "données", "ig"],
+        "es": ["infogp", "datos", "ig"]
+      }
+    },
+    "staff": {
+      "primary": {
+        "en": "staff",
+        "fr": "équipe",
+        "es": "personal"
+      },
+      "aliases": {
+        "en": ["admins", "mods", "st"],
+        "fr": ["admins", "modos", "eq"],
+        "es": ["admins", "mods", "ps"]
+      }
+    },
+    "lyrics": {
+      "primary": {
+        "en": "lyrics",
+        "fr": "paroles",
+        "es": "letra"
+      },
+      "aliases": {
+        "en": ["text", "words", "ly"],
+        "fr": ["texte", "mots", "pa"],
+        "es": ["texto", "palabras", "le"]
+      }
+    },
+    "gpt": {
+      "primary": {
+        "en": "gpt",
+        "fr": "gpt",
+        "es": "gpt"
+      },
+      "aliases": {
+        "en": ["ai", "chatgpt", "openai"],
+        "fr": ["ia", "chatgpt", "openai"],
+        "es": ["ia", "chatgpt", "openai"]
+      }
+    },
+    "gemini": {
+      "primary": {
+        "en": "gemini",
+        "fr": "gemini",
+        "es": "gemini"
+      },
+      "aliases": {
+        "en": ["google", "bard", "gm"],
+        "fr": ["google", "bard", "gm"],
+        "es": ["google", "bard", "gm"]
+      }
+    },
+    "claude": {
+      "primary": {
+        "en": "claude",
+        "fr": "claude",
+        "es": "claude"
+      },
+      "aliases": {
+        "en": ["anthropic", "cl", "cld"],
+        "fr": ["anthropic", "cl", "cld"],
+        "es": ["anthropic", "cl", "cld"]
+      }
+    },
+    "dalle": {
+      "primary": {
+        "en": "dalle",
+        "fr": "dalle",
+        "es": "dalle"
+      },
+      "aliases": {
+        "en": ["dall-e", "da", "image"],
+        "fr": ["dall-e", "da", "image"],
+        "es": ["dall-e", "da", "imagen"]
+      }
+    },
+    "instagram": {
+      "primary": {
+        "en": "instagram",
+        "fr": "instagram",
+        "es": "instagram"
+      },
+      "aliases": {
+        "en": ["insta", "ig", "reels"],
+        "fr": ["insta", "ig", "reels"],
+        "es": ["insta", "ig", "reels"]
+      }
+    },
+    "tiktok": {
+      "primary": {
+        "en": "tiktok",
+        "fr": "tiktok",
+        "es": "tiktok"
+      },
+      "aliases": {
+        "en": ["tt", "tik", "tok"],
+        "fr": ["tt", "tik", "tok"],
+        "es": ["tt", "tik", "tok"]
+      }
+    },
+    "facebook": {
+      "primary": {
+        "en": "facebook",
+        "fr": "facebook",
+        "es": "facebook"
+      },
+      "aliases": {
+        "en": ["fb", "meta", "face"],
+        "fr": ["fb", "meta", "face"],
+        "es": ["fb", "meta", "face"]
+      }
+    },
+    "delete": {
+      "primary": {
+        "en": "delete",
+        "fr": "supprimer",
+        "es": "eliminar"
+      },
+      "aliases": {
+        "en": ["del", "remove", "rm"],
+        "fr": ["sup", "enlever", "rm"],
+        "es": ["del", "quitar", "rm"]
+      }
+    },
+    "antilink": {
+      "primary": {
+        "en": "antilink",
+        "fr": "antilien",
+        "es": "antienlace"
+      },
+      "aliases": {
+        "en": ["nolink", "al", "link"],
+        "fr": ["paslien", "al", "lien"],
+        "es": ["noenlace", "al", "enlace"]
+      }
+    },
+    "welcome": {
+      "primary": {
+        "en": "welcome",
+        "fr": "bienvenue",
+        "es": "bienvenida"
+      },
+      "aliases": {
+        "en": ["wel", "hi", "greet"],
+        "fr": ["bvn", "salut", "accueil"],
+        "es": ["bvn", "hola", "saludo"]
+      }
+    },
+    "goodbye": {
+      "primary": {
+        "en": "goodbye",
+        "fr": "aurevoir",
+        "es": "despedida"
+      },
+      "aliases": {
+        "en": ["bye", "leave", "exit"],
+        "fr": ["bye", "partir", "sortir"],
+        "es": ["bye", "salir", "irse"]
+      }
+    },
+    "poll": {
+      "primary": {
+        "en": "poll",
+        "fr": "sondage",
+        "es": "encuesta"
+      },
+      "aliases": {
+        "en": ["vote", "survey", "pl"],
+        "fr": ["vote", "enquête", "so"],
+        "es": ["voto", "votación", "en"]
+      }
+    },
+    "rank": {
+      "primary": {
+        "en": "rank",
+        "fr": "rang",
+        "es": "rango"
+      },
+      "aliases": {
+        "en": ["level", "xp", "rk"],
+        "fr": ["niveau", "xp", "rg"],
+        "es": ["nivel", "xp", "rg"]
+      }
+    },
+    "leaderboard": {
+      "primary": {
+        "en": "leaderboard",
+        "fr": "classement",
+        "es": "ranking"
+      },
+      "aliases": {
+        "en": ["top", "lb", "board"],
+        "fr": ["top", "lb", "tableau"],
+        "es": ["top", "lb", "tabla"]
+      }
+    },
+    "companion": {
+      "primary": {
+        "en": "companion",
+        "fr": "compagnon",
+        "es": "compañero"
+      },
+      "aliases": {
+        "en": ["comp", "buddy", "friend"],
+        "fr": ["comp", "ami", "copain"],
+        "es": ["comp", "amigo", "compañía"]
+      }
+    },
+    "mode": {
+      "primary": {
+        "en": "mode",
+        "fr": "mode",
+        "es": "modo"
+      },
+      "aliases": {
+        "en": ["setting", "config", "md"],
+        "fr": ["réglage", "config", "md"],
+        "es": ["ajuste", "config", "md"]
+      }
+    },
+    "update": {
+      "primary": {
+        "en": "update",
+        "fr": "miseàjour",
+        "es": "actualizar"
+      },
+      "aliases": {
+        "en": ["upgrade", "upd", "refresh"],
+        "fr": ["maj", "upd", "rafraîchir"],
+        "es": ["act", "upd", "refrescar"]
+      }
+    },
+    "setpp": {
+      "primary": {
+        "en": "setpp",
+        "fr": "changerpp",
+        "es": "cambiarpp"
+      },
+      "aliases": {
+        "en": ["profile", "pp", "avatar"],
+        "fr": ["profil", "pp", "avatar"],
+        "es": ["perfil", "pp", "avatar"]
+      }
+    },
+    "cmd": {
+      "primary": {
+        "en": "cmd",
+        "fr": "cmd",
+        "es": "cmd"
+      },
+      "aliases": {
+        "en": ["command", "info", "cm"],
+        "fr": ["commande", "info", "cm"],
+        "es": ["comando", "info", "cm"]
+      }
+    },
+    "alias": {
+      "primary": {
+        "en": "alias",
+        "fr": "alias",
+        "es": "alias"
+      },
+      "aliases": {
+        "en": ["aliases", "shortcut", "al"],
+        "fr": ["raccourci", "al", "aliases"],
+        "es": ["atajo", "al", "aliases"]
+      }
+    }
+  },
+  "meta": {
+    "version": "2.0.0",
+    "created": "2025-09-18",
+    "updated": "2025-09-18",
+    "description": "Système d'alias centralisé pour gérer tous les alias multilingues des 130+ commandes du bot",
+    "supportedLanguages": [
+      "en",
+      "fr",
+      "es"
+    ],
+    "totalCommands": 47,
+    "usage": "Ce fichier centralise tous les alias pour une gestion propre et extensible avec support complet multilingue"
+  }
+}
