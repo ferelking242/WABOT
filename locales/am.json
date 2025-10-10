@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "language": "አማርኛ",
+    "code": "am",
+    "flag": "🇪🇹",
+    "completion": "95%"
+  },
+  "bot": {
+    "name": "wabot",
+    "version": "ስሪት",
+    "status": {
+      "online": "በመስመር ላይ",
+      "offline": "ከመስመር ውጭ",
+      "ready": "ዝግጁ",
+      "processing": "⏳ በሂደት ላይ..."
+    }
+  },
+  "messages": {
+    "success": "✅ ተሳክቷል",
+    "error": "❌ ስህተት",
+    "permission_denied": "❌ ፈቃድ አልተሰጠም",
+    "admin_only": "❌ የአስተዳዳሪዎች ብቻ",
+    "owner_only": "❌ የቦት ባለቤት ብቻ",
+    "bot_admin_required": "🤖 ቦቱ አስተዳዳሪ መሆን አለበት።",
+    "user_not_found": "❌ ተጠቃሚ አልተገኘም",
+    "provide_text": "❌ ጽሁፍ ይስጡ",
+    "reply_to_message": "❌ ለመልእክት ይመልሱ",
+    "reply_to_media": "❌ ለፎቶ/ቪዲዮ ይመልሱ",
+    "invalid_url": "❌ የተሳሳተ URL",
+    "failed_to_fetch": "❌ መረጃ ማግኘት አልተቻለም",
+    "group_only": "ይህ ትዕዛዝ በቡድኖች ውስጥ ብቻ ይሰራል።",
+    "provide_city": "ከተማ ይጥቀሱ፣ ምሳሌ: .የአየር ሁኔታ አዲስ አበባ",
+    "provide_minutes": "ተገቢ የደቂቃ ቁጥር ይስጡ።\nምሳሌ ለ 10 ደቂቃ mute\n.mute 10",
+    "bot_mode_read_failed": "የቦት ሁነታ ማንበብ አልተቻለም",
+    "bot_mode_update_failed": "የቦት ወይ እድል መሻሻል አልተቻለም",
+    "tagall_admin_only": "ይቅርታ፣ የቡድን አስተዳዳሪዎች ብቻ .tagall ትዕዛዝ መጠቀም ይችላሉ።",
+    "provide_position": "ለTic-Tac-Toe እንቅስቃሴ ትክክለኛ የቦታ ቁጥር ይስጡ።",
+    "guess_letter": ".guess <ፊደል> በመጠቀም ፊደል ይገምቱ",
+    "provide_answer": ".answer <መልስ> በመጠቀም መልስ ይስጡ",
+    "bot_must_be_admin": "*ቦቱ ይህን ባህሪ ለመጠቀም አስተዳዳሪ መሆን አለበት*",
+    "admin_or_owner_only": "*አስተዳዳሪዎች ወይም የቦት ባለቤት ብቻ ይህን ትዕዛዝ መጠቀም ይችላሉ*",
+    "processing_error": "❌ መልእክትዎን በማስኬድ ወቅት ስህተት ተከስቷል።"
+  },
+  "antidelete": {
+    "setup_title": "የአንቲዴሌት ማቀናበሪያ",
+    "current_status": "የአሁኑ ሁኔታ",
+    "enabled": "ተንቅፏል",
+    "disabled": "ተዘግቷል",
+    "enable": "አንቀፍ",
+    "disable": "ዝጋ",
+    "invalid_command": "የተሳሳተ ትዕዛዝ። .antidelete በመጠቀም አጠቃቀምን ይመልከቱ።"
+  },
+  "autoread": {
+    "invalid_option": "የተሳሳተ አማራጭ! ይጠቀሙ: .autoread on/off"
+  },
+  "companion": {
+    "creating": "⏳ *CompanionBot እየተፈጠረ...*\n\n📱 ስልክ: +{phoneNumber}\n🤖 ስም: {companionName}\n\nየማስተሳሰሪያ ኮድ እየተፈጠረ ሳለ እባክዎ ይጠብቁ...",
+    "created": "🤝 *CompanionBot ማቀናበሪያ*\n\n✅ *{companionName}* ለማስተሳሰር ዝግጁ ነው!\n\n📱 *ኮፒ የሚደረግ ኮድ:*\n```{pairingCode}```\n\n*የማስተሳሰሪያ ደረጃዎች:*\n1. በስልክዎ ላይ WhatsApp ይክፈቱ\n2. ወደ ማቀናበሪያዎች > የተገናኙ መሳሪያዎች ይሂዱ\n3. \"መሳሪያ ያስተሳሰሩ\" የሚለውን ይንኩ\n4. 👆 *ለመገንዘብ ከላይ ኮዱን ይንኩ*\n\n⏱️ ኮዱ በ5 ደቂቃ ውስጥ ይጠፋል\n🔄 የእርስዎ CompanionBot ትዕዛዞችን በሚጠቀሙበት ጊዜ በራሱ ይጀምራል!",
+    "permission_denied": "❌ *ፈቃድ ተከልክሏል*\n\nየቦት ባለቤቶች ብቻ የCompanionBot ትዕዛዞችን መጠቀም ይችላሉ።",
+    "no_companions": "📭 *CompanionBot የለም*\n\nእስካሁን ምንም CompanionBot አልተፈጠረም።\n\n*አንዱን ይፍጠሩ:* .companion create [ስልክ] [ስም]"
+  },
+  "MENTION_USER_TO_COMPLIMENT": "እባክዎ ለማመሰግን ተጠቃሚ ይጥቀሱ! ምሳሌ: .compliment @user",
+  "companion_help": {
+    "title": "📖 *Companion Bot አስተዳዳሪ*",
+    "commands": "*ትዕዛዞች:*",
+    "create_code": "• `.companion create [ስልክ] [ስም]` - የማስተሳሰሪያ ኮድ",
+    "create_qr": "• `.companion create [ስልክ] [ስም] qr` - QR ኮድ",
+    "list": "• `.companion list` - ሁሉንም companions ይዘርዝሩ (የሚሰሩ + የሚተኙ)",
+    "status": "• `.companion status` - የcompanions ሁኔታ",
+    "wake": "• `.companion wake [ስም]` - የተኛ companion ያንቁ",
+    "sleep": "• `.companion sleep [ስም]` - companion ያሰኝቱ",
+    "wake_all": "• `.companion wake all` - ሁሉንም companions ያንቁ",
+    "close": "• `.companion close [ስም]` - companion ይዝጉ",
+    "close_all": "• `.companion close all` - ሁሉንም companions ይዝጉ",
+    "cleanup": "• `.companion cleanup` - የወላድ አልባ ክፍለ ጊዜዎችን ያፅዱ",
+    "examples": "*ምሳሌዎች:*",
+    "example1": "• `.companion create 242065491040 bobo` (ኮድ)",
+    "example2": "• `.companion create 242065491040 marie qr` (QR)",
+    "example3": "• `.companion close bobo` - companion bobo ይዝጉ",
+    "features": "*ባህሪያት:*",
+    "feature1": "✅ የበርካታ ተጠቃሚዎች ድጋፍ",
+    "feature2": "✅ የተነጠሉ ክፍለ ጊዜዎች",
+    "feature3": "✅ ሙሉ companions አስተዳደር",
+    "feature4": "✅ አውቶማቲክ ማሳወቂያዎች"
+  },
+  "commands": {
+    "help": {
+      "name": "እርዳታ",
+      "desc": "ዋናው የእርዳታ ሜኑ",
+      "usage": ".እርዳታ [ትዕዛዝ]",
+      "example": ".እርዳታ sticker"
+    },
+    "ping": {
+      "name": "ping",
+      "desc": "የቦት መዘግየትን ይፈትሹ",
+      "usage": ".ping",
+      "example": ".ping"
+    },
+    "joke": {
+      "name": "ቀልድ",
+      "desc": "የእድል ቀልድ ይንገሩ",
+      "usage": ".ቀልድ",
+      "example": ".ቀልድ"
+    },
+    "sticker": {
+      "name": "ስቲከር",
+      "desc": "ከሥዕል ስቲከር ይፍጠሩ",
+      "usage": ".ስቲከር [ለሥዕል መልስ]",
+      "example": ".ስቲከር"
+    },
+    "weather": {
+      "name": "የአየር ሁኔታ",
+      "desc": "የከተማ የአየር ሁኔታ ያሳዩ",
+      "usage": ".የአየር ሁኔታ <ከተማ>",
+      "example": ".የአየር ሁኔታ አዲስ አበባ"
+    },
+    "translate": {
+      "name": "ተርጉም",
+      "desc": "ጽሁፍ ይተርጉሙ",
+      "usage": ".ተርጉም <ጽሁፍ> <ቋንቋ>",
+      "example": ".ተርጉም ሰላም en"
+    }
+  },
+  "categories": {
+    "general": "🌐 አጠቃላይ ትዕዛዞች",
+    "admin": "👮‍♂️ የአስተዳዳሪ ትዕዛዞች",
+    "owner": "🔒 የባለቤት ትዕዛዞች",
+    "image": "🎨 ሥዕሎች/ስቲከሮች",
+    "games": "🎮 ጨዋታዎች",
+    "ai": "🤖 አርቲፊሻል ኢንተሊጀንስ",
+    "fun": "🎯 መዝናኛ",
+    "download": "📥 ማውረዶች"
+  },
+  "admin": {
+    "bot_admin_first": "እባክዎ በመጀመሪያ ቦቱን አስተዳዳሪ ያድርጉት።",
+    "admin_only_kick": "የቡድን አስተዳዳሪዎች ብቻ የማባረር ትዕዛዝ መጠቀም ይችላሉ።",
+    "mention_or_reply": "ለማባረር እባክዎ ተጠቃሚውን ይጥቀሱ ወይም ለመልእክቱ ይመልሱ!",
+    "cannot_kick_self": "እራሴን ማባረር አልችልም! 🤖",
+    "kick_success": "{users} በተሳካ ሁኔታ ተባረረ!",
+    "kick_failed": "ተጠቃሚውን/ተጠቃሚዎችን ማባረር አልተቻለም!"
+  },
+  "group": {
+    "info_header": "┌──「 *የቡድን መረጃ* 」",
+    "info_id": "▢ *♻️መለያ:*\n   • {id}",
+    "info_name": "▢ *🔖ስም* : \n• {name}",
+    "info_members": "▢ *👥አባላት* :\n• {count}",
+    "info_owner": "▢ *🤿የቡድን ባለቤት:*\n• @{owner}",
+    "info_admins": "▢ *🕵🏻‍♂️አስተዳዳሪዎች:*\n{admins}",
+    "info_description": "▢ *📌መግለጫ* :\n   • {desc}",
+    "no_description": "መግለጫ የለም",
+    "info_failed": "የቡድን መረጃ ማግኘት አልተቻለም!"
+  },
+  "fun": {
+    "emojimix_example": "🎴 ምሳሌ: .emojimix 😎+🥰",
+    "emojimix_separator": "✳️ emojis በ *+* ምልክት ይለያዩ\n\n📌 ምሳሌ: \n*.emojimix* 😎+🥰",
+    "emojimix_cannot_mix": "❌ እነዚህ emojis ሊደባለቁ አይችሉም! ሌሎችን ይሞክሩ።",
+    "emojimix_failed": "❌ emojis ማደባለቅ አልተቻለም! ትክክለኛ emojis መጠቀምዎን ያረጋግጡ።\n\nምሳሌ: .emojimix 😎+🥰"
+  },
+  "responses": {
+    "joke_failed": "ይቅርታ፣ ቀልድ ማግኘት አልተቻለም።",
+    "weather_not_found": "ከተማ አልተገኘም",
+    "sticker_success": "ስቲከር በተሳካ ሁኔታ ተፈጥሯል!",
+    "translate_success": "ትርጉም ተጠናቋል",
+    "pong": "Pong!",
+    "failed_get_status": "❌ የቦት ሁኔታ ማግኘት አልተቻለም።",
+    "welcome_enabled": "⚠️ የእንኳን በደህና መጣችሁ መልእክቶች *ቀደም ሲል ተንቅፈዋል*።",
+    "welcome_disabled": "⚠️ የእንኳን በደህና መጣችሁ መልእክቶች *ቀደም ሲል ተዘግተዋል*।",
+    "welcome_set": "✅ ብጁ የእንኳን በደህና መጣችሁ መልእክት *በተሳካ ሁኔታ ተቀምጧል*।",
+    "provide_welcome_msg": "⚠️ እባክዎ ብጁ የእንኳን በደህና መጣችሁ መልእክት ይስጡ። ምሳሌ: *.welcome set ወደ ቡድኑ እንኳን በደህና መጣችሁ!*",
+    "check_warnings": "ማስጠንቀቂያዎችን ለመፈተሽ እባክዎ ተጠቃሚ ይጥቀሱ።",
+    "warning_count": "ተጠቃሚው {count} ማስጠንቀቂያ(ዎች) አለው።",
+    "roseday_failed": "❌ የroseday ጥቅስ ማግኘት አልተቻለም። እባክዎ በኋላ ይሞክሩ!",
+    "groupinfo_failed": "የቡድን መረጃ ማግኘት አልተቻለም!",
+    "viewonce_reply": "❌ እባክዎ ለአንድ ጊዜ ላይ ሥዕል ወይም ቪዲዮ ይመልሱ።",
+    "dare_failed": "❌ ደፋር ማግኘት አልተቻለም። እባክዎ በኋላ ይሞክሩ!",
+    "goodnight_failed": "❌ የመሳታ መልእክት ማግኘት አልተቻለም። እባክዎ በኋላ ይሞክሩ!",
+    "group_unmuted": "ቡድኑ unmuted ተደርጓል።",
+    "reset_link_admin_only": "❌ አስተዳዳሪዎች ብቻ ይህን ትዕዛዝ መጠቀም ይችላሉ!",
+    "reset_link_bot_admin": "❌ ቦቱ የቡድን ሊንክ ዳግም ለማስጀመር አስተዳዳሪ መሆን አለበት!",
+    "reset_link_failed": "የቡድን ሊንክ ዳግም ማስጀመር አልተቻለም!",
+    "reset_link_success": "✅ የቡድን ሊንክ በተሳካ ሁኔታ ዳግም ተጀምሯል\n\n📌 አዲስ ሊንክ:\nhttps://chat.whatsapp.com/{code}",
+    "github_fetch_failed": "❌ የrepository መረጃ ማግኘት ላይ ስህተት።",
+    "truth_failed": "❌ እውነት ማግኘት አልተቻለም። እባክዎ በኋላ ይሞክሩ!",
+    "flirt_failed": "❌ የፍቅር መልእክት ማግኘት አልተቻለም። እባክዎ በኋላ ይሞክሩ!",
+    "promote_failed": "ተጠቃሚውን/ተጠቃሚዎችን ማሻሻል አልተቻለም!",
+    "provide_gif_term": "እባክዎ ለGIF የፍለጋ ቃል ይስጡ።",
+    "no_gifs_found": "ለእርስዎ የፍለጋ ቃል ምንም GIFs አልተገኙም።",
+    "gif_fetch_failed": "GIF ማግኘት አልተቻለም። እባክዎ በኋላ ይሞክሩ።",
+    "jid_info": "የJID መረጃ",
+    "group_jid": "የቡድን JID",
+    "your_jid": "የእርስዎ JID"
+  },
+  "like": {
+    "provide_url": "❌ እባክዎ ለመውደድ URL ይስጡ።\nአጠቃቀም: `.like <URL>`\nምሳሌ: `.like https://youtube.com/watch?v=...",
+    "invalid_url": "❌ የተሳሳተ URL። እባክዎ ትክክለኛ URL ይስጡ።\nምሳሌ: `.like https://youtube.com/watch?v=...",
+    "platform_not_supported": "❌ ፕላትፎርሙ አይደገፍም። የሚደገፉ ፕላትፎርሞች:\n• YouTube\n• Instagram\n• TikTok\n• Facebook\n• Twitter/X",
+    "success": "✅ **ሁኔታ በተሳካ ሁኔታ ተወደደ!**\n\n📱 **ፕላትፎርም:** {platform}\n🎬 **ርዕስ:** {title}\n👤 **ደራሲ:** {author}\n\n💡 **ምክር:** `.dlliked` በመጠቀም የወደዳቸውን ሁሉንም ሁኔታዎች ያውርዱ!",
+    "already_liked": "⚠️ ይህ ሁኔታ ቀደም ሲል በእርስዎ ተወዳጆች ውስጥ አለ!",
+    "save_error": "❌ በማስቀመጥ ላይ ስህተት። በኋላ ይሞክሩ።",
+    "processing_error": "❌ ስህተት ተከስቷል። እባክዎ እንደገና ይሞክሩ።"
+  },
+  "dlliked": {
+    "no_liked_statuses": "❌ **ምንም የተወደዱ ሁኔታዎች አልተገኙም!**\n\n💡 **ምክር:** `.like <URL>` በመጠቀም ሁኔታዎችን ወደ ተወዳጆችዎ ይጨምሩ።",
+    "start_download": "🚀 **የወደዳቸውን ሁኔታዎች በማውረድ ላይ**\n\n📊 **ጠቅላላ:** {count} ሁኔታዎች ተገኝተዋል\n⏳ **ሁኔታ:** በማስኬድ ላይ...\n\n⚠️ **ማስታወሻ:** ይህ በፋይል መጠኖች ላይ በመመስረት ብዙ ደቂቃዎችን ሊወስድ ይችላል።",
+    "progress_update": "🚀 **ማውረድ በሂደት ላይ...**\n\n📊 **ሂደት:** {current}/{total}\n✅ **የተሳካ:** {success}\n❌ **የተከሰቱ ስህተቶች:** {failures}",
+    "completion_success": "✅ **ማውረድ ተጠናቋል!**\n\n📊 **አኃዛዊ መረጃዎች:**\n• ጠቅላላ የተስራ: {total}\n• የተሳካ: {success}\n• የተከሰቱ ስህተቶች: {failures}\n\n",
+    "errors_section": "❌ **ስህተቶች:**\n{errors}\n\n",
+    "errors_many": "❌ **ስህተቶች:** {count} ስህተቶች ተከስተዋል\n\n",
+    "tip_message": "💡 **ምክር:** `.like <URL>` በመጠቀም ተጨማሪ ተወዳጆችን ይጨምሩ!",
+    "download_error": "❌ **የተወደዱ ሁኔታዎችን በማውረድ ላይ ስህተት።**\n\nእባክዎ በኋላ ይሞክሩ።",
+    "media_caption": "🎯 **{title}**\n🌐 **ፕላትፎርም:** {platform}\n📅 **የተወደደበት:** {date}",
+    "platform_not_supported": "{title}: ፕላትፎርሙ አይደገፍም",
+    "download_failed": "{title}: {error}"
+  }
+}

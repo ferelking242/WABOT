@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "language": "العربية",
+    "code": "ar",
+    "flag": "🇸🇦",
+    "completion": "95%"
+  },
+  "bot": {
+    "name": "wabot",
+    "version": "الإصدار",
+    "status": {
+      "online": "متصل",
+      "offline": "غير متصل",
+      "ready": "جاهز",
+      "processing": "⏳ في المعالجة..."
+    }
+  },
+  "messages": {
+    "success": "✅ نجح",
+    "error": "❌ خطأ",
+    "permission_denied": "❌ تم رفض الإذن",
+    "admin_only": "❌ للمديرين فقط",
+    "owner_only": "❌ لمالك البوت فقط",
+    "bot_admin_required": "🤖 يجب أن يكون البوت مديرًا لاستخدام أوامر الإدارة.",
+    "user_not_found": "❌ المستخدم غير موجود",
+    "provide_text": "❌ يرجى إدراج نص",
+    "reply_to_message": "❌ يرجى الرد على رسالة",
+    "reply_to_media": "❌ يرجى الرد على صورة/فيديو",
+    "invalid_url": "❌ رابط غير صحيح",
+    "failed_to_fetch": "❌ فشل في جلب البيانات",
+    "group_only": "هذا الأمر يعمل في المجموعات فقط.",
+    "provide_city": "يرجى ذكر مدينة، مثال: .الطقس القاهرة",
+    "provide_minutes": "يرجى تقديم رقم دقائق صحيح.\nمثال لكتم الصوت لمدة 10 دقائق\n.mute 10",
+    "bot_mode_read_failed": "فشل في قراءة حالة وضع البوت",
+    "bot_mode_update_failed": "فشل في تحديث وضع الوصول للبوت",
+    "tagall_admin_only": "عذراً، فقط مديري المجموعة يمكنهم استخدام أمر .tagall.",
+    "provide_position": "يرجى تقديم رقم موضع صحيح لحركة Tic-Tac-Toe.",
+    "guess_letter": "خمن حرفاً باستخدام .guess <حرف>",
+    "provide_answer": "قدم إجابة باستخدام .answer <إجابة>",
+    "bot_must_be_admin": "*يجب أن يكون البوت مديراً لاستخدام هذه الميزة*",
+    "admin_or_owner_only": "*المديرون أو مالك البوت فقط يمكنهم استخدام هذا الأمر*",
+    "processing_error": "❌ حدث خطأ أثناء معالجة رسالتك."
+  },
+  "antidelete": {
+    "setup_title": "إعداد ANTIDELETE",
+    "current_status": "الحالة الحالية",
+    "enabled": "مفعل",
+    "disabled": "معطل",
+    "enable": "تفعيل",
+    "disable": "تعطيل",
+    "invalid_command": "أمر غير صحيح. استخدم .antidelete لمشاهدة الاستخدام."
+  },
+  "autoread": {
+    "invalid_option": "خيار غير صحيح! استخدم: .autoread on/off"
+  },
+  "companion": {
+    "creating": "⏳ *جاري إنشاء CompanionBot...*\n\n📱 الهاتف: +{phoneNumber}\n🤖 الاسم: {companionName}\n\nيرجى الانتظار أثناء إنشاء رمز الاقتران...",
+    "created": "🤝 *إعداد CompanionBot*\n\n✅ *{companionName}* جاهز للاقتران!\n\n📱 *الرمز للنسخ:*\n```{pairingCode}```\n\n*خطوات الاقتران:*\n1. افتح WhatsApp على هاتفك\n2. اذهب إلى الإعدادات > الأجهزة المرتبطة\n3. اضغط على \"ربط جهاز\"\n4. 👆 *اضغط على الرمز أعلاه للنسخ*\n\n⏱️ الرمز سينتهي خلال 5 دقائق\n🔄 سيبدأ CompanionBot الخاص بك تلقائياً عند استخدام الأوامر!",
+    "permission_denied": "❌ *تم رفض الإذن*\n\nفقط مالكو البوت يمكنهم استخدام أوامر CompanionBot.",
+    "no_companions": "📭 *لا يوجد CompanionBot*\n\nلم يتم إنشاء أي CompanionBot بعد.\n\n*أنشئ واحداً:* .companion create [هاتف] [اسم]"
+  },
+  "MENTION_USER_TO_COMPLIMENT": "يرجى ذكر مستخدم للإطراء! مثال: .compliment @user",
+  "companion_help": {
+    "title": "📖 *مدير Companion Bot*",
+    "commands": "*الأوامر:*",
+    "create_code": "• `.companion create [هاتف] [اسم]` - رمز الاقتران",
+    "create_qr": "• `.companion create [هاتف] [اسم] qr` - رمز QR",
+    "list": "• `.companion list` - قائمة جميع companions (العاملة + النائمة)",
+    "status": "• `.companion status` - حالة companions",
+    "wake": "• `.companion wake [اسم]` - إيقاظ companion نائم",
+    "sleep": "• `.companion sleep [اسم]` - إنامة companion",
+    "wake_all": "• `.companion wake all` - إيقاظ جميع companions",
+    "close": "• `.companion close [اسم]` - إغلاق companion",
+    "close_all": "• `.companion close all` - إغلاق جميع companions",
+    "cleanup": "• `.companion cleanup` - تنظيف الجلسات اليتيمة",
+    "examples": "*أمثلة:*",
+    "example1": "• `.companion create 242065491040 bobo` (رمز)",
+    "example2": "• `.companion create 242065491040 marie qr` (QR)",
+    "example3": "• `.companion close bobo` - إغلاق companion bobo",
+    "features": "*الميزات:*",
+    "feature1": "✅ دعم متعدد المستخدمين",
+    "feature2": "✅ جلسات معزولة",
+    "feature3": "✅ إدارة companions كاملة",
+    "feature4": "✅ إشعارات تلقائية"
+  },
+  "commands": {
+    "help": {
+      "name": "مساعدة",
+      "desc": "قائمة المساعدة الرئيسية",
+      "usage": ".مساعدة [أمر]",
+      "example": ".مساعدة sticker"
+    },
+    "ping": {
+      "name": "ping",
+      "desc": "فحص تأخير البوت",
+      "usage": ".ping",
+      "example": ".ping"
+    },
+    "joke": {
+      "name": "نكتة",
+      "desc": "قل نكتة عشوائية",
+      "usage": ".نكتة",
+      "example": ".نكتة"
+    },
+    "sticker": {
+      "name": "ملصق",
+      "desc": "إنشاء ملصق من صورة",
+      "usage": ".ملصق [رد على صورة]",
+      "example": ".ملصق"
+    },
+    "weather": {
+      "name": "الطقس",
+      "desc": "عرض طقس مدينة",
+      "usage": ".الطقس <مدينة>",
+      "example": ".الطقس القاهرة"
+    },
+    "translate": {
+      "name": "ترجم",
+      "desc": "ترجمة نص",
+      "usage": ".ترجم <نص> <لغة>",
+      "example": ".ترجم مرحبا en"
+    }
+  },
+  "categories": {
+    "general": "🌐 أوامر عامة",
+    "admin": "👮‍♂️ أوامر المديرين",
+    "owner": "🔒 أوامر المالك",
+    "image": "🎨 صور/ملصقات",
+    "games": "🎮 ألعاب",
+    "ai": "🤖 ذكاء اصطناعي",
+    "fun": "🎯 ترفيه",
+    "download": "📥 تحميلات"
+  },
+  "admin": {
+    "bot_admin_first": "يرجى جعل البوت مديراً أولاً.",
+    "admin_only_kick": "فقط مديري المجموعة يمكنهم استخدام أمر الطرد.",
+    "mention_or_reply": "يرجى ذكر المستخدم أو الرد على رسالته لطرده!",
+    "cannot_kick_self": "لا يمكنني طرد نفسي! 🤖",
+    "kick_success": "تم طرد {users} بنجاح!",
+    "kick_failed": "فشل في طرد المستخدم/المستخدمين!"
+  },
+  "group": {
+    "info_header": "┌──「 *معلومات المجموعة* 」",
+    "info_id": "▢ *♻️المعرف:*\n   • {id}",
+    "info_name": "▢ *🔖الاسم* : \n• {name}",
+    "info_members": "▢ *👥الأعضاء* :\n• {count}",
+    "info_owner": "▢ *🤿مالك المجموعة:*\n• @{owner}",
+    "info_admins": "▢ *🕵🏻‍♂️المديرون:*\n{admins}",
+    "info_description": "▢ *📌الوصف* :\n   • {desc}",
+    "no_description": "لا يوجد وصف",
+    "info_failed": "فشل في الحصول على معلومات المجموعة!"
+  },
+  "fun": {
+    "emojimix_example": "🎴 مثال: .emojimix 😎+🥰",
+    "emojimix_separator": "✳️ افصل الرموز التعبيرية بعلامة *+*\n\n📌 مثال: \n*.emojimix* 😎+🥰",
+    "emojimix_cannot_mix": "❌ لا يمكن خلط هذه الرموز التعبيرية! جرب أخرى.",
+    "emojimix_failed": "❌ فشل في خلط الرموز التعبيرية! تأكد من استخدام رموز تعبيرية صحيحة.\n\nمثال: .emojimix 😎+🥰"
+  },
+  "responses": {
+    "joke_failed": "عذراً، لم أتمكن من الحصول على نكتة.",
+    "weather_not_found": "المدينة غير موجودة",
+    "sticker_success": "تم إنشاء الملصق بنجاح!",
+    "translate_success": "تمت الترجمة",
+    "pong": "Pong!",
+    "failed_get_status": "❌ فشل في الحصول على حالة البوت.",
+    "welcome_enabled": "⚠️ رسائل الترحيب *مفعلة مسبقاً*.",
+    "welcome_disabled": "⚠️ رسائل الترحيب *معطلة مسبقاً*.",
+    "welcome_set": "✅ تم تعيين رسالة ترحيب مخصصة *بنجاح*.",
+    "provide_welcome_msg": "⚠️ يرجى تقديم رسالة ترحيب مخصصة. مثال: *.welcome set أهلاً وسهلاً بكم في المجموعة!*",
+    "check_warnings": "يرجى ذكر مستخدم للتحقق من التحذيرات.",
+    "warning_count": "المستخدم لديه {count} تحذير(تحذيرات).",
+    "roseday_failed": "❌ فشل في الحصول على اقتباس roseday. يرجى المحاولة لاحقاً!",
+    "groupinfo_failed": "فشل في الحصول على معلومات المجموعة!",
+    "viewonce_reply": "❌ يرجى الرد على صورة أو فيديو view-once.",
+    "dare_failed": "❌ فشل في الحصول على تحدي. يرجى المحاولة لاحقاً!",
+    "goodnight_failed": "❌ فشل في الحصول على رسالة ليلة سعيدة. يرجى المحاولة لاحقاً!",
+    "group_unmuted": "تم إلغاء كتم المجموعة.",
+    "reset_link_admin_only": "❌ فقط المديرون يمكنهم استخدام هذا الأمر!",
+    "reset_link_bot_admin": "❌ يجب أن يكون البوت مديراً لإعادة تعيين رابط المجموعة!",
+    "reset_link_failed": "فشل في إعادة تعيين رابط المجموعة!",
+    "reset_link_success": "✅ تم إعادة تعيين رابط المجموعة بنجاح\n\n📌 الرابط الجديد:\nhttps://chat.whatsapp.com/{code}",
+    "github_fetch_failed": "❌ خطأ في جلب معلومات المستودع.",
+    "truth_failed": "❌ فشل في الحصول على حقيقة. يرجى المحاولة لاحقاً!",
+    "flirt_failed": "❌ فشل في الحصول على رسالة غزل. يرجى المحاولة لاحقاً!",
+    "promote_failed": "فشل في ترقية المستخدم/المستخدمين!",
+    "provide_gif_term": "يرجى تقديم مصطلح بحث للـ GIF.",
+    "no_gifs_found": "لم يتم العثور على GIFs لمصطلح البحث الخاص بك.",
+    "gif_fetch_failed": "فشل في جلب GIF. يرجى المحاولة لاحقاً.",
+    "jid_info": "معلومات JID",
+    "group_jid": "JID المجموعة",
+    "your_jid": "JID الخاص بك"
+  },
+  "like": {
+    "provide_url": "❌ يرجى تقديم URL للإعجاب.\nالاستخدام: `.like <URL>`\nمثال: `.like https://youtube.com/watch?v=...",
+    "invalid_url": "❌ URL غير صحيح. يرجى تقديم URL صحيح.\nمثال: `.like https://youtube.com/watch?v=...",
+    "platform_not_supported": "❌ المنصة غير مدعومة. المنصات المدعومة:\n• YouTube\n• Instagram\n• TikTok\n• Facebook\n• Twitter/X",
+    "success": "✅ **تم الإعجاب بالحالة بنجاح!**\n\n📱 **المنصة:** {platform}\n🎬 **العنوان:** {title}\n👤 **المؤلف:** {author}\n\n💡 **نصيحة:** استخدم `.dlliked` لتحميل جميع الحالات التي أعجبت بها!",
+    "already_liked": "⚠️ هذه الحالة موجودة بالفعل في مفضلاتك!",
+    "save_error": "❌ خطأ في الحفظ. حاول لاحقاً.",
+    "processing_error": "❌ حدث خطأ. يرجى المحاولة مرة أخرى."
+  },
+  "dlliked": {
+    "no_liked_statuses": "❌ **لم يتم العثور على حالات مُعجب بها!**\n\n💡 **نصيحة:** استخدم `.like <URL>` لإضافة حالات إلى مفضلاتك.",
+    "start_download": "🚀 **جاري تحميل الحالات المُعجب بها**\n\n📊 **الإجمالي:** تم العثور على {count} حالة\n⏳ **الحالة:** معالجة...\n\n⚠️ **ملاحظة:** قد يستغرق هذا عدة دقائق حسب أحجام الملفات.",
+    "progress_update": "🚀 **التحميل قيد التشغيل...**\n\n📊 **التقدم:** {current}/{total}\n✅ **نجح:** {success}\n❌ **فشل:** {failures}",
+    "completion_success": "✅ **اكتمل التحميل!**\n\n📊 **الإحصائيات:**\n• إجمالي المعالج: {total}\n• نجح: {success}\n• فشل: {failures}\n\n",
+    "errors_section": "❌ **الأخطاء:**\n{errors}\n\n",
+    "errors_many": "❌ **الأخطاء:** تم مواجهة {count} أخطاء\n\n",
+    "tip_message": "💡 **نصيحة:** استخدم `.like <URL>` لإضافة المزيد من المفضلات!",
+    "download_error": "❌ **خطأ في تحميل الحالات المُعجب بها.**\n\nيرجى المحاولة لاحقاً.",
+    "media_caption": "🎯 **{title}**\n🌐 **المنصة:** {platform}\n📅 **تم الإعجاب في:** {date}",
+    "platform_not_supported": "{title}: المنصة غير مدعومة",
+    "download_failed": "{title}: {error}"
+  }
+}

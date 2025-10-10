@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "language": "Afrikaans",
+    "code": "af",
+    "flag": "🇿🇦",
+    "completion": "95%"
+  },
+  "bot": {
+    "name": "wabot",
+    "version": "Weergawe",
+    "status": {
+      "online": "Aanlyn",
+      "offline": "Aflyn",
+      "ready": "Gereed",
+      "processing": "⏳ Besig om te verwerk..."
+    }
+  },
+  "messages": {
+    "success": "✅ Sukses",
+    "error": "❌ Fout",
+    "permission_denied": "❌ Toestemming geweier",
+    "admin_only": "❌ Slegs administrateurs",
+    "owner_only": "❌ Slegs bot-eienaar",
+    "bot_admin_required": "🤖 Maak die bot 'n administrateur om administratiewe bevele te gebruik.",
+    "user_not_found": "❌ Gebruiker nie gevind nie",
+    "provide_text": "❌ Verskaf teks",
+    "reply_to_message": "❌ Antwoord op 'n boodskap",
+    "reply_to_media": "❌ Antwoord op 'n prent/video",
+    "invalid_url": "❌ Ongeldige URL",
+    "failed_to_fetch": "❌ Kon nie data kry nie",
+    "group_only": "Hierdie bevel werk slegs in groepe.",
+    "provide_city": "Noem asseblief 'n stad, byvoorbeeld: .weer Kaapstad",
+    "provide_minutes": "Verskaf asseblief 'n geldige aantal minute.\nbyvoorbeeld om vir 10 minute te demp\n.mute 10",
+    "bot_mode_read_failed": "Kon nie bot-modus status lees nie",
+    "bot_mode_update_failed": "Kon nie bot-toegangsmodus opdateer nie",
+    "tagall_admin_only": "Jammer, slegs groep-administrateurs kan die .tagall bevel gebruik.",
+    "provide_position": "Verskaf asseblief 'n geldige posisienommer vir Tic-Tac-Toe beweging.",
+    "guess_letter": "Raai 'n letter deur .guess <letter> te gebruik",
+    "provide_answer": "Verskaf 'n antwoord deur .answer <antwoord> te gebruik",
+    "bot_must_be_admin": "*Bot moet 'n administrateur wees om hierdie funksie te gebruik*",
+    "admin_or_owner_only": "*Slegs administrateurs of bot-eienaar kan hierdie bevel gebruik*",
+    "processing_error": "❌ 'n Fout het voorgekom tydens die verwerking van jou boodskap."
+  },
+  "antidelete": {
+    "setup_title": "ANTIDELETE OPSTELLING",
+    "current_status": "Huidige Status",
+    "enabled": "Geaktiveer",
+    "disabled": "Gedeaktiveer",
+    "enable": "Aktiveer",
+    "disable": "Deaktiveer",
+    "invalid_command": "Ongeldige bevel. Gebruik .antidelete om gebruik te sien."
+  },
+  "autoread": {
+    "invalid_option": "Ongeldige opsie! Gebruik: .autoread on/off"
+  },
+  "companion": {
+    "creating": "⏳ *Besig om CompanionBot te skep...*\n\n📱 Telefoon: +{phoneNumber}\n🤖 Naam: {companionName}\n\nWag asseblief terwyl ons die koppelkode genereer...",
+    "created": "🤝 *CompanionBot Opstelling*\n\n✅ *{companionName}* is gereed vir koppeling!\n\n📱 *KODE OM TE KOPIEER:*\n```{pairingCode}```\n\n*Koppelstappe:*\n1. Maak WhatsApp op jou telefoon oop\n2. Gaan na Instellings > Gekoppelde toestelle\n3. Tik \"Koppel 'n toestel\"\n4. 👆 *Tik die kode hierbo om te kopieer*\n\n⏱️ Kode verval oor 5 minute\n🔄 Jou CompanionBot sal outomaties begin wanneer jy bevele gebruik!",
+    "permission_denied": "❌ *Toestemming Geweier*\n\nSlegs bot-eienaars kan CompanionBot bevele gebruik.",
+    "no_companions": "📭 *Geen CompanionBot*\n\nGeen CompanionBot is nog geskep nie.\n\n*Skep een:* .companion create [telefoon] [naam]"
+  },
+  "MENTION_USER_TO_COMPLIMENT": "Noem asseblief 'n gebruiker om te komplimenteer! Voorbeeld: .compliment @user",
+  "companion_help": {
+    "title": "📖 *Companion Bot Bestuurder*",
+    "commands": "*Bevele:*",
+    "create_code": "• `.companion create [telefoon] [naam]` - Koppelkode",
+    "create_qr": "• `.companion create [telefoon] [naam] qr` - QR Kode",
+    "list": "• `.companion list` - Lys alle companions (aktief + slapend)",
+    "status": "• `.companion status` - Status van companions",
+    "wake": "• `.companion wake [naam]` - Maak slapende companion wakker",
+    "sleep": "• `.companion sleep [naam]` - Laat companion slaap",
+    "wake_all": "• `.companion wake all` - Maak alle companions wakker",
+    "close": "• `.companion close [naam]` - Sluit companion",
+    "close_all": "• `.companion close all` - Sluit alle companions",
+    "cleanup": "• `.companion cleanup` - Maak weeskind sessies skoon",
+    "examples": "*Voorbeelde:*",
+    "example1": "• `.companion create 242065491040 bobo` (kode)",
+    "example2": "• `.companion create 242065491040 marie qr` (QR)",
+    "example3": "• `.companion close bobo` - Sluit companion bobo",
+    "features": "*Kenmerke:*",
+    "feature1": "✅ Multi-gebruiker ondersteuning",
+    "feature2": "✅ Geïsoleerde sessies",
+    "feature3": "✅ Volledige companion bestuur",
+    "feature4": "✅ Outomatiese kennisgewings"
+  },
+  "commands": {
+    "help": {
+      "name": "hulp",
+      "desc": "Hoof hulp-kieslys",
+      "usage": ".hulp [bevel]",
+      "example": ".hulp sticker"
+    },
+    "ping": {
+      "name": "ping",
+      "desc": "Kontroleer bot vertraging",
+      "usage": ".ping",
+      "example": ".ping"
+    },
+    "joke": {
+      "name": "grap",
+      "desc": "Vertel 'n ewekansige grap",
+      "usage": ".grap",
+      "example": ".grap"
+    },
+    "sticker": {
+      "name": "plakker",
+      "desc": "Skep plakker van 'n prent",
+      "usage": ".plakker [antwoord op prent]",
+      "example": ".plakker"
+    },
+    "weather": {
+      "name": "weer",
+      "desc": "Wys weer van 'n stad",
+      "usage": ".weer <stad>",
+      "example": ".weer Kaapstad"
+    },
+    "translate": {
+      "name": "vertaal",
+      "desc": "Vertaal teks",
+      "usage": ".vertaal <teks> <taal>",
+      "example": ".vertaal Hallo en"
+    }
+  },
+  "categories": {
+    "general": "🌐 Algemene Bevele",
+    "admin": "👮‍♂️ Administratiewe Bevele",
+    "owner": "🔒 Eienaar Bevele",
+    "image": "🎨 Prente/Plakkers",
+    "games": "🎮 Speletjies",
+    "ai": "🤖 Kunsmatige Intelligensie",
+    "fun": "🎯 Pret",
+    "download": "📥 Aflaaie"
+  },
+  "admin": {
+    "bot_admin_first": "Maak asseblief die bot eers 'n administrateur.",
+    "admin_only_kick": "Slegs groep-administrateurs kan die skop bevel gebruik.",
+    "mention_or_reply": "Noem asseblief die gebruiker of antwoord op sy boodskap om hom te skop!",
+    "cannot_kick_self": "Ek kan nie myself skop nie! 🤖",
+    "kick_success": "{users} is suksesvol geskop!",
+    "kick_failed": "Kon nie gebruiker/gebruikers skop nie!"
+  },
+  "group": {
+    "info_header": "┌──「 *GROEP INLIGTING* 」",
+    "info_id": "▢ *♻️ID:*\n   • {id}",
+    "info_name": "▢ *🔖NAAM* : \n• {name}",
+    "info_members": "▢ *👥Lede* :\n• {count}",
+    "info_owner": "▢ *🤿Groep Eienaar:*\n• @{owner}",
+    "info_admins": "▢ *🕵🏻‍♂️Administrateurs:*\n{admins}",
+    "info_description": "▢ *📌Beskrywing* :\n   • {desc}",
+    "no_description": "Geen beskrywing",
+    "info_failed": "Kon nie groep inligting kry nie!"
+  },
+  "fun": {
+    "emojimix_example": "🎴 Voorbeeld: .emojimix 😎+🥰",
+    "emojimix_separator": "✳️ Skei emojis met *+* teken\n\n📌 Voorbeeld: \n*.emojimix* 😎+🥰",
+    "emojimix_cannot_mix": "❌ Hierdie emojis kan nie gemeng word nie! Probeer ander.",
+    "emojimix_failed": "❌ Kon nie emojis meng nie! Maak seker jy gebruik geldige emojis.\n\nVoorbeeld: .emojimix 😎+🥰"
+  },
+  "responses": {
+    "joke_failed": "Jammer, kon nie 'n grap kry nie.",
+    "weather_not_found": "Stad nie gevind nie",
+    "sticker_success": "Plakker suksesvol geskep!",
+    "translate_success": "Vertaling voltooi",
+    "pong": "Pong!",
+    "failed_get_status": "❌ Kon nie bot status kry nie.",
+    "welcome_enabled": "⚠️ Welkom boodskappe is *reeds geaktiveer*.",
+    "welcome_disabled": "⚠️ Welkom boodskappe is *reeds gedeaktiveer*.",
+    "welcome_set": "✅ Pasgemaakte welkom boodskap *suksesvol gestel*.",
+    "provide_welcome_msg": "⚠️ Verskaf asseblief 'n pasgemaakte welkom boodskap. Voorbeeld: *.welcome set Welkom by die groep!*",
+    "check_warnings": "Noem asseblief 'n gebruiker om waarskuwings te kontroleer.",
+    "warning_count": "Gebruiker het {count} waarskuwing(s).",
+    "roseday_failed": "❌ Kon nie roseday aanhaling kry nie. Probeer asseblief later weer!",
+    "groupinfo_failed": "Kon nie groep inligting kry nie!",
+    "viewonce_reply": "❌ Antwoord asseblief op 'n view-once prent of video.",
+    "dare_failed": "❌ Kon nie uitdaging kry nie. Probeer asseblief later weer!",
+    "goodnight_failed": "❌ Kon nie goeienag boodskap kry nie. Probeer asseblief later weer!",
+    "group_unmuted": "Groep is ongedemp.",
+    "reset_link_admin_only": "❌ Slegs administrateurs kan hierdie bevel gebruik!",
+    "reset_link_bot_admin": "❌ Bot moet 'n administrateur wees om groep skakel terug te stel!",
+    "reset_link_failed": "Kon nie groep skakel terug stel nie!",
+    "reset_link_success": "✅ Groep skakel suksesvol terug gestel\n\n📌 Nuwe skakel:\nhttps://chat.whatsapp.com/{code}",
+    "github_fetch_failed": "❌ Fout by die kry van repository inligting.",
+    "truth_failed": "❌ Kon nie waarheid kry nie. Probeer asseblief later weer!",
+    "flirt_failed": "❌ Kon nie flirt boodskap kry nie. Probeer asseblief later weer!",
+    "promote_failed": "Kon nie gebruiker/gebruikers bevorder nie!",
+    "provide_gif_term": "Verskaf asseblief 'n soekterm vir GIF.",
+    "no_gifs_found": "Geen GIFs gevind vir jou soekterm nie.",
+    "gif_fetch_failed": "Kon nie GIF kry nie. Probeer asseblief later weer.",
+    "jid_info": "JID Inligting",
+    "group_jid": "Groep JID",
+    "your_jid": "Jou JID"
+  },
+  "like": {
+    "provide_url": "❌ Verskaf asseblief 'n URL om te hou van.\nGebruik: `.like <URL>`\nVoorbeeld: `.like https://youtube.com/watch?v=...",
+    "invalid_url": "❌ Ongeldige URL. Verskaf asseblief 'n geldige URL.\nVoorbeeld: `.like https://youtube.com/watch?v=...",
+    "platform_not_supported": "❌ Platform nie ondersteun nie. Ondersteunde platforms:\n• YouTube\n• Instagram\n• TikTok\n• Facebook\n• Twitter/X",
+    "success": "✅ **Status suksesvol gehou van!**\n\n📱 **Platform:** {platform}\n🎬 **Titel:** {title}\n👤 **Outeur:** {author}\n\n💡 **Wenk:** Gebruik `.dlliked` om alle statusse af te laai wat jy hou van!",
+    "already_liked": "⚠️ Hierdie status is reeds in jou gunstelinge!",
+    "save_error": "❌ Fout by stoor. Probeer later.",
+    "processing_error": "❌ 'n Fout het voorgekom. Probeer asseblief weer."
+  },
+  "dlliked": {
+    "no_liked_statuses": "❌ **Geen geliefde statusse gevind nie!**\n\n💡 **Wenk:** Gebruik `.like <URL>` om statusse by jou gunstelinge te voeg.",
+    "start_download": "🚀 **Besig om jou geliefde statusse af te laai**\n\n📊 **Totaal:** {count} statusse gevind\n⏳ **Status:** Verwerk...\n\n⚠️ **Let wel:** Dit kan verskeie minute neem afhangende van lêergroottes.",
+    "progress_update": "🚀 **Aflaai aan die gang...**\n\n📊 **Vordering:** {current}/{total}\n✅ **Sukses:** {success}\n❌ **Mislukkings:** {failures}",
+    "completion_success": "✅ **Aflaai voltooi!**\n\n📊 **Statistieke:**\n• Totaal verwerk: {total}\n• Sukses: {success}\n• Mislukkings: {failures}\n\n",
+    "errors_section": "❌ **Foute:**\n{errors}\n\n",
+    "errors_many": "❌ **Foute:** {count} foute ondervind\n\n",
+    "tip_message": "💡 **Wenk:** Gebruik `.like <URL>` om meer gunstelinge by te voeg!",
+    "download_error": "❌ **Fout by die aflaai van geliefde statusse.**\n\nProbeer asseblief later weer.",
+    "media_caption": "🎯 **{title}**\n🌐 **Platform:** {platform}\n📅 **Gehou van op:** {date}",
+    "platform_not_supported": "{title}: Platform nie ondersteun nie",
+    "download_failed": "{title}: {error}"
+  }
+}

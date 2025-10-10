@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "language": "Bambara",
+    "code": "bm",
+    "flag": "🇲🇱",
+    "completion": "95%"
+  },
+  "bot": {
+    "name": "wabot",
+    "version": "Version",
+    "status": {
+      "online": "A bè baara la",
+      "offline": "A tè baara la",
+      "ready": "A labèra",
+      "processing": "⏳ A bè baara kè..."
+    }
+  },
+  "messages": {
+    "success": "✅ A kèra ka ɲi",
+    "error": "❌ Fili",
+    "permission_denied": "❌ Yòrò tè yen",
+    "admin_only": "❌ Administrateur dòrò de bè se ka baara kè ni o ye",
+    "owner_only": "❌ Bot tigi dòrò de bè se ka baara kè ni o ye",
+    "bot_admin_required": "🤖 Wa bot ka kè administrateur ye walasa ka baara kè admin commandements ye.",
+    "user_not_found": "❌ Mògo in tè yen",
+    "provide_text": "❌ Text dila",
+    "reply_to_message": "❌ Jaabi ni kuma ye",
+    "reply_to_media": "❌ Jaabi ni ja/video ye",
+    "invalid_url": "❌ URL juguba",
+    "failed_to_fetch": "❌ A ma se ka kunnafoniw sòrò",
+    "group_only": "Nin commandement in bè se ka baara kè ni kulu kònò dòrò de ye.",
+    "provide_city": "Dugu tògò fò, misali: .météo Londres",
+    "provide_minutes": "Miniti hakili jigin number dila.\nmisali walasa ka mute 10 miniti\n.mute 10",
+    "bot_mode_read_failed": "A ma se ka bot mode état jàng",
+    "bot_mode_update_failed": "A ma se ka bot access mode soppiku",
+    "tagall_admin_only": "Hakili to, groupe administrateurs dòrò de bè se ka .tagall commandement baara kè",
+    "provide_position": "Position nòmoro ɲuman dila Tic-Tac-Toe mouvement kama",
+    "guess_letter": "Lettre kanisa ni .guess <lettre> ye",
+    "provide_answer": "Jaabi dila ni .answer <jaabi> ye",
+    "bot_must_be_admin": "*Bot ka kan ka kè admin ye nin fonctionnalité baara kè",
+    "admin_or_owner_only": "*Administrateurs walima bot tigi dòrò de bè se ka nin commandement baara kè*",
+    "processing_error": "❌ Fili ye kè i ka message traitement senfè."
+  },
+  "antidelete": {
+    "setup_title": "ANTIDELETE LABÈN",
+    "current_status": "Sisan ka État",
+    "enabled": "A Dalen",
+    "disabled": "A Dafalen",
+    "enable": "A Da",
+    "disable": "A Dafa",
+    "invalid_command": "Commandement juguba. .antidelete baara walasa ka baara lajè."
+  },
+  "autoread": {
+    "invalid_option": "Sugandi juguba! Baara kè ni: .autoread on/off"
+  },
+  "companion": {
+    "creating": "⏳ *CompanionBot dabɔli...*\n\n📱 Telefɔni: +{phoneNumber}\n🤖 Tògò: {companionName}\n\nA tigi ka makà code génération tuma...",
+    "created": "🤝 *CompanionBot Configuration*\n\n✅ *{companionName}* labènna pairing kama!\n\n📱 *CODE MIN BÈ KA KOPIYA:*\n```{pairingCode}```\n\n*Connexion taabolo:*\n1. WhatsApp da i ka telefɔni kan\n2. Paramètres > Appareils liés ma taga\n3. \"Lier un appareil\" digi\n4. 👆 *Code min bè sanfè ka kòpiya*\n\n⏱️ Code bè kè minute 5 kònò\n🔄 I ka CompanionBot bè ka daminè a yèrè kè commandements baarakè tuma!",
+    "permission_denied": "❌ *Yòrò tè yen*\n\nBot tigi dòrò de bè se ka CompanionBot commandements baara kè.",
+    "no_companions": "📭 *CompanionBot tè yen*\n\nCompanionBot foyi ma dabɔ.\n\n*Kelen dabɔ:* .companion create [telefɔni] [tògò]"
+  },
+  "commands": {
+    "help": {
+      "name": "dèmè",
+      "desc": "Dèmè menu fɔlɔ",
+      "usage": ".dèmè [commandement]",
+      "example": ".dèmè sticker"
+    },
+    "ping": {
+      "name": "ping",
+      "desc": "Bot latence lajè",
+      "usage": ".ping",
+      "example": ".ping"
+    },
+    "joke": {
+      "name": "tulonkè",
+      "desc": "Tulonkè dò fò",
+      "usage": ".tulonkè",
+      "example": ".tulonkè"
+    },
+    "weather": {
+      "name": "waati",
+      "desc": "Dugu waati jira",
+      "usage": ".waati <dugu>",
+      "example": ".waati Bamako"
+    },
+    "translate": {
+      "name": "bamanankan",
+      "desc": "Kuma bamanankan",
+      "usage": ".bamanankan <kuma> <kan>",
+      "example": ".bamanankan I ni ce en"
+    },
+    "sticker": {
+      "name": "sticker",
+      "desc": "Sticker dabɔ ja fè",
+      "usage": ".sticker [ja jaabi]",
+      "example": ".sticker"
+    }
+  },
+  "MENTION_USER_TO_COMPLIMENT": "Mògo min bè ka ɲènamaya, o tògo fò! Misali: .compliment @user",
+  "companion_help": {
+    "title": "📖 *Companion Bot Manager*",
+    "commands": "*Commandements:*",
+    "create_code": "• `.companion create [telefɔni] [tògò]` - Pairing code",
+    "create_qr": "• `.companion create [telefɔni] [tògò] qr` - QR Code",
+    "list": "• `.companion list` - Companions bèè jaabin (baarakèlaw + sunnkèlaw)",
+    "status": "• `.companion status` - Companions ka État",
+    "wake": "• `.companion wake [tògò]` - Companion sunnkèla ka wake",
+    "sleep": "• `.companion sleep [tògò]` - Companion ka sunnkè",
+    "wake_all": "• `.companion wake all` - Companions bèè ka wake",
+    "close": "• `.companion close [tògò]` - Companion datugu",
+    "close_all": "• `.companion close all` - Companions bèè datugu",
+    "cleanup": "• `.companion cleanup` - Sessions orphelines ko",
+    "examples": "*Misaliw:*",
+    "example1": "• `.companion create 242065491040 bobo` (code)",
+    "example2": "• `.companion create 242065491040 marie qr` (QR)",
+    "example3": "• `.companion close bobo` - Companion bobo datugu",
+    "features": "*Features:*",
+    "feature1": "✅ Baarakèla caman support",
+    "feature2": "✅ Sessions isolées",
+    "feature3": "✅ Companions gestion kèlè",
+    "feature4": "✅ Notifications automatiques"
+  },
+  "admin": {
+    "bot_admin_first": "Bot ka admin kè fɔlɔ.",
+    "admin_only_kick": "Groupe administrateurs dòrò de bè se ka kick commandement baara kè.",
+    "mention_or_reply": "Mògo tògo fò walima a ka message jaabi ka a kick!",
+    "cannot_kick_self": "N tè se ka n yèrè kick! 🤖",
+    "kick_success": "{users} kick kèra ka ɲi!",
+    "kick_failed": "Mògo/mògòw kick ma se!"
+  },
+  "group": {
+    "info_header": "┌──「 *GROUPE KUNNAFONIW* 」",
+    "info_id": "▢ *♻️ID:*\n   • {id}",
+    "info_name": "▢ *🔖TÒGÒ* : \n• {name}",
+    "info_members": "▢ *👥Membrew* :\n• {count}",
+    "info_owner": "▢ *🤿Groupe tigi:*\n• @{owner}",
+    "info_admins": "▢ *🕵🏻‍♂️Administrateurs:*\n{admins}",
+    "info_description": "▢ *📌Ɲɛfɔlikan* :\n   • {desc}",
+    "no_description": "Ɲɛfɔlikan tè yen",
+    "info_failed": "Groupe kunnafoniw sòrò ma se!"
+  },
+  "fun": {
+    "emojimix_example": "🎴 Misali: .emojimix 😎+🥰",
+    "emojimix_separator": "✳️ Emoji ɲɔgɔn ni taamasiya *+*\n\n📌 Misali: \n*.emojimix* 😎+🥰",
+    "emojimix_cannot_mix": "❌ Nin emojis tè se ka ɲɔgɔn ni! Wɛrɛw lajè.",
+    "emojimix_failed": "❌ Emojis ɲɔgɔn ma se! Emoji tilenw baara kè.\n\nMisali: .emojimix 😎+🥰"
+  },
+  "categories": {
+    "general": "🌐 Commandements Beeɛ",
+    "admin": "👮‍♂️ Commandements Admin",
+    "owner": "🔒 Commandements Tigi",
+    "image": "🎨 Ja/Stickers",
+    "games": "🎮 Tulonw",
+    "ai": "🤖 Intelligence Artificielle",
+    "fun": "🎯 Nisongoya",
+    "download": "📥 Downloads"
+  },
+  "responses": {
+    "joke_failed": "Hakili to, n ma se ka tulonkè sòrò.",
+    "weather_not_found": "Dugu in ma ye",
+    "sticker_success": "Sticker dabɔra ka ɲi!",
+    "translate_success": "Bamanankan ban",
+    "pong": "Pong!",
+    "welcome_set": "✅ Bisimilila kuma dafalen *dabɔra ka ɲi*.",
+    "failed_get_status": "❌ Bot état sòrò ma se.",
+    "welcome_enabled": "⚠️ Bisimilila kumaw *dalen kaban*.",
+    "welcome_disabled": "⚠️ Bisimilila kumaw *dafalen kaban*.",
+    "provide_welcome_msg": "⚠️ Bisimilila kuma dafalen dila. Misali: *.welcome set Bisimilila groupe kònò!*",
+    "check_warnings": "Mògo tògo fò walasa ka lasigiw lajè.",
+    "warning_count": "Mògo bè ni lasigi {count} ye.",
+    "roseday_failed": "❌ Roseday kuma sòrò ma se. Kokura waati wɛrɛ!",
+    "groupinfo_failed": "Groupe kunnafoniw sòrò ma se!",
+    "viewonce_reply": "❌ Ja walima video min bè jirà siɲɛ kelen, o jaabi.",
+    "dare_failed": "❌ Dare sòrò ma se. Kokura waati wɛrɛ!",
+    "goodnight_failed": "❌ Su ɲuman kuma sòrò ma se. Kokura waati wɛrɛ!",
+    "group_unmuted": "Groupe dalen.",
+    "reset_link_admin_only": "❌ Administrateurs dòrò de bè se ka nin commandement baara kè!",
+    "reset_link_bot_admin": "❌ Bot ka kan ka kè admin ye groupe link reset kè!",
+    "reset_link_failed": "Groupe link reset ma se!",
+    "reset_link_success": "✅ Groupe link reset kèra ka ɲi\n\n📌 Link kura:\nhttps://chat.whatsapp.com/{code}",
+    "github_fetch_failed": "❌ Repository kunnafoniw sòrò senfè fili.",
+    "truth_failed": "❌ Tilenya sòrò ma se. Kokura waati wɛrɛ!",
+    "flirt_failed": "❌ Flirt kuma sòrò ma se. Kokura waati wɛrɛ!",
+    "promote_failed": "Mògo/mògòw promote ma se!",
+    "provide_gif_term": "GIF ɲinininya kuma dila.",
+    "no_gifs_found": "I ka ɲinininya kuma kama GIF foyi ma ye.",
+    "gif_fetch_failed": "GIF sòrò ma se. Kokura waati wɛrɛ.",
+    "jid_info": "JID Kunnafoniw",
+    "group_jid": "Groupe JID",
+    "your_jid": "I ka JID"
+  },
+  "like": {
+    "provide_url": "❌ URL dila ka kanu.\nBaara: `.like <URL>`\nMisali: `.like https://youtube.com/watch?v=...",
+    "invalid_url": "❌ URL juguba. URL tilenman dila.\nMisali: `.like https://youtube.com/watch?v=...",
+    "platform_not_supported": "❌ Plateforme min ma dɛmɛ. Plateformew min bè dɛmɛ:\n• YouTube\n• Instagram\n• TikTok\n• Facebook\n• Twitter/X",
+    "success": "✅ **Statut kanu kèra ka ɲi!**\n\n📱 **Plateforme:** {platform}\n🎬 **Titre:** {title}\n👤 **Sɛbɛnbaga:** {author}\n\n💡 **Laadilikan:** `.dlliked` baara kè ka i ka statut kanulen bèè telesariji!",
+    "already_liked": "⚠️ Nin statut bè i ka favoris kònò kaban!",
+    "save_error": "❌ Mara senfè fili. Kokura kɔfɛ.",
+    "processing_error": "❌ Fili kèra. Kokura."
+  },
+  "dlliked": {
+    "no_liked_statuses": "❌ **Statut kanulenw ma ye!**\n\n💡 **Laadilikan:** `.like <URL>` baara kè ka statusw fara i ka favoris kan.",
+    "start_download": "🚀 **I ka statusw kanulenw telesariji**\n\n📊 **Bèè:** statut {count} sòrò\n⏳ **État:** Baarakè...\n\n⚠️ **Kɔlɔsili:** O bè se ka miniti caman ta file belebelebaw hakɛ la.",
+    "progress_update": "🚀 **Telesariji bɛɛ taa...**\n\n📊 **Ɲɛtaa:** {current}/{total}\n✅ **Ɲɛsongolen:** {success}\n❌ **Banbaliw:** {failures}",
+    "completion_success": "✅ **Telesariji dafalen!**\n\n📊 **Jatebɔsɛbɛnw:**\n• Bèè min baarakèra: {total}\n• Ɲɛsongolen: {success}\n• Banbaliw: {failures}\n\n",
+    "errors_section": "❌ **Filiw:**\n{errors}\n\n",
+    "errors_many": "❌ **Filiw:** fili {count} bɛ yen\n\n",
+    "tip_message": "💡 **Laadilikan:** `.like <URL>` baara kè ka favoris wɛrɛw fara a kan!",
+    "download_error": "❌ **Statusw kanulenw telesariji senfè fili.**\n\nKokura kɔfɛ.",
+    "media_caption": "🎯 **{title}**\n🌐 **Plateforme:** {platform}\n📅 **Kanu don:** {date}",
+    "platform_not_supported": "{title}: Plateforme min ma dɛmɛ",
+    "download_failed": "{title}: {error}"
+  }
+}
