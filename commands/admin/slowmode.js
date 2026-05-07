@@ -1,12 +1,14 @@
 const isAdmin = require('../../lib/isAdmin');
 const { channelConfig } = require('../../lib/channelConfig');
 const { createClient } = require('@supabase/supabase-js');
+const ws = require('ws');
 const supabaseConfig = require('../../config/supabase.config');
 
 // Supabase client
 const supabase = createClient(
     supabaseConfig.SUPABASE_URL,
-    supabaseConfig.SUPABASE_SERVICE_KEY
+    supabaseConfig.SUPABASE_SERVICE_KEY,
+    { realtime: { transport: ws } }
 );
 
 // Get slowmode settings for a group
