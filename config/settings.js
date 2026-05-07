@@ -7,8 +7,8 @@ const settings = {
   author: '‎',
   botName: "wabot",
   botOwner: 'wabot team', // Your name
-  ownerNumber: process.env.OWNER_NUMBER || '242061194809', //Set your number here without + symbol, just add country code & number without any space
-  botPhoneNumber: process.env.WHATSAPP_PHONE_NUMBER || '242061194809', // Bot's WhatsApp number for pairing
+  ownerNumber: process.env.OWNER_NUMBER || '242065491040', //Set your number here without + symbol, just add country code & number without any space
+  botPhoneNumber: process.env.WHATSAPP_PHONE_NUMBER || '242064235945', // Bot's WhatsApp number for pairing
   giphyApiKey: 'qnl7ssQChTdPjsKta2Ax2LMaGXz303tq',
   commandMode: "public",
   maxStoreMessages: 20, 
