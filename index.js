@@ -195,6 +195,12 @@ require('./lib/whatsapp-connection.js');
 const { startApiServer } = require('./api/server');
 startApiServer();
 
+// Start auto-updater (A/B deployment with rollback)
+const autoUpdater = require('./lib/autoUpdater');
+autoUpdater.start().catch(err => {
+    console.error('[AutoUpdater] Failed to start:', err.message);
+});
+
 process.on('uncaughtException', (err) => {
     error('Uncaught Exception', { error: err.message, stack: err.stack?.substring(0, 300) }, 'SYSTEM')
 })
@@ -203,5 +209,8 @@ process.on('unhandledRejection', (err) => {
     error('Unhandled Promise Rejection', { error: err?.message || err, stack: err?.stack?.substring(0, 300) }, 'SYSTEM')
 })
 
-// File watcher supprimé pour éviter les redémarrages en boucle
-// Si vous modifiez le code, redémarrez manuellement le bot
+process.on('SIGTERM', () => {
+    console.log('[Process] SIGTERM received — shutting down gracefully');
+    autoUpdater.stopPolling();
+    process.exit(0);
+});
