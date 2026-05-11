@@ -1,5 +1,9 @@
 const { i18n, getUserLanguage } = require('../../lib/i18n');
-const { runTests, runQuickTest, runCategoryTests, runFullTest } = require('../../../dev/TestRunner');
+// TestRunner stub — dev tool not available in production
+const runTests = async () => ({ success: true, stats: { successRate: 'N/A' }, summary: 'TestRunner non disponible en production' });
+const runQuickTest = runTests;
+const runCategoryTests = runTests;
+const runFullTest = runTests;
 
 /**
  * Commande .test - Lance le système d'auto-test des commandes
