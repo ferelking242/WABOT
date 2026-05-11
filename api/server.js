@@ -12,6 +12,56 @@ const express = require('express');
 const cors = require('cors');
 const { initDefaultKey } = require('./utils/apiKeys');
 
+// ── Public URL detection ────────────────────────────────────────────────────────
+
+let _cachedPublicUrl = null;
+
+function getPublicUrl() {
+    if (_cachedPublicUrl) return _cachedPublicUrl;
+
+    const port = parseInt(process.env.API_PORT || '3001', 10);
+
+    // 1. Explicit override (VPS, custom domain, any host)
+    if (process.env.PUBLIC_URL) {
+        _cachedPublicUrl = process.env.PUBLIC_URL.replace(/\/$/, '');
+        return _cachedPublicUrl;
+    }
+
+    // 2. Replit — modern (REPLIT_DEV_DOMAIN is set in Replit hosted envs)
+    if (process.env.REPLIT_DEV_DOMAIN) {
+        _cachedPublicUrl = `https://${process.env.REPLIT_DEV_DOMAIN}`;
+        return _cachedPublicUrl;
+    }
+
+    // 3. Replit — legacy slug format
+    if (process.env.REPL_SLUG && process.env.REPL_OWNER) {
+        _cachedPublicUrl = `https://${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.repl.co`;
+        return _cachedPublicUrl;
+    }
+
+    // 4. Railway
+    if (process.env.RAILWAY_STATIC_URL) {
+        _cachedPublicUrl = `https://${process.env.RAILWAY_STATIC_URL}`;
+        return _cachedPublicUrl;
+    }
+
+    // 5. Render
+    if (process.env.RENDER_EXTERNAL_URL) {
+        _cachedPublicUrl = process.env.RENDER_EXTERNAL_URL.replace(/\/$/, '');
+        return _cachedPublicUrl;
+    }
+
+    // 6. Heroku
+    if (process.env.HEROKU_APP_NAME) {
+        _cachedPublicUrl = `https://${process.env.HEROKU_APP_NAME}.herokuapp.com`;
+        return _cachedPublicUrl;
+    }
+
+    // 7. Fallback — local
+    _cachedPublicUrl = `http://localhost:${port}`;
+    return _cachedPublicUrl;
+}
+
 // ── App setup ──────────────────────────────────────────────────────────────────
 
 const app = express();
@@ -185,14 +235,18 @@ function startApiServer() {
 
     // Start HTTP server
     const server = app.listen(PORT, '0.0.0.0', () => {
-        console.log(`\n╔═══════════════════════════════════════════════════╗`);
-        console.log(`║         wabot REST API Server started              ║`);
-        console.log(`╠═══════════════════════════════════════════════════╣`);
-        console.log(`║  Port:    ${PORT}                                     ║`);
-        console.log(`║  Base:    http://0.0.0.0:${PORT}/api/v1               ║`);
-        console.log(`║  Docs:    http://0.0.0.0:${PORT}/api/v1/docs          ║`);
-        console.log(`║  Health:  http://0.0.0.0:${PORT}/api/v1/health        ║`);
-        console.log(`╚═══════════════════════════════════════════════════╝\n`);
+        const publicUrl = getPublicUrl();
+        console.log(`\n╔══════════════════════════════════════════════════════════╗`);
+        console.log(`║           wabot REST API v2.0 — Online                  ║`);
+        console.log(`╠══════════════════════════════════════════════════════════╣`);
+        console.log(`║  Port:       ${PORT}                                        ║`);
+        console.log(`║  Public URL: ${publicUrl.padEnd(42)}║`);
+        console.log(`║  API Base:   ${(publicUrl + '/api/v1').padEnd(42)}║`);
+        console.log(`║  API Docs:   ${(publicUrl + '/api/v1/docs').padEnd(42)}║`);
+        console.log(`║  Health:     ${(publicUrl + '/api/v1/health').padEnd(42)}║`);
+        console.log(`╚══════════════════════════════════════════════════════════╝\n`);
+        // Expose URL globally so Flutter app / other services can find it
+        process.env.WABOT_PUBLIC_URL = publicUrl;
     });
 
     server.on('error', err => {
@@ -364,4 +418,4 @@ function escHtml(s) {
 
 // ── Export for use in index.js ─────────────────────────────────────────────────
 
-module.exports = { startApiServer, app };
+module.exports = { startApiServer, app, getPublicUrl };
