@@ -1,9 +1,5 @@
 'use strict';
 
-/**
- * Route aggregator — mounts all API route modules
- */
-
 const { Router } = require('express');
 const router = Router();
 
@@ -16,8 +12,9 @@ router.use('/contacts',  require('./contacts'));
 router.use('/instance',  require('./instance'));
 router.use('/logs',      require('./logs'));
 router.use('/admin',     require('./admin'));
+router.use('/update',    require('./update'));
 
-// Status / health (health is public, rest require auth)
+// Status & health (health is public)
 router.use('/', require('./status'));
 
 module.exports = router;
