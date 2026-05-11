@@ -9,28 +9,38 @@ const router = Router();
 
 /**
  * GET /v1/health
- * Public health check — no auth required
+ * Public — no auth required. Used by health checks, monitors, and the Flutter app.
  */
 router.get('/health', (req, res) => {
     const connected = isWhatsAppConnected();
+    const { getPublicUrl } = require('../server');
+
     res.status(connected ? 200 : 503).json({
         success: true,
         status: connected ? 'ok' : 'degraded',
         whatsapp: connected ? 'connected' : 'disconnected',
         uptime: Math.floor(process.uptime()),
+        publicUrl: getPublicUrl(),
+        apiBase: `${getPublicUrl()}/api/v1`,
         timestamp: new Date().toISOString(),
     });
 });
 
 /**
  * GET /v1/status
- * Bot status — requires auth
+ * Full bot status — auth required
  */
 router.get('/status', requireAuth, rateLimit, (req, res) => {
     const sock = getWhatsAppInstance();
     const connected = isWhatsAppConnected();
-
     const mem = process.memoryUsage();
+    const { getPublicUrl } = require('../server');
+
+    let updateStatus = null;
+    try {
+        const { getStatus } = require('../../lib/autoUpdater');
+        updateStatus = getStatus();
+    } catch { /* updater may not be loaded yet */ }
 
     res.json({
         success: true,
@@ -38,7 +48,13 @@ router.get('/status', requireAuth, rateLimit, (req, res) => {
             connected,
             phone: sock?.user?.id?.replace(/:.*@/, '@') || null,
             name: sock?.user?.name || null,
-            platform: sock?.ws?.socket?.localAddress || null,
+        },
+        api: {
+            version: '2.0.0',
+            publicUrl: getPublicUrl(),
+            apiBase: `${getPublicUrl()}/api/v1`,
+            docsUrl: `${getPublicUrl()}/api/v1/docs`,
+            port: parseInt(process.env.API_PORT || '3001'),
         },
         process: {
             uptime: Math.floor(process.uptime()),
@@ -49,36 +65,34 @@ router.get('/status', requireAuth, rateLimit, (req, res) => {
             },
             nodeVersion: process.version,
             pid: process.pid,
+            env: process.env.NODE_ENV || 'production',
         },
-        api: {
-            version: '1.0.0',
-            timestamp: new Date().toISOString(),
-        },
+        update: updateStatus,
+        timestamp: new Date().toISOString(),
     });
 });
 
 /**
  * GET /v1/metrics
- * Usage metrics — requires auth
  */
 router.get('/metrics', requireAuth, rateLimit, (req, res) => {
     const { listApiKeys } = require('../utils/apiKeys');
     const { listWebhooks } = require('../utils/webhook');
+    const queue = require('../queue/messageQueue');
 
     const keys = listApiKeys();
     const hooks = listWebhooks();
+    const qStats = queue.getStats();
 
     res.json({
         success: true,
         metrics: {
-            apiKeys: {
-                total: keys.length,
-                active: keys.filter(k => k.active).length,
-            },
+            apiKeys: { total: keys.length, active: keys.filter(k => k.active).length },
             webhooks: {
                 total: hooks.length,
                 totalDeliveries: hooks.reduce((s, h) => s + (h.deliveries || 0), 0),
             },
+            queue: qStats,
             uptime: Math.floor(process.uptime()),
             memory: Math.round(process.memoryUsage().rss / 1024 / 1024),
         },
