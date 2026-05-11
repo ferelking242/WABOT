@@ -1,0 +1,216 @@
+'use strict';
+
+/**
+ * Instance management routes
+ * GET  /v1/instance/status    — detailed bot status
+ * GET  /v1/instance/qr        — get QR code (PNG base64) for pairing
+ * POST /v1/instance/reconnect — force reconnect
+ * GET  /v1/instance/info      — bot profile info
+ * POST /v1/instance/presence  — set presence (online/offline/typing)
+ */
+
+const { Router } = require('express');
+const { requireAuth, requirePermission } = require('../middleware/auth');
+const { rateLimit } = require('../middleware/rateLimit');
+const { getWhatsAppInstance, isWhatsAppConnected } = require('../../lib/whatsappInstance');
+const queue = require('../queue/messageQueue');
+
+const router = Router();
+router.use(requireAuth, rateLimit);
+
+// Store QR code in memory as it's generated
+let lastQr = null;
+let lastQrTimestamp = null;
+
+// Hook into Baileys QR events once bot loads
+setImmediate(() => {
+    const attach = setInterval(() => {
+        const sock = getWhatsAppInstance();
+        if (!sock) return;
+        clearInterval(attach);
+
+        sock.ev.on('connection.update', ({ qr }) => {
+            if (qr) {
+                lastQr = qr;
+                lastQrTimestamp = Date.now();
+            }
+        });
+    }, 3000);
+});
+
+// ── Status ─────────────────────────────────────────────────────────────────────
+
+router.get('/status', (req, res) => {
+    const sock = getWhatsAppInstance();
+    const connected = isWhatsAppConnected();
+    const mem = process.memoryUsage();
+    const qStat = queue.getStats();
+
+    res.json({
+        success: true,
+        instance: {
+            connected,
+            phone: sock?.user?.id?.replace(/:.*@/, '@') || null,
+            name: sock?.user?.name || null,
+            platform: 'Baileys',
+        },
+        queue: qStat,
+        process: {
+            uptime: Math.floor(process.uptime()),
+            pid: process.pid,
+            memory: {
+                rss: `${Math.round(mem.rss / 1024 / 1024)} MB`,
+                heapUsed: `${Math.round(mem.heapUsed / 1024 / 1024)} MB`,
+            },
+            node: process.version,
+        },
+        timestamp: new Date().toISOString(),
+    });
+});
+
+// ── QR Code ────────────────────────────────────────────────────────────────────
+
+router.get('/qr', async (req, res) => {
+    const connected = isWhatsAppConnected();
+
+    if (connected) {
+        return res.json({
+            success: true,
+            connected: true,
+            message: 'Bot is already connected — no QR needed',
+        });
+    }
+
+    if (!lastQr) {
+        return res.status(503).json({
+            success: false,
+            error: 'QR_NOT_AVAILABLE',
+            message: 'QR code not yet generated. Bot may be starting up.',
+        });
+    }
+
+    const ageSeconds = Math.floor((Date.now() - lastQrTimestamp) / 1000);
+    if (ageSeconds > 60) {
+        return res.status(410).json({
+            success: false,
+            error: 'QR_EXPIRED',
+            message: 'QR code expired (>60s). Restart bot to get a fresh one.',
+            ageSeconds,
+        });
+    }
+
+    // Generate QR as base64 PNG
+    try {
+        const qrcode = require('qrcode');
+        const png = await qrcode.toDataURL(lastQr, { type: 'image/png', width: 300 });
+
+        const fmt = req.query.format || 'json';
+
+        if (fmt === 'image') {
+            const buf = Buffer.from(png.replace('data:image/png;base64,', ''), 'base64');
+            res.setHeader('Content-Type', 'image/png');
+            return res.send(buf);
+        }
+
+        return res.json({
+            success: true,
+            connected: false,
+            qr: lastQr,                  // raw string (for qrcode libraries)
+            qrImage: png,                // base64 PNG data URL
+            ageSeconds,
+            expiresInSeconds: 60 - ageSeconds,
+        });
+    } catch (err) {
+        res.status(500).json({ success: false, error: 'QR_FAILED', message: err.message });
+    }
+});
+
+// ── Reconnect ──────────────────────────────────────────────────────────────────
+
+router.post('/reconnect', requirePermission('admin'), async (req, res) => {
+    // Signal the bot to reconnect by exiting (panel/pm2 will restart)
+    res.json({
+        success: true,
+        message: 'Reconnect signal sent. Bot will restart automatically.',
+        warning: 'This will briefly disconnect the bot.',
+    });
+
+    setTimeout(() => {
+        console.log('[API] Reconnect requested via API — restarting process...');
+        process.exit(0);
+    }, 1000);
+});
+
+// ── Bot Profile Info ───────────────────────────────────────────────────────────
+
+router.get('/info', async (req, res) => {
+    const sock = getWhatsAppInstance();
+    if (!sock) {
+        return res.status(503).json({ success: false, error: 'BOT_NOT_CONNECTED' });
+    }
+
+    try {
+        const user = sock.user;
+        res.json({
+            success: true,
+            info: {
+                jid: user?.id || null,
+                phone: user?.id?.replace(/:.*@/, '@').replace('@s.whatsapp.net', '') || null,
+                name: user?.name || null,
+                platform: 'WhatsApp',
+            },
+        });
+    } catch (err) {
+        res.status(500).json({ success: false, error: 'FETCH_FAILED', message: err.message });
+    }
+});
+
+// ── Set Presence ───────────────────────────────────────────────────────────────
+
+router.post('/presence', async (req, res) => {
+    const sock = getWhatsAppInstance();
+    if (!sock) return res.status(503).json({ success: false, error: 'BOT_NOT_CONNECTED' });
+
+    const { type, to } = req.body;
+    const validTypes = ['available', 'unavailable', 'composing', 'recording', 'paused'];
+
+    if (!validTypes.includes(type)) {
+        return res.status(400).json({
+            success: false,
+            error: 'INVALID_PRESENCE_TYPE',
+            validTypes,
+        });
+    }
+
+    try {
+        if (to) {
+            const { toJid } = require('../utils/phone');
+            await sock.sendPresenceUpdate(type, toJid(to));
+        } else {
+            await sock.sendPresenceUpdate(type);
+        }
+        res.json({ success: true, type, to: to || 'global' });
+    } catch (err) {
+        res.status(500).json({ success: false, error: 'FAILED', message: err.message });
+    }
+});
+
+// ── Queue management ───────────────────────────────────────────────────────────
+
+router.get('/queue', (req, res) => {
+    res.json({ success: true, ...queue.getStats() });
+});
+
+router.delete('/queue', requirePermission('admin'), (req, res) => {
+    const priority = req.query.priority || null;
+    const cleared = queue.clearQueue(priority);
+    res.json({ success: true, cleared, message: `Cleared ${cleared} jobs` });
+});
+
+router.get('/queue/:jobId', (req, res) => {
+    const job = queue.getJob(req.params.jobId);
+    if (!job) return res.status(404).json({ success: false, error: 'JOB_NOT_FOUND' });
+    res.json({ success: true, job });
+});
+
+module.exports = router;
