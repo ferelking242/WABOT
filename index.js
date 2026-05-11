@@ -190,6 +190,11 @@ const question = (text) => {
 // Import and start WhatsApp connection
 console.log('🚀 Starting WhatsApp connection...');
 require('./lib/whatsapp-connection.js');
+
+// Start REST API server (port 3001 by default, configurable via API_PORT env)
+const { startApiServer } = require('./api/server');
+startApiServer();
+
 process.on('uncaughtException', (err) => {
     error('Uncaught Exception', { error: err.message, stack: err.stack?.substring(0, 300) }, 'SYSTEM')
 })
