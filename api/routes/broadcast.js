@@ -1,40 +1,34 @@
 'use strict';
 
 /**
- * Broadcast / bulk messaging routes
- * POST /v1/broadcast        — send text to multiple numbers
- * POST /v1/broadcast/image  — send image to multiple numbers
- * POST /v1/broadcast/template — send template message to list
+ * Broadcast / bulk messaging routes — v2 with queue + quota
+ *
+ * POST /v1/broadcast           — text to multiple numbers
+ * POST /v1/broadcast/image     — image to multiple numbers
+ * POST /v1/broadcast/template  — personalized template per recipient
+ * POST /v1/broadcast/schedule  — schedule bulk send at specific time
  */
 
 const { Router } = require('express');
 const { z } = require('zod');
 const { requireAuth, requirePermission } = require('../middleware/auth');
 const { rateLimit } = require('../middleware/rateLimit');
-const { getWhatsAppInstance } = require('../../lib/whatsappInstance');
+const { quotaMiddleware } = require('../utils/quota');
+const { logMessage } = require('../utils/messageLog');
+const queue = require('../queue/messageQueue');
 const { toJid } = require('../utils/phone');
-const { deliverEvent } = require('../utils/webhook');
 const axios = require('axios');
 
 const router = Router();
 router.use(requireAuth, requirePermission('broadcast'), rateLimit);
 
 function validate(schema, body, res) {
-    const result = schema.safeParse(body);
-    if (!result.success) {
-        res.status(400).json({ success: false, error: 'VALIDATION_ERROR', details: result.error.errors });
+    const r = schema.safeParse(body);
+    if (!r.success) {
+        res.status(400).json({ success: false, error: 'VALIDATION_ERROR', details: r.error.errors });
         return null;
     }
-    return result.data;
-}
-
-function getSock(res) {
-    const sock = getWhatsAppInstance();
-    if (!sock) {
-        res.status(503).json({ success: false, error: 'BOT_NOT_CONNECTED', message: 'WhatsApp bot is not connected.' });
-        return null;
-    }
-    return sock;
+    return r.data;
 }
 
 async function fetchBuffer(url) {
@@ -42,27 +36,33 @@ async function fetchBuffer(url) {
     return Buffer.from(resp.data);
 }
 
-// Delay between messages to avoid WhatsApp spam detection (ms)
-const SEND_DELAY = 1200;
-const sleep = ms => new Promise(r => setTimeout(r, ms));
-
 /**
- * Core broadcast logic — send a content object to a list of JIDs
- * Returns results array: [{ to, success, messageId?, error? }]
+ * Enqueue a batch and return immediately
  */
-async function broadcastContent(sock, jids, contentFn, delayMs = SEND_DELAY) {
-    const results = [];
-    for (const jid of jids) {
-        try {
-            const content = typeof contentFn === 'function' ? await contentFn(jid) : contentFn;
-            const sent = await sock.sendMessage(jid, content);
-            results.push({ to: jid, success: true, messageId: sent?.key?.id || null });
-        } catch (err) {
-            results.push({ to: jid, success: false, error: err.message });
-        }
-        if (delayMs > 0) await sleep(delayMs);
-    }
-    return results;
+function enqueueBatch(res, jobs, apiKey) {
+    const results = jobs.map(({ jid, content, type, meta, scheduledAt }) => {
+        const { jobId } = queue.enqueue({
+            jid,
+            content,
+            priority: 'low',   // Broadcasts always low priority
+            typing: false,
+            scheduledAt: scheduledAt || null,
+            apiKeyId: apiKey.id,
+            meta: { type, ...meta },
+        });
+        logMessage({ to: jid, type, status: 'queued', jobId, apiKeyId: apiKey.id });
+        return { to: jid, jobId, status: 'queued' };
+    });
+
+    res.status(202).json({
+        success: true,
+        total: results.length,
+        status: 'queued',
+        message: `${results.length} messages queued for delivery`,
+        jobs: results,
+        queueStatusUrl: '/api/v1/messages/queue',
+        timestamp: new Date().toISOString(),
+    });
 }
 
 // ── Broadcast Text ────────────────────────────────────────────────────────────
@@ -70,33 +70,33 @@ async function broadcastContent(sock, jids, contentFn, delayMs = SEND_DELAY) {
 const BroadcastTextSchema = z.object({
     recipients: z.array(z.string().min(7)).min(1).max(500),
     text: z.string().min(1).max(65536),
-    delay: z.number().int().min(500).max(10000).optional(),
+    scheduledAt: z.number().int().optional(),
 });
 
-router.post('/', async (req, res) => {
+router.post('/', (req, res, next) => {
     const data = validate(BroadcastTextSchema, req.body, res);
     if (!data) return;
-    const sock = getSock(res);
-    if (!sock) return;
-
-    try {
-        const jids = data.recipients.map(toJid);
-        const results = await broadcastContent(sock, jids, { text: data.text }, data.delay ?? SEND_DELAY);
-
-        const succeeded = results.filter(r => r.success).length;
-        const failed = results.length - succeeded;
-
-        await deliverEvent('broadcast.completed', { total: jids.length, succeeded, failed });
-
-        res.json({
-            success: true,
-            summary: { total: jids.length, succeeded, failed },
-            results,
-            timestamp: new Date().toISOString(),
+    // Check quota for total count
+    const { consume } = require('../utils/quota');
+    const check = consume(req.apiKey.id, data.recipients.length);
+    if (!check.allowed) {
+        return res.status(429).json({
+            success: false,
+            error: 'QUOTA_EXCEEDED',
+            message: `Batch of ${data.recipients.length} would exceed daily quota`,
+            quota: check,
         });
-    } catch (err) {
-        res.status(500).json({ success: false, error: 'BROADCAST_FAILED', message: err.message });
     }
+
+    const jobs = data.recipients.map(phone => ({
+        jid: toJid(phone),
+        content: { text: data.text },
+        type: 'text',
+        meta: {},
+        scheduledAt: data.scheduledAt,
+    }));
+
+    enqueueBatch(res, jobs, req.apiKey);
 });
 
 // ── Broadcast Image ───────────────────────────────────────────────────────────
@@ -105,33 +105,36 @@ const BroadcastImageSchema = z.object({
     recipients: z.array(z.string().min(7)).min(1).max(200),
     url: z.string().url(),
     caption: z.string().max(1024).optional(),
-    delay: z.number().int().min(500).max(10000).optional(),
+    scheduledAt: z.number().int().optional(),
 });
 
 router.post('/image', async (req, res) => {
     const data = validate(BroadcastImageSchema, req.body, res);
     if (!data) return;
-    const sock = getSock(res);
-    if (!sock) return;
+
+    const { consume } = require('../utils/quota');
+    const check = consume(req.apiKey.id, data.recipients.length);
+    if (!check.allowed) {
+        return res.status(429).json({
+            success: false,
+            error: 'QUOTA_EXCEEDED',
+            message: `Batch of ${data.recipients.length} would exceed daily quota`,
+            quota: check,
+        });
+    }
 
     try {
-        const jids = data.recipients.map(toJid);
-        // Fetch image once, reuse buffer
         const image = await fetchBuffer(data.url);
-        const content = { image, caption: data.caption };
-
-        const results = await broadcastContent(sock, jids, content, data.delay ?? SEND_DELAY);
-        const succeeded = results.filter(r => r.success).length;
-        const failed = results.length - succeeded;
-
-        res.json({
-            success: true,
-            summary: { total: jids.length, succeeded, failed },
-            results,
-            timestamp: new Date().toISOString(),
-        });
+        const jobs = data.recipients.map(phone => ({
+            jid: toJid(phone),
+            content: { image, caption: data.caption },
+            type: 'image',
+            meta: {},
+            scheduledAt: data.scheduledAt,
+        }));
+        enqueueBatch(res, jobs, req.apiKey);
     } catch (err) {
-        res.status(500).json({ success: false, error: 'BROADCAST_FAILED', message: err.message });
+        res.status(500).json({ success: false, error: 'FETCH_FAILED', message: err.message });
     }
 });
 
@@ -145,48 +148,78 @@ const RecipientWithVars = z.object({
 const BroadcastTemplateSchema = z.object({
     recipients: z.array(RecipientWithVars).min(1).max(500),
     template: z.string().min(1).max(65536),
-    delay: z.number().int().min(500).max(10000).optional(),
+    scheduledAt: z.number().int().optional(),
 });
 
-router.post('/template', async (req, res) => {
+router.post('/template', (req, res) => {
     const data = validate(BroadcastTemplateSchema, req.body, res);
     if (!data) return;
-    const sock = getSock(res);
-    if (!sock) return;
 
-    try {
-        const entries = data.recipients.map(r => ({
-            jid: toJid(r.phone),
-            variables: r.variables || {},
-        }));
-
-        const results = [];
-        for (const { jid, variables } of entries) {
-            try {
-                let text = data.template;
-                for (const [k, v] of Object.entries(variables)) {
-                    text = text.replaceAll(`{{${k}}}`, v);
-                }
-                const sent = await sock.sendMessage(jid, { text });
-                results.push({ to: jid, success: true, messageId: sent?.key?.id || null });
-            } catch (err) {
-                results.push({ to: jid, success: false, error: err.message });
-            }
-            if ((data.delay ?? SEND_DELAY) > 0) await sleep(data.delay ?? SEND_DELAY);
-        }
-
-        const succeeded = results.filter(r => r.success).length;
-        const failed = results.length - succeeded;
-
-        res.json({
-            success: true,
-            summary: { total: entries.length, succeeded, failed },
-            results,
-            timestamp: new Date().toISOString(),
+    const { consume } = require('../utils/quota');
+    const check = consume(req.apiKey.id, data.recipients.length);
+    if (!check.allowed) {
+        return res.status(429).json({
+            success: false,
+            error: 'QUOTA_EXCEEDED',
+            quota: check,
         });
-    } catch (err) {
-        res.status(500).json({ success: false, error: 'BROADCAST_FAILED', message: err.message });
     }
+
+    const jobs = data.recipients.map(({ phone, variables }) => {
+        let text = data.template;
+        if (variables) {
+            for (const [k, v] of Object.entries(variables)) {
+                text = text.replaceAll(`{{${k}}}`, v);
+            }
+        }
+        return {
+            jid: toJid(phone),
+            content: { text },
+            type: 'template',
+            meta: { variables },
+            scheduledAt: data.scheduledAt,
+        };
+    });
+
+    enqueueBatch(res, jobs, req.apiKey);
+});
+
+// ── Scheduled Broadcast ───────────────────────────────────────────────────────
+
+const ScheduledBroadcastSchema = z.object({
+    recipients: z.array(z.string().min(7)).min(1).max(500),
+    text: z.string().min(1).max(65536),
+    sendAt: z.string().datetime(),
+});
+
+router.post('/schedule', (req, res) => {
+    const data = validate(ScheduledBroadcastSchema, req.body, res);
+    if (!data) return;
+
+    const scheduledAt = new Date(data.sendAt).getTime();
+    if (isNaN(scheduledAt) || scheduledAt < Date.now()) {
+        return res.status(400).json({
+            success: false,
+            error: 'INVALID_SCHEDULE',
+            message: 'sendAt must be a future ISO 8601 datetime',
+        });
+    }
+
+    const { consume } = require('../utils/quota');
+    const check = consume(req.apiKey.id, data.recipients.length);
+    if (!check.allowed) {
+        return res.status(429).json({ success: false, error: 'QUOTA_EXCEEDED', quota: check });
+    }
+
+    const jobs = data.recipients.map(phone => ({
+        jid: toJid(phone),
+        content: { text: data.text },
+        type: 'text',
+        meta: { scheduledFor: data.sendAt },
+        scheduledAt,
+    }));
+
+    enqueueBatch(res, jobs, req.apiKey);
 });
 
 module.exports = router;
