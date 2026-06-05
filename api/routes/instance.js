@@ -195,6 +195,58 @@ router.post('/presence', async (req, res) => {
     }
 });
 
+// ── Pairing Code ───────────────────────────────────────────────────────────────
+// POST /pair — request an 8-digit pairing code for a phone number
+// The bot must not yet be registered. Call once per fresh session.
+
+let lastPairingCode = null;
+let lastPairingPhone = null;
+
+router.post('/pair', async (req, res) => {
+    const connected = isWhatsAppConnected();
+    if (connected) {
+        return res.json({ success: true, connected: true, message: 'Bot is already connected.' });
+    }
+
+    const { phone } = req.body;
+    if (!phone) {
+        return res.status(400).json({ success: false, error: 'MISSING_PHONE', message: 'Provide phone number in body: { "phone": "2420612345678" }' });
+    }
+
+    const cleanPhone = String(phone).replace(/[^\d]/g, '');
+    if (cleanPhone.length < 7 || cleanPhone.length > 15) {
+        return res.status(400).json({ success: false, error: 'INVALID_PHONE', message: 'Phone number must be 7–15 digits (no + or spaces).' });
+    }
+
+    // If same phone was already paired in this session, return cached code
+    if (lastPairingCode && lastPairingPhone === cleanPhone) {
+        return res.json({ success: true, code: lastPairingCode, cached: true });
+    }
+
+    const sock = getWhatsAppInstance();
+    if (!sock) {
+        return res.status(503).json({ success: false, error: 'BOT_NOT_STARTED', message: 'WhatsApp socket not initialized yet. Wait a few seconds and retry.' });
+    }
+
+    try {
+        let code = await sock.requestPairingCode(cleanPhone);
+        code = code?.match(/.{1,4}/g)?.join('-') || code;
+        lastPairingCode  = code;
+        lastPairingPhone = cleanPhone;
+
+        // Clear cache after 3 minutes
+        setTimeout(() => { lastPairingCode = null; lastPairingPhone = null; }, 3 * 60 * 1000);
+
+        res.json({ success: true, code, phone: cleanPhone });
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            error: 'PAIR_FAILED',
+            message: err.message || 'Failed to generate pairing code. The bot may already be registered — use /reconnect to reset.',
+        });
+    }
+});
+
 // ── Queue management ───────────────────────────────────────────────────────────
 
 router.get('/queue', (req, res) => {
