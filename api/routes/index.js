@@ -13,6 +13,7 @@ router.use('/instance',  require('./instance'));
 router.use('/logs',      require('./logs'));
 router.use('/admin',     require('./admin'));
 router.use('/update',    require('./update'));
+router.use('/session',   require('./session'));
 
 // Status & health (health is public)
 router.use('/', require('./status'));
