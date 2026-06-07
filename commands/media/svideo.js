@@ -6,8 +6,9 @@ const { exec } = require('child_process');
 const { downloadContentFromMessage } = require('@whiskeysockets/baileys');
 const { getText, getUserLanguage } = require('../../lib/languages');
 
-const tempDir = './data/tmp';
-if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
+const os = require('os');
+const tempDir = process.env.WABOT_TEMP_DIR || require('path').join(os.tmpdir(), 'wabot-tmp');
+try { if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true }); } catch (_) {}
 
 const scheduleFileDeletion = (filePath) => {
     setTimeout(async () => {
