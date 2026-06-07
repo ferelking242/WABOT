@@ -64,7 +64,7 @@ router.post('/import', requireAuth, (req, res) => {
     let count = 0;
     for (const [rel, b64] of Object.entries(files)) {
       const full = path.resolve(SESSION_DIR, rel);
-      if (!full.startsWith(SESSION_DIR)) continue; // security guard
+      if (!full.startsWith(SESSION_DIR + path.sep)) continue; // security guard — prévient la traversée session_backup_xxx
       fs.mkdirSync(path.dirname(full), { recursive: true });
       fs.writeFileSync(full, Buffer.from(b64, 'base64'));
       count++;
