@@ -40,7 +40,7 @@ async function transcribeCommand(sock, chatId, message) {
         // Download the media
         const mediaType = audioMessage ? 'audio' : 'video';
         const mediaMessage = audioMessage || videoMessage;
-        const tempDir = './data/tmp';
+        const tempDir = process.env.WABOT_TEMP_DIR || require('path').join(require('os').tmpdir(), 'wabot-tmp');
         
         if (!fs.existsSync(tempDir)) {
             fs.mkdirSync(tempDir, { recursive: true });
