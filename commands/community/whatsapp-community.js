@@ -63,7 +63,7 @@ async function isCommunity(sock, chatId) {
  */
 async function getCommunityInfo(sock, chatId, message) {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         
         if (!(await isCommunity(sock, chatId))) {
             await sock.sendMessage(chatId, {
@@ -138,7 +138,7 @@ async function getCommunityInfo(sock, chatId, message) {
  */
 async function setCommunityDescription(sock, chatId, message, description) {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         
         // Vérifier que c'est une communauté
         if (!(await isCommunity(sock, chatId))) {
@@ -212,7 +212,7 @@ async function setCommunityDescription(sock, chatId, message, description) {
  */
 async function setCommunityIcon(sock, chatId, message) {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         
         // Vérifier que c'est une communauté
         if (!(await isCommunity(sock, chatId))) {
@@ -282,7 +282,7 @@ async function setCommunityIcon(sock, chatId, message) {
  */
 async function createCommunityChannel(sock, chatId, message, channelName, channelType = 'announcement') {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         
         // Vérifier que c'est une communauté
         if (!(await isCommunity(sock, chatId))) {
@@ -380,7 +380,7 @@ async function listCommunityChannels(sock, chatId, message) {
  */
 async function sendCommunityAnnouncement(sock, chatId, message, announcement) {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         
         // Vérifier que c'est une communauté
         if (!(await isCommunity(sock, chatId))) {

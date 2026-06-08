@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 async function handleSsCommand(sock, chatId, message, match) {
     // Get user language at function start to ensure it's always available
-    const senderId = message.key.participant || message.key.remoteJid;
+    const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
     const { getUserLanguage } = require('../../lib/languages');
     const userLang = getUserLanguage(senderId);
     

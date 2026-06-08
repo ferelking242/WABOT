@@ -192,7 +192,7 @@ async function saveDvoConfig(config) {
 
 async function dvoCommand(sock, chatId, message, userMessage) {
     const params = userMessage.toLowerCase().split(' ').slice(1);
-    const senderId = message.key.participant || message.key.remoteJid;
+    const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
     
     // Gestion des commandes on/off
     if (params.length > 0 && (params[0] === 'on' || params[0] === 'off')) {
@@ -342,7 +342,7 @@ async function dvoCommand(sock, chatId, message, userMessage) {
         }
 
         // Obtenir les informations détaillées
-        const senderJid = message.key.participant || message.key.remoteJid;
+        const senderJid = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const senderName = await resolveDisplayName(sock, senderJid);
         const timestamp = new Date(message.messageTimestamp * 1000);
         const dateStr = timestamp.toLocaleDateString('fr-FR');
@@ -474,7 +474,7 @@ async function dvoCommand(sock, chatId, message, userMessage) {
 async function autoTransferViewOnce(sock, message) {
     try {
         const chatId = message.key.remoteJid;
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         
         // Éviter de transférer les propres messages du bot
         if (message.key.fromMe) {

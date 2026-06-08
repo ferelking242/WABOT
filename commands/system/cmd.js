@@ -43,7 +43,7 @@ async function sendWithChannelButton(sock, chatId, content, options = {}) {
 
 async function cmdCommand(sock, chatId, message, args, botIdentity = null) {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const userLang = getUserLanguage(senderId);
         
         // ✅ FILTRAGE DES COMMANDES PAR RÔLE - Déterminer le rôle de l'utilisateur

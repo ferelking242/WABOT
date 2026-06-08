@@ -19,7 +19,7 @@ const { channelConfig } = require('../../lib/channelConfig');
  */
 async function communityCommand(sock, chatId, message, args) {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         
         if (!args || args.length === 0) {
             const helpMessage = `🏘️ *GESTION DES COMMUNAUTÉS WHATSAPP*\n\n` +

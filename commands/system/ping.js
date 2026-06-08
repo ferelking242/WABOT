@@ -22,7 +22,7 @@ async function pingCommand(sock, chatId, message) {
     try {
         const start = Date.now();
         const { i18n } = require('../../lib/i18n');
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const responseMsg = i18n.t(senderId, 'responses.pong') || 'Pong!';
         await sock.sendMessage(chatId, { text: responseMsg }, { quoted: message });
         const end = Date.now();
@@ -43,7 +43,7 @@ async function pingCommand(sock, chatId, message) {
     } catch (error) {
         console.error('Error in ping command:', error);
         const { i18n } = require('../../lib/i18n');
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const errorMsg = i18n.t(senderId, 'messages.failed_to_fetch') || '❌ Failed to get bot status.';
         await sock.sendMessage(chatId, { text: errorMsg });
     }

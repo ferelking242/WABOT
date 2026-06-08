@@ -115,7 +115,7 @@ async function storeMessage(message) {
         let mediaType = '';
         let mediaPath = '';
 
-        const sender = message.key.participant || message.key.remoteJid;
+        const sender = message.key.participantAlt || message.key.participant || message.key.remoteJid;
 
         // Detect content
         if (message.message?.conversation) {

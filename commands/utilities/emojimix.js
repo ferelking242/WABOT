@@ -6,7 +6,7 @@ const { i18n } = require('../../lib/i18n');
 
 async function emojimixCommand(sock, chatId, msg) {
     try {
-        const senderId = msg.key.participant || msg.key.remoteJid;
+        const senderId = msg.key.participantAlt || msg.key.participant || msg.key.remoteJid;
         // Get the text after command
         const text = msg.message?.conversation?.trim() || 
                     msg.message?.extendedTextMessage?.text?.trim() || '';
@@ -95,7 +95,7 @@ async function emojimixCommand(sock, chatId, msg) {
 
     } catch (error) {
         console.error('Error in emojimix command:', error);
-        const senderId = msg.key.participant || msg.key.remoteJid;
+        const senderId = msg.key.participantAlt || msg.key.participant || msg.key.remoteJid;
         await sock.sendMessage(chatId, { 
             text: i18n.t(senderId, 'fun.emojimix_failed')
         });

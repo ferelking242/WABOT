@@ -254,7 +254,7 @@ async function handleMessagesOld(sock, messageUpdate, printLog) {
             }
         }
 
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const isGroup = chatId.endsWith('@g.us');
         const isOwnerOrSudoFunction = require('./lib/isOwner');
         const senderIsSudo = await isOwnerOrSudoFunction(senderId);
@@ -1356,9 +1356,9 @@ async function handleMessagesOld(sock, messageUpdate, printLog) {
 
         // Function to handle .jid command
         async function groupJidCommand(sock, chatId, message) {
-            const userJid = message.key.participant || message.key.remoteJid;
+            const userJid = message.key.participantAlt || message.key.participant || message.key.remoteJid;
             const chatJid = message.key.remoteJid;
-            const senderId = message.key.participant || message.key.remoteJid;
+            const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
             const userLanguage = getUserLanguage(senderId) || 'fr';
             
             let responseText = '';
@@ -1389,7 +1389,7 @@ async function handleMessagesOld(sock, messageUpdate, printLog) {
         // Only try to send error message if we have a valid chatId and message
         if (chatId && message && message.key) {
             try {
-                const senderId = message.key.participant || message.key.remoteJid;
+                const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
                 const userLanguage = getUserLanguage(senderId);
                 const errorMsg = getText(userLanguage, 'processing_error');
                 await sock.sendMessage(chatId, {

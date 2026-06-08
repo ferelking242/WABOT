@@ -32,7 +32,7 @@ async function sendWithChannelButton(sock, chatId, content, options = {}) {
 async function aliasCommand(sock, chatId, message, args, botIdentity = null) {
     try {
         console.log('🔍 [ALIAS DEBUG] Starting aliasCommand with args:', args);
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const userLang = getUserLanguage(senderId);
         console.log('🔍 [ALIAS DEBUG] User lang:', userLang);
         

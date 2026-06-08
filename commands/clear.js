@@ -6,7 +6,7 @@ async function clearCommand(sock, chatId, message) {
             console.error('Message or message key is undefined');
             return;
         }
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const userLang = getUserLanguage(senderId);
         
         // Essayer d'activer les messages éphémères pour 2h
@@ -32,7 +32,7 @@ async function clearCommand(sock, chatId, message) {
         
     } catch (error) {
         console.error('Error in clear command:', error);
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const userLang = getUserLanguage(senderId);
         const errorMsg = getText(senderId, 'CLEAR_ERROR', userLang);
         await sock.sendMessage(chatId, { text: errorMsg });

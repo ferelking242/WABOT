@@ -179,7 +179,7 @@ async function helpCommand(sock, chatId, message, channelLink, args = [], botIde
     console.log('🔍 [HELP DEBUG] Parameters:', { chatId, channelLink, botIdentity });
     
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         console.log('🔍 [HELP DEBUG] SenderId:', senderId);
         
         const userLang = getUserLanguage(senderId);

@@ -14,7 +14,7 @@ module.exports = {
     
     async execute(sock, message, args) {
         const chatId = message.key.remoteJid;
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         
         // Vérifier si l'utilisateur est admin (pour cette commande debug)
         const ownerNumber = process.env.OWNER_NUMBER || '242061194809';

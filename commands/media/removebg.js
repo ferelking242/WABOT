@@ -42,7 +42,7 @@ module.exports = {
                 if (isValidUrl(url)) {
                     imageUrl = url;
                 } else {
-                    const senderId = message.key.participant || message.key.remoteJid;
+                    const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
                     return sock.sendMessage(chatId, { 
                         text: i18n.t(senderId, 'commands.removebg.invalid_url') || '❌ Invalid URL provided.'
                     }, { quoted: message });
@@ -52,7 +52,7 @@ module.exports = {
                 imageUrl = await getQuotedOrOwnImageUrl(sock, message);
                 
                 if (!imageUrl) {
-                    const senderId = message.key.participant || message.key.remoteJid;
+                    const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
                     return sock.sendMessage(chatId, { 
                         text: i18n.t(senderId, 'commands.removebg.usage') || '📸 Please reply to an image or provide URL'
                     }, { quoted: message });
@@ -73,7 +73,7 @@ module.exports = {
 
             if (response.status === 200 && response.data) {
                 // Send the processed image
-                const senderId = message.key.participant || message.key.remoteJid;
+                const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
                 await sock.sendMessage(chatId, {
                     image: response.data,
                     caption: i18n.t(senderId, 'commands.removebg.success') || '✨ Background removed successfully!'
@@ -84,7 +84,7 @@ module.exports = {
 
         } catch (error) {
             console.error('RemoveBG Error:', error.message);
-            const senderId = message.key.participant || message.key.remoteJid;
+            const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
             
             let errorMessage = i18n.t(senderId, 'commands.removebg.errors.generic') || '❌ Failed to remove background.';
             

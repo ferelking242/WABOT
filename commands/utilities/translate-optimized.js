@@ -8,7 +8,7 @@ const { apiHandler } = require('../../lib/optimizedApi');
 
 async function optimizedTranslateCommand(sock, chatId, message, userMessage) {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         
         // Check if this is a translate command
         if (!userMessage.startsWith('.trt ') && !userMessage.startsWith('.translate ')) {

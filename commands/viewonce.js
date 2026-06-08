@@ -20,7 +20,7 @@ async function viewonceCommand(sock, chatId, message) {
         await sock.sendMessage(chatId, { video: buffer, fileName: 'media.mp4', caption: quotedVideo.caption || '' }, { quoted: message });
     } else {
         const { i18n } = require('../lib/i18n');
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const errorMsg = i18n.t(senderId, 'responses.viewonce_reply');
         await sock.sendMessage(chatId, { text: errorMsg }, { quoted: message });
     }

@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 // commandHandler appelle: simpCommand(sock, chatId, message)
 async function simpCommand(sock, chatId, message) {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const contextInfo = message.message?.extendedTextMessage?.contextInfo;
         const mentionedJid = contextInfo?.mentionedJid || [];
         const quotedParticipant = contextInfo?.participant;

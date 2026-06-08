@@ -15,7 +15,7 @@ async function stickerCommand(sock, chatId, message, userMessage = '') {
 
     // Si la commande demande le tutoriel (sans média)
     if ((userMessage === '#sticker' && !message.message?.extendedTextMessage?.contextInfo?.quotedMessage && !message.message?.imageMessage && !message.message?.videoMessage) || (userMessage === '.sticker' && !message.message?.extendedTextMessage?.contextInfo?.quotedMessage && !message.message?.imageMessage && !message.message?.videoMessage)) {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const userLang = getUserLanguage(senderId);
         
         const tutorial = `${getText(senderId, 'STICKER_TUTORIAL_TITLE', userLang)}\n\n${getText(senderId, 'STICKER_TUTORIAL_BASIC', userLang)}\n\n${getText(senderId, 'STICKER_TUTORIAL_VIDEO', userLang)}\n\n${getText(senderId, 'STICKER_TUTORIAL_SPECS', userLang)}\n\n${getText(senderId, 'STICKER_TUTORIAL_EXAMPLE', userLang)}`;
@@ -241,7 +241,7 @@ async function stickerCommand(sock, chatId, message, userMessage = '') {
                         
                         // Même participant (normaliser les formats @lid et @s.whatsapp.net)
                         const normalize = (id) => id ? id.replace(/@.*$/, '') : '';
-                        const msgParticipant = normalize(msg.key.participant || msg.key.remoteJid);
+                        const msgParticipant = normalize(msg.key.participantAlt || msg.key.participant || msg.key.remoteJid);
                         const targetParticipant = normalize(albumParticipant);
                         
                         if (msgParticipant !== targetParticipant) return false;
@@ -331,7 +331,7 @@ async function stickerCommand(sock, chatId, message, userMessage = '') {
 
     // Si aucun média trouvé, afficher l'erreur
     if (mediaMessages.length === 0) {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const userLang = getUserLanguage(senderId);
         const errorMsg = getText(senderId, 'STICKER_REPLY_TO_MEDIA', userLang);
         await sock.sendMessage(chatId, { 

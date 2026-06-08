@@ -2,7 +2,7 @@ const { getText, getUserLanguage } = require('../../lib/languages');
 
 async function rouletteCommand(sock, chatId, message, args) {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         
         // Russian Roulette results (6 chambers, 1 bullet) - logique corrigée avec vraies probabilités
         const outcomes = [

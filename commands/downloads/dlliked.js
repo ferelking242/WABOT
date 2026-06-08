@@ -127,7 +127,7 @@ async function dllikedCommand(sock, chatId, message) {
             processedMessages.delete(message.key.id);
         }, 5 * 60 * 1000);
 
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         
         // Réagir pour montrer que le traitement a commencé
         await sock.sendMessage(chatId, {

@@ -15,7 +15,7 @@ async function characterCommand(sock, chatId, message) {
     }
     
     if (!userToAnalyze) {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const userLang = getUserLanguage(senderId);
         const errorMsg = getText(senderId, 'MENTION_USER_TO_ANALYZE', userLang);
         await sock.sendMessage(chatId, { 
@@ -76,7 +76,7 @@ async function characterCommand(sock, chatId, message) {
 
     } catch (error) {
         console.error('Error in character command:', error);
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const userLang = getUserLanguage(senderId);
         const errorMsg = getText(senderId, 'FAILED_TO_FETCH', userLang);
         await sock.sendMessage(chatId, { 

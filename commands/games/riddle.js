@@ -104,7 +104,7 @@ let activeRiddles = {};
 
 async function riddleCommand(sock, chatId, message, args) {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const userLang = getUserLanguage(senderId);
         
         // If user wants to give up

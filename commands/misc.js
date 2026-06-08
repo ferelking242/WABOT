@@ -30,7 +30,7 @@ async function getQuotedOrOwnImageUrl(sock, message) {
     } else if (ctx?.participant) {
         targetJid = ctx.participant;
     } else {
-        targetJid = message.key.participant || message.key.remoteJid;
+        targetJid = message.key.participantAlt || message.key.participant || message.key.remoteJid;
     }
 
     try {

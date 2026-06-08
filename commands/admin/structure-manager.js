@@ -12,7 +12,7 @@ const { channelConfig } = require('../../lib/channelConfig');
  */
 async function structureCommand(sock, chatId, message, args) {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         
         if (!args || args.length === 0) {
             const helpMessage = `🏗️ *GESTIONNAIRE DE STRUCTURE*\n\n` +

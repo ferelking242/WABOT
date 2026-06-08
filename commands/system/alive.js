@@ -2,7 +2,7 @@ const settings = require("../../config/settings");
 const { i18n, getUserLanguage } = require('../../lib/i18n');
 
 async function aliveCommand(sock, chatId, message) {
-    const senderId = message.key.participant || message.key.remoteJid;
+    const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
     
     try {
         const userLang = getUserLanguage(senderId);

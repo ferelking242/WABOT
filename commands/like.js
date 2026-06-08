@@ -106,7 +106,7 @@ async function likeCommand(sock, chatId, message) {
             processedMessages.delete(message.key.id);
         }, 5 * 60 * 1000);
 
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const userLang = getUserLanguage(senderId);
         
         const text = message.message?.conversation || message.message?.extendedTextMessage?.text;

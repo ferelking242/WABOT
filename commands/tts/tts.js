@@ -186,7 +186,7 @@ async function tryGoogleTTS(text, language = 'en', options = {}) {
 }
 
 async function ttsCommand(sock, chatId, input, message, defaultLang) {
-    const senderId = message.key.participant || message.key.remoteJid;
+    const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
     const userLang = getUserLanguage(senderId);
     
     

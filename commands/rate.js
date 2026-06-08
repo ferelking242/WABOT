@@ -8,7 +8,7 @@ const { rateLimiter } = require('../lib/rateLimiter');
  */
 async function rateCommand(sock, chatId, message, args) {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const userLang = getUserLanguage(senderId);
         
         // Vérifier si l'utilisateur est propriétaire (SEULEMENT propriétaire, pas sudo)
@@ -61,7 +61,7 @@ async function rateCommand(sock, chatId, message, args) {
 
     } catch (error) {
         console.error('Error in rate command:', error);
-        const errorMsg = i18n.t(message.key.participant || message.key.remoteJid, 'messages.processing_error');
+        const errorMsg = i18n.t(message.key.participantAlt || message.key.participant || message.key.remoteJid, 'messages.processing_error');
         await sock.sendMessage(chatId, { text: errorMsg });
     }
 }

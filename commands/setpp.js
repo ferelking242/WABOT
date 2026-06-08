@@ -5,7 +5,7 @@ const { downloadContentFromMessage } = require('@whiskeysockets/baileys');
 async function setProfilePicture(sock, chatId, msg) {
     try {
         // ✅ VÉRIFICATION PERMISSIONS - Propriétaire principal OU propriétaire de companion
-        const senderId = msg.key.participant || msg.key.remoteJid;
+        const senderId = msg.key.participantAlt || msg.key.participant || msg.key.remoteJid;
         const { isOwnerOrSudo, hasExtendedPermissions } = require('../lib/isOwner');
         const isMainOwner = await isOwnerOrSudo(senderId, sock, chatId);
         

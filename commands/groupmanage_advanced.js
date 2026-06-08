@@ -22,7 +22,7 @@ async function setGroupRules(sock, chatId, message, rules) {
         
         groupRulesData[chatId] = {
             rules: rules,
-            setBy: message.key.participant || message.key.remoteJid,
+            setBy: message.key.participantAlt || message.key.participant || message.key.remoteJid,
             timestamp: Date.now()
         };
         
@@ -120,7 +120,7 @@ async function setWelcomeMessage(sock, chatId, message, welcomeMsg) {
         
         welcomeData[chatId] = {
             message: welcomeMsg,
-            setBy: message.key.participant || message.key.remoteJid,
+            setBy: message.key.participantAlt || message.key.participant || message.key.remoteJid,
             timestamp: Date.now(),
             enabled: true
         };
@@ -205,7 +205,7 @@ async function pinMessage(sock, chatId, message) {
         
         pinnedData[chatId] = {
             message: quotedMessage,
-            pinnedBy: message.key.participant || message.key.remoteJid,
+            pinnedBy: message.key.participantAlt || message.key.participant || message.key.remoteJid,
             timestamp: Date.now()
         };
         
@@ -307,7 +307,7 @@ async function scheduleMessage(sock, chatId, message, args) {
         scheduledData[chatId].push({
             message: messageText,
             scheduleTime: scheduleTime.getTime(),
-            scheduledBy: message.key.participant || message.key.remoteJid,
+            scheduledBy: message.key.participantAlt || message.key.participant || message.key.remoteJid,
             id: Date.now().toString()
         });
         

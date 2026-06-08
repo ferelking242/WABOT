@@ -33,7 +33,7 @@ async function autoreadCommand(sock, chatId, message) {
     
     try {
         // ✅ VÉRIFICATION PERMISSIONS - Propriétaire principal/sudo OU propriétaire de companion
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const { isOwnerOrSudo, hasExtendedPermissions } = require('../lib/isOwner');
         const isMainOwnerOrSudo = await isOwnerOrSudo(senderId, sock, chatId);
         
@@ -164,7 +164,7 @@ async function handleAutoread(sock, message) {
             // For regular messages, mark as read normally
             const key = { remoteJid: message.key.remoteJid, id: message.key.id, participant: message.key.participant };
             await sock.readMessages([key]);
-            //console.log('✅ Marked message as read from ' + (message.key.participant || message.key.remoteJid).split('@')[0]);
+            //console.log('✅ Marked message as read from ' + (message.key.participantAlt || message.key.participant || message.key.remoteJid).split('@')[0]);
             return true; // Indicates message was marked as read
         }
     }

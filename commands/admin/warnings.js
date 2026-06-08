@@ -16,7 +16,7 @@ async function warningsCommand(sock, chatId, mentionedJidList, message) {
 
     if (mentionedJidList.length === 0) {
         const { i18n } = require('../../lib/i18n');
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const errorMsg = i18n.t(senderId, 'responses.check_warnings');
         await sock.sendMessage(chatId, { text: errorMsg });
         return;
@@ -26,7 +26,7 @@ async function warningsCommand(sock, chatId, mentionedJidList, message) {
     const warningCount = warnings[userToCheck] || 0;
 
     const { i18n } = require('../../lib/i18n');
-    const senderId = message.key.participant || message.key.remoteJid;
+    const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
     const warningMsg = i18n.t(senderId, 'responses.warning_count', { count: warningCount });
     await sock.sendMessage(chatId, { text: warningMsg });
 }

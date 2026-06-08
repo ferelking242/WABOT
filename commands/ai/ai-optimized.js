@@ -8,7 +8,7 @@ const { apiHandler } = require('../../lib/optimizedApi');
 
 async function optimizedAiCommand(sock, chatId, message, userMessage) {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         
         // Extract command and query
         let command, query;

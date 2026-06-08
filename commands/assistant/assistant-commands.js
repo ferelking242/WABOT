@@ -11,7 +11,7 @@ const { i18n } = require('../../lib/i18n');
  */
 async function assistantCommand(sock, chatId, message, args) {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         
         if (!args || args.length === 0) {
             const helpMessage = `🤖 *ASSISTANT PERSONNEL*\n\n` +

@@ -30,7 +30,7 @@ async function saveConfig(config) {
 async function autotypingCommand(sock, chatId, message) {
     try {
         // ✅ VÉRIFICATION PERMISSIONS - Propriétaire principal/sudo OU propriétaire de companion
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const { isOwnerOrSudo, hasExtendedPermissions } = require('../lib/isOwner');
         const isMainOwnerOrSudo = await isOwnerOrSudo(senderId, sock, chatId);
         

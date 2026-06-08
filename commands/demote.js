@@ -5,7 +5,7 @@ async function demoteCommand(sock, chatId, mentionedJids, message) {
     try {
         // First check if it's a group
         if (!chatId.endsWith('@g.us')) {
-            const senderId = message.key.participant || message.key.remoteJid;
+            const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
             const errorMsg = i18n.t(senderId, 'admin.group_only');
             await sock.sendMessage(chatId, { 
                 text: errorMsg
@@ -15,9 +15,9 @@ async function demoteCommand(sock, chatId, mentionedJids, message) {
 
         // Check admin status first, before any other operations
         try {
-            const adminStatus = await isAdmin(sock, chatId, message.key.participant || message.key.remoteJid);
+            const adminStatus = await isAdmin(sock, chatId, message.key.participantAlt || message.key.participant || message.key.remoteJid);
             
-            const senderId = message.key.participant || message.key.remoteJid;
+            const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
             if (!adminStatus.isBotAdmin) {
                 const errorMsg = i18n.t(senderId, 'admin.bot_admin_first_error');
                 await sock.sendMessage(chatId, { 
@@ -35,7 +35,7 @@ async function demoteCommand(sock, chatId, mentionedJids, message) {
             }
         } catch (adminError) {
             console.error('Error checking admin status:', adminError);
-            const senderId = message.key.participant || message.key.remoteJid;
+            const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
             const errorMsg = i18n.t(senderId, 'admin.bot_admin_first_error');
             await sock.sendMessage(chatId, { 
                 text: errorMsg
@@ -56,7 +56,7 @@ async function demoteCommand(sock, chatId, mentionedJids, message) {
         
         // If no user found through either method
         if (userToDemote.length === 0) {
-            const senderId = message.key.participant || message.key.remoteJid;
+            const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
             const errorMsg = i18n.t(senderId, 'admin.mention_user_demote');
             await sock.sendMessage(chatId, { 
                 text: errorMsg
@@ -77,7 +77,7 @@ async function demoteCommand(sock, chatId, mentionedJids, message) {
         // Add delay to avoid rate limiting
         await new Promise(resolve => setTimeout(resolve, 1000));
 
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const demoterName = `@${senderId.split('@')[0]}`;
         const demotionMessage = i18n.t(senderId, 'admin.demote_success', {
             count: userToDemote.length > 1 ? 's' : '',
@@ -103,7 +103,7 @@ async function demoteCommand(sock, chatId, mentionedJids, message) {
             }
         } else {
             try {
-                const senderId = message.key.participant || message.key.remoteJid;
+                const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
                 const errorMsg = i18n.t(senderId, 'admin.demote_failed');
                 await sock.sendMessage(chatId, { 
                     text: errorMsg

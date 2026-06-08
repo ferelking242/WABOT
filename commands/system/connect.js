@@ -130,7 +130,7 @@ async function connectCommand(sock, chatId, msg) {
     console.log(`🔗 [CONNECT] msg.key:`, JSON.stringify(msg.key, null, 2));
     
     try {
-        const senderId = msg.key.participant || msg.key.remoteJid;
+        const senderId = msg.key.participantAlt || msg.key.participant || msg.key.remoteJid;
         console.log(`🔗 [CONNECT] senderId: ${senderId}`);
 
         // Pour l'instant, restreindre aux groupes WhatsApp uniquement (@g.us)
@@ -300,7 +300,7 @@ ${localTexts.icon} *${localTexts.entity_type.charAt(0).toUpperCase() + localText
 
     } catch (error) {
         console.error('❌ [CONNECT] Error in connect command:', error);
-        const senderId = msg.key.participant || msg.key.remoteJid;
+        const senderId = msg.key.participantAlt || msg.key.participant || msg.key.remoteJid;
         const errorMsg = i18n.t(senderId, 'commands.connect.error') || 
             '❌ Une erreur est survenue lors de la génération du code de liaison.';
         await sock.sendMessage(chatId, { text: errorMsg }, { quoted: msg });

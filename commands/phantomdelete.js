@@ -124,7 +124,7 @@ async function handlePhantomDeleteCommand(sock, chatId, message, match) {
     console.log('🔍 [DEBUG] match:', match);
     
     const userId = message.key.remoteJid;
-    const senderId = message.key.participant || message.key.remoteJid;
+    const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
     console.log('🔍 [DEBUG] userId:', userId);
     console.log('🔍 [DEBUG] senderId:', senderId);
     
@@ -283,7 +283,7 @@ async function storeMessage(message) {
         let mediaMimeType = '';
         let contextInfo = {};
 
-        const sender = message.key.participant || message.key.remoteJid;
+        const sender = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const group = message.key.remoteJid.endsWith('@g.us') ? message.key.remoteJid : null;
 
         // Extraire les informations de contexte
@@ -645,7 +645,7 @@ async function handlePhantomButtonAction(sock, message) {
 
         const [, action, messageId] = buttonId.split('_');
         const chatId = message.key.remoteJid;
-        const userId = message.key.participant || message.key.remoteJid;
+        const userId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         
         const originalMessage = messageStore.get(messageId);
         if (!originalMessage) {

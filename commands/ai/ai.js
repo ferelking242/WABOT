@@ -7,7 +7,7 @@ async function aiCommand(sock, chatId, message) {
         const text = message.message?.conversation || message.message?.extendedTextMessage?.text;
         
         if (!text) {
-            const senderId = message.key.participant || message.key.remoteJid;
+            const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
             const errorMsg = i18n.t('ai.provide_question', { lng: getUserLanguage(senderId), defaultValue: "❓ Please provide a question for the AI." });
             return await sock.sendMessage(chatId, { 
                 text: errorMsg
@@ -20,7 +20,7 @@ async function aiCommand(sock, chatId, message) {
         const query = parts.slice(1).join(' ').trim();
 
         if (!query) {
-            const senderId = message.key.participant || message.key.remoteJid;
+            const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
             const errorMsg = i18n.t('ai.provide_question', { lng: getUserLanguage(senderId), defaultValue: "❓ Please provide a question for the AI." });
             return await sock.sendMessage(chatId, { 
                 text: errorMsg
@@ -109,7 +109,7 @@ async function aiCommand(sock, chatId, message) {
             }
         } catch (error) {
             console.error('API Error:', error);
-            const senderId = message.key.participant || message.key.remoteJid;
+            const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
             const errorMsg = i18n.t('ai.error_response', { lng: getUserLanguage(senderId), defaultValue: "❌ Error occurred while processing your request." });
             await sock.sendMessage(chatId, {
                 text: errorMsg,
@@ -124,7 +124,7 @@ async function aiCommand(sock, chatId, message) {
         await sock.sendMessage(chatId, {
             text: "❌ An error occurred. Please try again later.",
             contextInfo: {
-                mentionedJid: [message.key.participant || message.key.remoteJid],
+                mentionedJid: [message.key.participantAlt || message.key.participant || message.key.remoteJid],
                 quotedMessage: message.message
             }
         });

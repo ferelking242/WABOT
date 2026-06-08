@@ -2,7 +2,7 @@ const isAdmin = require('../../lib/isAdmin');
 const { i18n } = require('../../lib/i18n');
 
 async function kickCommand(sock, chatId, senderId, mentionedJids, message) {
-    const messageSenderId = message.key.participant || message.key.remoteJid;
+    const messageSenderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
     
     // Check if user is owner/sudo
     const isOwnerOrSudo = require('../../lib/isOwner');

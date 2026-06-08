@@ -37,7 +37,7 @@ const isAnimatedWebP = (buffer) => {
 
 const convertStickerToVideo = async (sock, quotedMessage, chatId, message) => {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const stickerMessage = quotedMessage.stickerMessage;
         if (!stickerMessage) {
             const errorMsg = getText(senderId, 'SVIDEO_REPLY_TO_STICKER');

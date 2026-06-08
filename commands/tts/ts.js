@@ -6,7 +6,7 @@ const { getText, getUserLanguage } = require('../../lib/languages');
 
 async function tsCommand(sock, chatId, message, args) {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const userLang = getUserLanguage(senderId);
         
         // Parse service argument

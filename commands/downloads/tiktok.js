@@ -23,7 +23,7 @@ async function tiktokCommand(sock, chatId, message) {
         const text = message.message?.conversation || message.message?.extendedTextMessage?.text;
         
         if (!text) {
-            const senderId = message.key.participant || message.key.remoteJid;
+            const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
             const userLang = getUserLanguage(senderId);
             const errorMsg = getText(senderId, 'TIKTOK_PROVIDE_LINK', userLang);
             return await sock.sendMessage(chatId, { 
@@ -35,7 +35,7 @@ async function tiktokCommand(sock, chatId, message) {
         const url = text.split(' ').slice(1).join(' ').trim();
         
         if (!url) {
-            const senderId = message.key.participant || message.key.remoteJid;
+            const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
             const userLang = getUserLanguage(senderId);
             const errorMsg = getText(senderId, 'TIKTOK_PROVIDE_LINK', userLang);
             return await sock.sendMessage(chatId, { 
@@ -55,7 +55,7 @@ async function tiktokCommand(sock, chatId, message) {
         const isValidUrl = tiktokPatterns.some(pattern => pattern.test(url));
         
         if (!isValidUrl) {
-            const senderId = message.key.participant || message.key.remoteJid;
+            const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
             const userLang = getUserLanguage(senderId);
             const errorMsg = getText(senderId, 'TIKTOK_INVALID_LINK', userLang);
             return await sock.sendMessage(chatId, { 

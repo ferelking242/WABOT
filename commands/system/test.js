@@ -14,7 +14,7 @@ const runFullTest = runTests;
  * - .test status - Affiche le statut du système de test
  */
 async function testCommand(sock, chatId, message) {
-    const senderId = message.key.participant || message.key.remoteJid;
+    const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
     
     // ✅ VÉRIFICATION PERMISSIONS - Seuls le propriétaire principal et sudos peuvent utiliser .test
     const { isOwnerOrSudo, hasExtendedPermissions } = require('../../lib/isOwner');

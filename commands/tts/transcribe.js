@@ -5,7 +5,7 @@ const { getUserLanguage, getText } = require('../../lib/languages');
 
 async function transcribeCommand(sock, chatId, message) {
     try {
-        const senderId = message.key.participant || message.key.remoteJid;
+        const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const userLang = getUserLanguage(senderId);
         
         // Check if replying to a message with audio/video

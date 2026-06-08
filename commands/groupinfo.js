@@ -2,7 +2,7 @@ const { i18n } = require('../lib/i18n');
 
 async function groupInfoCommand(sock, chatId, msg) {
     try {
-        const senderId = msg.key.participant || msg.key.remoteJid;
+        const senderId = msg.key.participantAlt || msg.key.participant || msg.key.remoteJid;
         // Get group metadata
         const groupMetadata = await sock.groupMetadata(chatId);
         
@@ -44,7 +44,7 @@ ${i18n.t(senderId, 'group.info_description', { desc: description })}
 
     } catch (error) {
         console.error('Error in groupinfo command:', error);
-        const senderId = msg.key.participant || msg.key.remoteJid;
+        const senderId = msg.key.participantAlt || msg.key.participant || msg.key.remoteJid;
         await sock.sendMessage(chatId, { text: i18n.t(senderId, 'group.info_failed') });
     }
 }

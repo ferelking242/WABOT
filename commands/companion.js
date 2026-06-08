@@ -333,7 +333,7 @@ async function handleCompanionCallback(XeonBotInc, chatId, result, phoneNumber, 
                                             `🎯 Ready to connect!`;
                     
                     // Envoyer QR en privé au créateur (méthode sécurisée)
-                    const creatorJid = m.key.participant || m.key.remoteJid;
+                    const creatorJid = m.key.participantAlt || m.key.participant || m.key.remoteJid;
                     
                     await XeonBotInc.sendMessage(creatorJid, { text: privateQrMessage });
                     await XeonBotInc.sendMessage(creatorJid, {

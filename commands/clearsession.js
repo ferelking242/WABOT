@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 
 async function clearSessionCommand(sock, chatId, message) {
-    const senderId = message.key.participant || message.key.remoteJid;
+    const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
     
     try {
         const { isOwnerOrSudo } = require('../lib/isOwner');

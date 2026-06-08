@@ -210,7 +210,7 @@ function setupIncomingMessageForwarding() {
 
                 await deliverEvent('message.received', {
                     from: msg.key.remoteJid,
-                    sender: msg.key.participant || msg.key.remoteJid,
+                    sender: msg.key.participantAlt || msg.key.participant || msg.key.remoteJid,
                     messageId: msg.key.id,
                     text,
                     timestamp: msg.messageTimestamp

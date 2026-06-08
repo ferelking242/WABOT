@@ -69,7 +69,7 @@ function extractUserInfo(message) {
 }
 
 async function handleChatbotCommand(sock, chatId, message, match) {
-    const senderId = message.key.participant || message.key.remoteJid;
+    const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
     const { getUserLanguage, getText } = require('../../lib/languages');
     const userLang = getUserLanguage(senderId);
 
