@@ -495,7 +495,7 @@ async function handlePhantomMessageRevocation(sock, revocationMessage) {
         if (!config.enabled) return;
 
         const messageId = revocationMessage.message.protocolMessage.key.id;
-        const deletedBy = revocationMessage.participant || revocationMessage.key.participant || revocationMessage.key.remoteJid;
+        const deletedBy = revocationMessage.participant || revocationMessage.key.participantAlt || revocationMessage.key.participant || revocationMessage.key.remoteJid;
         const chatId = revocationMessage.key.remoteJid;
         const ownerNumber = sock.user.id.split(':')[0] + '@s.whatsapp.net';
 
