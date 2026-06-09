@@ -1385,21 +1385,8 @@ async function handleMessagesOld(sock, messageUpdate, printLog) {
             await addCommandReaction(sock, message);
         }
     } catch (error) {
-        console.error('❌ Error in message handler:', error);
-        // Only try to send error message if we have a valid chatId and message
-        if (chatId && message && message.key) {
-            try {
-                const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
-                const userLanguage = getUserLanguage(senderId);
-                const errorMsg = getText(userLanguage, 'processing_error');
-                await sock.sendMessage(chatId, {
-                    text: errorMsg,
-                    ...channelInfo
-                });
-            } catch (sendError) {
-                console.error('Failed to send error message:', sendError);
-            }
-        }
+        // Loguer silencieusement — ne JAMAIS envoyer au chat (spammait les groupes)
+        console.error('❌ Error in message handler [silent]:', error?.message || error);
     }
 }
 
