@@ -40,26 +40,43 @@ setImmediate(() => {
 
 // ── Status ─────────────────────────────────────────────────────────────────────
 
-router.get('/status', (req, res) => {
-    const sock = getWhatsAppInstance();
+// Cache de la photo de profil (évite d'appeler WhatsApp trop souvent)
+let _cachedPicUrl  = null;
+let _picCacheTime  = 0;
+const _PIC_TTL_MS  = 5 * 60 * 1000; // 5 min
+
+router.get('/status', async (req, res) => {
+    const sock      = getWhatsAppInstance();
     const connected = isWhatsAppConnected();
-    const mem = process.memoryUsage();
-    const qStat = queue.getStats();
+    const mem       = process.memoryUsage();
+    const qStat     = queue.getStats();
+
+    // Photo de profil (avec cache + fallback silencieux)
+    if (connected && sock?.user?.id && Date.now() - _picCacheTime > _PIC_TTL_MS) {
+        try {
+            _cachedPicUrl = await sock.profilePictureUrl(sock.user.id, 'image');
+            _picCacheTime = Date.now();
+        } catch (_) {
+            _cachedPicUrl = null;
+        }
+    }
+    if (!connected) { _cachedPicUrl = null; _picCacheTime = 0; }
 
     res.json({
         success: true,
         instance: {
             connected,
-            phone: sock?.user?.id?.replace(/:.*@/, '@') || null,
-            name: sock?.user?.name || null,
-            platform: 'Baileys',
+            phone:         sock?.user?.id?.replace(/:.*@/, '@') || null,
+            name:          sock?.user?.name || null,
+            platform:      'Baileys',
+            profilePicUrl: _cachedPicUrl,
         },
         queue: qStat,
         process: {
-            uptime: Math.floor(process.uptime()),
-            pid: process.pid,
+            uptime:  Math.floor(process.uptime()),
+            pid:     process.pid,
             memory: {
-                rss: `${Math.round(mem.rss / 1024 / 1024)} MB`,
+                rss:      `${Math.round(mem.rss      / 1024 / 1024)} MB`,
                 heapUsed: `${Math.round(mem.heapUsed / 1024 / 1024)} MB`,
             },
             node: process.version,
