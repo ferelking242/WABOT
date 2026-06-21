@@ -45,6 +45,8 @@ async function wastedCommand(sock, chatId, message) {
         });
 
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Error in wasted command:', error);
         await sock.sendMessage(chatId, { 
             text: 'Failed to create wasted image! Try again later.',
