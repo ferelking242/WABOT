@@ -60,9 +60,10 @@ async function rateCommand(sock, chatId, message, args) {
         }
 
     } catch (error) {
-        console.error('Error in rate command:', error);
-        const errorMsg = i18n.t(message.key.participantAlt || message.key.participant || message.key.remoteJid, 'messages.processing_error');
-        await sock.sendMessage(chatId, { text: errorMsg });
+        // Ne JAMAIS envoyer processing_error au chat — ça spamme les groupes
+        const code = error?.data || error?.output?.statusCode;
+        if (code === 429 || error?.message?.includes('429')) return;
+        console.warn(`[rate] Erreur silencieuse: ${error?.message || error}`);
     }
 }
 

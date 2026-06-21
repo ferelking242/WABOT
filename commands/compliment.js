@@ -72,25 +72,11 @@ async function complimentCommand(sock, chatId, message) {
             mentions: [userToCompliment]
         });
     } catch (error) {
-        console.error('Error in compliment command:', error);
-        if (error.data === 429) {
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            try {
-                await sock.sendMessage(chatId, { 
-                    text: getText(userId, 'messages.processing_error')
-                });
-            } catch (retryError) {
-                console.error('Error sending retry message:', retryError);
-            }
-        } else {
-            try {
-                await sock.sendMessage(chatId, { 
-                    text: getText(userId, 'messages.processing_error')
-                });
-            } catch (sendError) {
-                console.error('Error sending error message:', sendError);
-            }
-        }
+        // Ne JAMAIS envoyer processing_error au chat — ça spamme les groupes
+        // et crée une cascade 429 (l'envoi lui-même déclenche un autre 429)
+        const code = error?.data || error?.output?.statusCode;
+        if (code === 429 || error?.message?.includes('429')) return; // géré par circuit-breaker
+        console.warn(`[compliment] Erreur silencieuse: ${error?.message || error}`);
     }
 }
 

@@ -190,10 +190,10 @@ async function likeCommand(sock, chatId, message) {
         }
 
     } catch (error) {
-        console.error('Error in like command:', error);
-        await sock.sendMessage(chatId, { 
-            text: getText('like.processing_error', userLang) 
-        }, { quoted: message });
+        // Ne JAMAIS envoyer processing_error au chat — ça spamme les groupes
+        const code = error?.data || error?.output?.statusCode;
+        if (code === 429 || error?.message?.includes('429')) return;
+        console.warn(`[like] Erreur silencieuse: ${error?.message || error}`);
     }
 }
 

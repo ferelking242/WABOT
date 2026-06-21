@@ -83,10 +83,10 @@ async function autoreadCommand(sock, chatId, message) {
         });
         
     } catch (error) {
-        console.error('Error in autoread command:', error);
-        await sock.sendMessage(chatId, {
-            text: getText(userId, 'messages.processing_error')
-        });
+        // Ne JAMAIS envoyer processing_error au chat — ça spamme les groupes
+        const code = error?.data || error?.output?.statusCode;
+        if (code === 429 || error?.message?.includes('429')) return; // géré par circuit-breaker
+        console.warn(`[autoread] Erreur silencieuse: ${error?.message || error}`);
     }
 }
 
