@@ -27,6 +27,8 @@ async function sendAnimu(sock, chatId, message, type) {
                 return;
             }
         } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
             console.error(`Error fetching ${type}:`, error.message);
             await sock.sendMessage(
                 chatId,
@@ -51,6 +53,8 @@ async function sendAnimu(sock, chatId, message, type) {
                 return;
             }
         } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
             console.error(`Error fetching ${type}:`, error.message);
             await sock.sendMessage(
                 chatId,
