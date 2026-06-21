@@ -91,6 +91,8 @@ async function demoteCommand(sock, chatId, mentionedJids, message) {
             mentions: [...userToDemote, senderId]
         });
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Error in demote command:', error);
         if (error.data === 429) {
             await new Promise(resolve => setTimeout(resolve, 2000));
@@ -157,6 +159,8 @@ async function handleDemotionEvent(sock, groupId, participants, author) {
             mentions: mentionList
         });
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Error handling demotion event:', error);
         if (error.data === 429) {
             await new Promise(resolve => setTimeout(resolve, 2000));
