@@ -40,6 +40,8 @@ async function simpCommand(sock, chatId, message) {
         });
 
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Erreur commande simp:', error);
         await sock.sendMessage(chatId, {
             text: '❌ Impossible de générer la carte simp. Réessaie plus tard !'
