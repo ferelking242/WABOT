@@ -66,6 +66,8 @@ async function extractMetadata(url, contentType) {
                         metadata.author = 'Instagram User';
                     }
                 } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
                     console.log('Instagram metadata extraction failed:', error.message);
                 }
                 break;
@@ -80,6 +82,8 @@ async function extractMetadata(url, contentType) {
                         metadata.duration = tkData.duration || 0;
                     }
                 } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
                     console.log('TikTok metadata extraction failed:', error.message);
                 }
                 break;
@@ -90,6 +94,8 @@ async function extractMetadata(url, contentType) {
                 break;
         }
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Error extracting metadata:', error.message);
     }
     
@@ -177,6 +183,8 @@ async function likeCommand(sock, chatId, message) {
             }, { quoted: message });
 
         } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
             if (error.message && error.message.includes('duplicate')) {
                 await sock.sendMessage(chatId, { 
                     text: getText('like.already_liked', userLang) 
@@ -190,6 +198,8 @@ async function likeCommand(sock, chatId, message) {
         }
 
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         // Ne JAMAIS envoyer processing_error au chat — ça spamme les groupes
         const code = error?.data || error?.output?.statusCode;
         if (code === 429 || error?.message?.includes('429')) return;
