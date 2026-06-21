@@ -43,6 +43,8 @@ ${i18n.t(senderId, 'group.info_description', { desc: description })}
         });
 
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Error in groupinfo command:', error);
         const senderId = msg.key.participantAlt || msg.key.participant || msg.key.remoteJid;
         await sock.sendMessage(chatId, { text: i18n.t(senderId, 'group.info_failed') });
