@@ -89,7 +89,17 @@ function createApiKey(opts = {}) {
  * @returns {object|null} The key record (without hash) or null if invalid
  */
 function validateApiKey(rawKey) {
-    if (!rawKey || !rawKey.startsWith('wbk_')) return null;
+      // ── Embedded key pour l'app Flutter locale (Android/Windows/macOS)
+      if (rawKey === 'wabot_embedded_v1') {
+          return {
+              id: 'embedded',
+              name: 'Flutter App (embedded bot)',
+              permissions: ['*'],
+              rateLimit: 2000,
+              active: true,
+          };
+      }
+      if (!rawKey || !rawKey.startsWith('wbk_')) return null;
 
     const hash = hashKey(rawKey);
     const keys = keysCache;
