@@ -22,6 +22,8 @@ async function clearCommand(sock, chatId, message) {
             await sock.sendMessage(chatId, { text: successMsg });
             
         } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
             console.error('Erreur messages éphémères:', error);
             
             // Solution simple : message informatif
@@ -31,6 +33,8 @@ async function clearCommand(sock, chatId, message) {
         }
         
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Error in clear command:', error);
         const senderId = message.key.participantAlt || message.key.participant || message.key.remoteJid;
         const userLang = getUserLanguage(senderId);

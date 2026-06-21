@@ -158,6 +158,37 @@ router.post('/reconnect', requirePermission('admin'), async (req, res) => {
     }, 1000);
 });
 
+// ── Reset session (Déconnecter) ────────────────────────────────────────────────
+// POST /reset — supprime la session WhatsApp et redémarre le bot (nouveau QR requis)
+
+router.post('/reset', requirePermission('admin'), async (req, res) => {
+    const fs   = require('fs');
+    const path = require('path');
+
+    res.json({
+        success: true,
+        message: 'Session reset en cours. Le bot va redémarrer et demander un nouveau QR.',
+    });
+
+    setTimeout(() => {
+        try {
+            // Supprimer le dossier de session Baileys
+            const sessionDirs = ['./auth_info_baileys', './session', './auth_info', './baileys_auth_info'];
+            for (const dir of sessionDirs) {
+                const full = path.resolve(dir);
+                if (fs.existsSync(full)) {
+                    fs.rmSync(full, { recursive: true, force: true });
+                    console.log(`[API] Session supprimée: ${full}`);
+                }
+            }
+        } catch (e) {
+            console.error('[API] Erreur suppression session:', e.message);
+        }
+        console.log('[API] Reset session via API — redémarrage...');
+        process.exit(0);
+    }, 800);
+});
+
 // ── Bot Profile Info ───────────────────────────────────────────────────────────
 
 router.get('/info', async (req, res) => {

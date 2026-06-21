@@ -25,6 +25,8 @@ async function translateText(text, fromLang, toLang) {
         
         return text; // Retourner le texte original si la traduction échoue
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.log('Translation failed:', error.message);
         return text; // Retourner le texte original si la traduction échoue
     }
@@ -302,6 +304,8 @@ module.exports = async function quoteCommand(sock, chatId, senderId, args, messa
         }
         
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Error in quote command:', error);
         const errorMsg = i18n.t(senderId, 'responses.quote_failed');
         await sock.sendMessage(chatId, { text: errorMsg });

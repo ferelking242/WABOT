@@ -72,6 +72,8 @@ async function complimentCommand(sock, chatId, message) {
             mentions: [userToCompliment]
         });
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         // Ne JAMAIS envoyer processing_error au chat — ça spamme les groupes
         // et crée une cascade 429 (l'envoi lui-même déclenche un autre 429)
         const code = error?.data || error?.output?.statusCode;

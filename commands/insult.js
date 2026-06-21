@@ -68,6 +68,8 @@ async function insultCommand(sock, chatId, message) {
             mentions: [userToInsult]
         });
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Error in insult command:', error);
         if (error.data === 429) {
             await new Promise(resolve => setTimeout(resolve, 2000));

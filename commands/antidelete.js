@@ -60,6 +60,8 @@ async function loadAntideleteConfig() {
         const config = await db.getBotConfig('antidelete');
         return config || { enabled: false };
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Error loading antidelete config:', error);
         return { enabled: false };
     }

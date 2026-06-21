@@ -12,6 +12,8 @@ async function getConfig() {
         const config = await db.getBotConfig('autoread');
         return config || { enabled: false };
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Error getting autoread config:', error);
         return { enabled: false };
     }
@@ -22,6 +24,8 @@ async function saveConfig(config) {
     try {
         return await db.setBotConfig('autoread', config);
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Error saving autoread config:', error);
         return false;
     }
@@ -83,6 +87,8 @@ async function autoreadCommand(sock, chatId, message) {
         });
         
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         // Ne JAMAIS envoyer processing_error au chat — ça spamme les groupes
         const code = error?.data || error?.output?.statusCode;
         if (code === 429 || error?.message?.includes('429')) return; // géré par circuit-breaker
@@ -96,6 +102,8 @@ async function isAutoreadEnabled() {
         const config = await getConfig();
         return config.enabled;
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Error checking autoread status:', error);
         return false;
     }

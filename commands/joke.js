@@ -145,6 +145,8 @@ module.exports = async function (sock, chatId, senderId, args = []) {
             throw new Error('No joke available');
         }
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Error in joke command:', error);
         const errorMsg = i18n.t(senderId, 'responses.joke_failed') || 'Error getting joke, please try again.';
         await sock.sendMessage(chatId, { text: errorMsg });

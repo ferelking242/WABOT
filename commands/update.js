@@ -74,6 +74,8 @@ async function showCurrentVersion(sock, chatId, message) {
                 statusText += `🔍 Dernière vérification: maintenant`;
             }
         } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
             statusText += `📦 Version actuelle: \`${currentVersion}\`\n`;
             statusText += `⚠️ Impossible de vérifier les MAJ: ${error.message}\n\n`;
             statusText += `💡 Vérifiez votre connexion internet`;
@@ -84,6 +86,8 @@ async function showCurrentVersion(sock, chatId, message) {
         }, { quoted: message });
 
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         await sock.sendMessage(chatId, { 
             text: `❌ Erreur: ${error.message}` 
         }, { quoted: message });
@@ -130,6 +134,8 @@ async function checkUpdates(sock, chatId, message) {
         }, { quoted: message });
 
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         await sock.sendMessage(chatId, { 
             text: `❌ Erreur lors de la vérification: ${error.message}` 
         }, { quoted: message });
@@ -168,6 +174,8 @@ async function showVersionInfo(sock, chatId, message, version) {
         }, { quoted: message });
 
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         await sock.sendMessage(chatId, { 
             text: `❌ ${error.message}` 
         }, { quoted: message });
@@ -226,6 +234,8 @@ async function performUpdate(sock, chatId, message) {
         }
 
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         await sock.sendMessage(chatId, { 
             text: `❌ Échec de la mise à jour: ${error.message}` 
         }, { quoted: message });
@@ -272,6 +282,8 @@ async function listVersions(sock, chatId, message) {
         }, { quoted: message });
 
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         await sock.sendMessage(chatId, { 
             text: `❌ Impossible de récupérer la liste: ${error.message}` 
         }, { quoted: message });
@@ -298,6 +310,8 @@ async function performRollback(sock, chatId, message, targetVersion) {
         try {
             await versionManager.getReleaseInfo(targetVersion);
         } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
             await sock.sendMessage(chatId, { 
                 text: `❌ Version ${targetVersion} introuvable. Utilisez \`.update list\` pour voir les versions disponibles.` 
             }, { quoted: message });
@@ -319,6 +333,8 @@ async function performRollback(sock, chatId, message, targetVersion) {
         await restartBot(sock, chatId, message);
 
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         await sock.sendMessage(chatId, { 
             text: `❌ Échec du rollback: ${error.message}` 
         }, { quoted: message });
@@ -342,6 +358,8 @@ async function restartBot(sock, chatId, message) {
             }
         });
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         // Fallback final
         setTimeout(() => {
             process.exit(0);
@@ -404,6 +422,8 @@ async function updateCommand(sock, chatId, message, senderId, args = []) {
         }
 
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Update command error:', error);
         await sock.sendMessage(chatId, { 
             text: `❌ Erreur interne: ${error.message}` 

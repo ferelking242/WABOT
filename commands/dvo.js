@@ -18,6 +18,8 @@ function cacheViewOnceMedia(messageId, mediaData) {
         // Nettoyer les anciennes entrées
         cleanupExpiredCache();
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Erreur cache média view-once:', error);
     }
 }
@@ -175,6 +177,8 @@ async function getDvoConfig() {
         const config = await db.getBotConfig('dvo_settings');
         return config || {};
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Erreur lecture config dvo:', error);
         return {};
     }
@@ -185,6 +189,8 @@ async function saveDvoConfig(config) {
         await db.setBotConfig('dvo_settings', config);
         return true;
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Erreur sauvegarde config dvo:', error);
         return false;
     }
@@ -463,6 +469,8 @@ async function dvoCommand(sock, chatId, message, userMessage) {
         // Pas de message de confirmation - envoi silencieux
 
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Erreur lors du téléchargement:', error);
         await sock.sendMessage(chatId, { 
             text: '❌ Erreur lors du téléchargement du fichier vue unique.' 
@@ -585,6 +593,8 @@ async function autoTransferViewOnce(sock, message) {
         // Transfert silencieux - pas de notification à l'utilisateur
         
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Erreur transfert automatique dvo:', error);
         // Erreur silencieuse - ne pas déranger l'utilisateur
     }
