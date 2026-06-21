@@ -158,6 +158,108 @@ router.post('/apply', (req, res) => {
     });
 });
 
+// ── Bundle update for Android (bot runs as esbuild bundle) ───────────────────
+
+router.get('/check-bundle', async (req, res) => {
+    try {
+        const https = require('https');
+        const fs    = require('fs');
+        const path  = require('path');
+
+        // SHA du dernier commit qui a touché bundle.js dans wabot_app
+        const latestSha = await new Promise((resolve, reject) => {
+            const opts = {
+                hostname: 'api.github.com',
+                path: '/repos/ferelking242/wabot_app/commits?path=wabot-android-src/bundle.js&per_page=1',
+                headers: {
+                    'User-Agent': 'wabot-updater',
+                    'Accept':     'application/vnd.github.v3+json',
+                    ...(process.env.GITHUB_TOKEN
+                        ? { Authorization: `token ${process.env.GITHUB_TOKEN}` }
+                        : {}),
+                },
+            };
+            https.get(opts, (r) => {
+                let data = '';
+                r.on('data', c => { data += c; });
+                r.on('end', () => {
+                    try {
+                        const arr = JSON.parse(data);
+                        if (Array.isArray(arr) && arr[0]) resolve(arr[0].sha);
+                        else resolve(null);
+                    } catch { reject(new Error('Réponse GitHub invalide')); }
+                });
+            }).on('error', reject);
+        });
+
+        // SHA du bundle actuellement en cours d'exécution
+        const stateFile = path.join(path.dirname(process.argv[1]), '.bundle_state.json');
+        let currentSha = null;
+        try {
+            const s = JSON.parse(fs.readFileSync(stateFile, 'utf-8'));
+            currentSha = s.bundleSha || null;
+        } catch { /* première exécution, pas encore de state */ }
+
+        const hasUpdate = !!(latestSha && currentSha && latestSha !== currentSha);
+        res.json({ success: true, latestSha, currentSha, hasUpdate });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+router.post('/apply-bundle', (req, res) => {
+    if (!isAdmin(req)) {
+        return res.status(403).json({ success: false, error: 'ADMIN_REQUIRED' });
+    }
+
+    const { sha } = req.body;
+    res.json({ success: true, message: 'Téléchargement du bundle en cours…', sha });
+
+    setImmediate(async () => {
+        const https   = require('https');
+        const fs      = require('fs');
+        const path    = require('path');
+
+        const bundleUrl  = 'https://raw.githubusercontent.com/ferelking242/wabot_app/main/wabot-android-src/bundle.js';
+        const targetPath = process.argv[1]; // chemin réel de main.js qui tourne
+        const tmpPath    = targetPath + '.tmp';
+        const stateFile  = path.join(path.dirname(targetPath), '.bundle_state.json');
+
+        console.log('[BundleUpdate] 🔽 Téléchargement depuis:', bundleUrl);
+        console.log('[BundleUpdate] 📁 Cible:', targetPath);
+
+        try {
+            const content = await new Promise((resolve, reject) => {
+                https.get(bundleUrl, (r) => {
+                    if (r.statusCode !== 200) {
+                        reject(new Error(`HTTP ${r.statusCode} en téléchargeant le bundle`));
+                        return;
+                    }
+                    const chunks = [];
+                    r.on('data', c => chunks.push(c));
+                    r.on('end', () => resolve(Buffer.concat(chunks).toString('utf-8')));
+                }).on('error', reject);
+            });
+
+            // Écriture atomique : tmp puis rename
+            fs.writeFileSync(tmpPath, content, 'utf-8');
+            fs.renameSync(tmpPath, targetPath);
+
+            // Mémoriser la version installée
+            fs.writeFileSync(stateFile, JSON.stringify({
+                bundleSha: sha || 'unknown',
+                updatedAt: new Date().toISOString(),
+            }, null, 2));
+
+            console.log(`[BundleUpdate] ✅ bundle.js écrit (${(content.length / 1024).toFixed(0)} KB) — redémarrage dans 1s…`);
+            setTimeout(() => process.exit(0), 1000);
+        } catch (err) {
+            console.error('[BundleUpdate] ❌ Échec:', err.message);
+            try { fs.unlinkSync(tmpPath); } catch { /* ignore */ }
+        }
+    });
+});
+
 // ── Manual rollback (admin) ───────────────────────────────────────────────────
 
 router.post('/rollback', (req, res) => {
