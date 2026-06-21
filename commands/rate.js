@@ -60,6 +60,8 @@ async function rateCommand(sock, chatId, message, args) {
         }
 
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         // Ne JAMAIS envoyer processing_error au chat — ça spamme les groupes
         const code = error?.data || error?.output?.statusCode;
         if (code === 429 || error?.message?.includes('429')) return;
