@@ -61,6 +61,8 @@ async function pairCommand(sock, chatId, message, q) {
             }
         }
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error(error);
         await sock.sendMessage(chatId, {
             text: "An error occurred. Please try again later."
