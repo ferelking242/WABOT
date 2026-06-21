@@ -102,26 +102,26 @@ let systemsInitialized = false;
 // Function to initialize all systems ONLY after WhatsApp connection is established
 async function initializeAllSystems() {
     if (systemsInitialized) {
-        console.log('🔧 Systems already initialized, skipping...');
+        info('Systems', 'Systèmes déjà initialisés, skip.')
         return;
     }
     
-    console.log('🔧 Initializing optimization systems...');
+    system('Systems', 'Initialisation des systèmes d\'optimisation...')
     
     try {
         // Initialize companion system
         if (!globalCompanionManager) {
             globalCompanionManager = new CompanionSessionManager();
-            console.log('🤖 CompanionSessionManager initialized (Baileys direct) with Database persistence');
+            success('Systems', 'CompanionSessionManager initialisé (Baileys + DB persistence)')
         }
         
         // Initialize optimization systems
         await optimizationManager.initialize();
-        console.log('✅ All optimization systems initialized successfully');
+        success('Systems', 'Tous les systèmes d\'optimisation initialisés ✅')
         
         systemsInitialized = true;
-    } catch (error) {
-        console.error('❌ Error initializing systems:', error.message);
+    } catch (err) {
+        warn('Systems', `Erreur initialisation systèmes (non critique): ${err.message}`)
         // Continue without systems - non-critical
     }
 }
@@ -161,9 +161,9 @@ setInterval(async () => {
 }, 120_000) // check every 2 minutes
 
 // Configuration via variables d'environnement
-let phoneNumber = process.env.WHATSAPP_PHONE_NUMBER || global.phoneNumber || "242061194809" // Utiliser le numéro depuis .env
-// Owner migré vers Supabase - sera chargé à la connexion  
-let owner = [process.env.OWNER_NUMBER + "@s.whatsapp.net" || "242065491040@s.whatsapp.net"] // fallback (doit être un array)
+let phoneNumber = process.env.WHATSAPP_PHONE_NUMBER || global.phoneNumber || "242061194809"
+// FIX: l'ancienne ligne faisait `undefined + "@s.whatsapp.net"` → truthy → fallback jamais atteint
+let owner = [(process.env.OWNER_NUMBER || '242065491040') + '@s.whatsapp.net']
 
 global.botname = process.env.BOT_NAME || "wabot"
 global.themeemoji = process.env.THEME_EMOJI || "•"
@@ -188,7 +188,7 @@ const question = (text) => {
 
 
 // Import and start WhatsApp connection
-console.log('🚀 Starting WhatsApp connection...');
+startup('wabot', 'Démarrage de la connexion WhatsApp...')
 require('./lib/whatsapp-connection.js');
 
 // Start REST API server (port 3001 by default, configurable via API_PORT env)
@@ -202,15 +202,21 @@ autoUpdater.start().catch(err => {
 });
 
 process.on('uncaughtException', (err) => {
-    error('Uncaught Exception', { error: err.message, stack: err.stack?.substring(0, 300) }, 'SYSTEM')
+    const msg = err?.message || String(err)
+    const code = err?.data || err?.output?.statusCode || ''
+    error('Uncaught Exception', { error: msg, code, stack: err?.stack?.substring(0, 300) }, 'SYSTEM')
 })
 
 process.on('unhandledRejection', (err) => {
-    error('Unhandled Promise Rejection', { error: err?.message || err, stack: err?.stack?.substring(0, 300) }, 'SYSTEM')
+    const msg = err?.message || String(err)
+    const code = err?.data || err?.output?.statusCode || ''
+    // Les 429 WhatsApp sont gérés par le circuit-breaker — pas besoin de logger
+    if (code === 429 || msg.includes('429')) return
+    error('Unhandled Promise Rejection', { error: msg, code, stack: err?.stack?.substring(0, 300) }, 'SYSTEM')
 })
 
 process.on('SIGTERM', () => {
-    console.log('[Process] SIGTERM received — shutting down gracefully');
+    system('Process', 'SIGTERM reçu — arrêt propre...')
     autoUpdater.stopPolling();
     process.exit(0);
 });

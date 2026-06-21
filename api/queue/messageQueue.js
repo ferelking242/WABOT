@@ -12,23 +12,67 @@
  * - Per-key daily quota checking
  * - Typing simulation before send (optional)
  * - Event emission for delivery tracking
+ *
+ * FIX: Ajout circuit-breaker 429 WhatsApp — quand WA répond 429,
+ *      pause globale de 60-300s avant tout nouvel envoi.
  */
 
 const crypto = require('crypto');
 const { EventEmitter } = require('events');
 
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+// ── Circuit-breaker partagé 429 ──────────────────────────────────────────────
+// Synchronisé avec lib/messageQueue.js si chargé dans le même process
+let _circuit429 = null;
+function getCircuit() {
+    if (_circuit429) return _circuit429;
+    try {
+        const { CIRCUIT } = require('../../lib/messageQueue');
+        _circuit429 = CIRCUIT;
+    } catch (_) {
+        // Fallback local si lib/messageQueue n'est pas disponible
+        _circuit429 = {
+            tripped: false,
+            tripCount: 0,
+            lastTripAt: 0,
+            backoffMs() { return Math.min(300_000, 60_000 + (this.tripCount - 1) * 30_000); },
+            trip() {
+                this.tripped = true;
+                this.tripCount++;
+                this.lastTripAt = Date.now();
+                const wait = this.backoffMs();
+                console.warn(`⚡ [API-QUEUE] Circuit-breaker 429 — pause ${wait / 1000}s`);
+                setTimeout(() => {
+                    this.tripped = false;
+                    console.log('✅ [API-QUEUE] Reprise des envois après 429.');
+                }, wait);
+            },
+        };
+    }
+    return _circuit429;
+}
+
+function is429(err) {
+    if (!err) return false;
+    return (
+        err.data === 429 ||
+        (err.message || '').includes('429') ||
+        (err.output && err.output.statusCode === 429) ||
+        (err.isBoom && err.data === 429)
+    );
+}
+
 class MessageQueue extends EventEmitter {
     constructor(opts = {}) {
         super();
 
-        // Processing settings
-        this.minDelay = opts.minDelay ?? 800;    // ms between messages
-        this.maxDelay = opts.maxDelay ?? 2500;   // ms — random between min/max
+        this.minDelay = opts.minDelay ?? 1000;
+        this.maxDelay = opts.maxDelay ?? 3000;
         this.maxRetries = opts.maxRetries ?? 3;
-        this.typingMs = opts.typingMs ?? 1200;   // Typing indicator duration
-        this.concurrency = 1;                    // Always 1 — sequential sends
+        this.typingMs = opts.typingMs ?? 1200;
+        this.concurrency = 1;
 
-        // Internal state
         this._queues = { high: [], normal: [], low: [] };
         this._processing = false;
         this._stats = {
@@ -39,27 +83,11 @@ class MessageQueue extends EventEmitter {
             dropped: 0,
         };
 
-        // Job registry for status lookup
         this._jobs = new Map();
 
-        // Start processing loop
         this._loop();
     }
 
-    // ── Public API ─────────────────────────────────────────────────────────────
-
-    /**
-     * Enqueue a message job
-     * @param {object} opts
-     * @param {string} opts.jid        — WhatsApp JID
-     * @param {object} opts.content    — Baileys message content
-     * @param {string} opts.priority   — 'high' | 'normal' | 'low'
-     * @param {boolean} opts.typing    — Show typing indicator
-     * @param {number} opts.scheduledAt — Unix ms to send at
-     * @param {string} opts.apiKeyId   — Owner key (for quota)
-     * @param {object} opts.meta       — Arbitrary caller metadata
-     * @returns {{ jobId: string }}
-     */
     enqueue(opts) {
         const jobId = crypto.randomUUID();
         const priority = ['high', 'normal', 'low'].includes(opts.priority) ? opts.priority : 'normal';
@@ -84,7 +112,6 @@ class MessageQueue extends EventEmitter {
         this._jobs.set(jobId, job);
         this._stats.enqueued++;
 
-        // Trim job registry (keep last 10k)
         if (this._jobs.size > 10_000) {
             const oldest = [...this._jobs.keys()][0];
             this._jobs.delete(oldest);
@@ -93,19 +120,14 @@ class MessageQueue extends EventEmitter {
         return { jobId };
     }
 
-    /**
-     * Get job status
-     */
     getJob(jobId) {
         const j = this._jobs.get(jobId);
         if (!j) return null;
-        return { ...j, content: undefined }; // Don't expose content in status
+        return { ...j, content: undefined };
     }
 
-    /**
-     * Get queue depth and stats
-     */
     getStats() {
+        const circuit = getCircuit();
         return {
             queue: {
                 high: this._queues.high.length,
@@ -115,12 +137,10 @@ class MessageQueue extends EventEmitter {
             },
             stats: { ...this._stats },
             processing: this._processing,
+            circuitBreaker: { tripped: circuit.tripped, tripCount: circuit.tripCount },
         };
     }
 
-    /**
-     * Clear all pending jobs (emergency drain)
-     */
     clearQueue(priority = null) {
         if (priority) {
             const count = this._queues[priority]?.length || 0;
@@ -132,14 +152,10 @@ class MessageQueue extends EventEmitter {
         return total;
     }
 
-    // ── Internal processing ────────────────────────────────────────────────────
-
     _nextJob() {
         for (const priority of ['high', 'normal', 'low']) {
             const q = this._queues[priority];
             if (!q.length) continue;
-
-            // Check scheduled jobs — skip if not yet due
             for (let i = 0; i < q.length; i++) {
                 const job = q[i];
                 if (!job.scheduledAt || Date.now() >= job.scheduledAt) {
@@ -157,6 +173,13 @@ class MessageQueue extends EventEmitter {
 
     async _loop() {
         while (true) {
+            // Respecter le circuit-breaker 429
+            const circuit = getCircuit();
+            if (circuit.tripped) {
+                await sleep(1000);
+                continue;
+            }
+
             const job = this._nextJob();
 
             if (!job) {
@@ -177,16 +200,14 @@ class MessageQueue extends EventEmitter {
                     throw new Error('WhatsApp not connected');
                 }
 
-                // Typing indicator
                 if (job.typing) {
                     try {
                         await sock.sendPresenceUpdate('composing', job.jid);
                         await sleep(this.typingMs);
                         await sock.sendPresenceUpdate('paused', job.jid);
-                    } catch { /* non-fatal */ }
+                    } catch { }
                 }
 
-                // Send the message
                 const opts = {};
                 if (job.meta?.quotedId) {
                     opts.quoted = { key: { remoteJid: job.jid, id: job.meta.quotedId } };
@@ -202,24 +223,35 @@ class MessageQueue extends EventEmitter {
 
                 this.emit('job:success', { jobId: job.jobId, jid: job.jid, messageId, meta: job.meta });
 
-                // Track delivery via webhook
                 try {
                     const { deliverEvent } = require('../utils/webhook');
-                    await deliverEvent('message.sent', {
-                        to: job.jid,
-                        messageId,
-                        jobId: job.jobId,
-                        meta: job.meta,
-                    });
-                } catch { /* non-fatal */ }
+                    await deliverEvent('message.sent', { to: job.jid, messageId, jobId: job.jobId, meta: job.meta });
+                } catch { }
 
             } catch (err) {
                 job.error = err.message;
 
-                if (job.attempts < this.maxRetries) {
-                    // Exponential backoff retry
+                // ── Gestion spécifique 429 WhatsApp ────────────────────────
+                if (is429(err)) {
+                    const circuit = getCircuit();
+                    if (!circuit.tripped) circuit.trip();
+
+                    // Re-planifier le job après le backoff
                     job.status = 'queued';
-                    const backoff = Math.pow(2, job.attempts) * 1000;
+                    job.scheduledAt = Date.now() + circuit.backoffMs();
+                    job.attempts--; // Ne pas compter ce retry contre le quota
+                    this._queues.low.push(job);
+                    this._stats.retried++;
+                    this.emit('job:retry', { jobId: job.jobId, attempt: job.attempts, error: err.message, reason: '429' });
+
+                    this._processing = false;
+                    // Pas de délai ici — le circuit fera la pause au prochain tour de boucle
+                    continue;
+                }
+
+                if (job.attempts < this.maxRetries) {
+                    job.status = 'queued';
+                    const backoff = Math.pow(2, job.attempts) * 2_000; // 4s, 8s, 16s
                     job.scheduledAt = Date.now() + backoff;
                     this._queues.low.push(job);
                     this._stats.retried++;
@@ -232,30 +264,20 @@ class MessageQueue extends EventEmitter {
 
                     try {
                         const { deliverEvent } = require('../utils/webhook');
-                        await deliverEvent('message.failed', {
-                            to: job.jid,
-                            jobId: job.jobId,
-                            error: err.message,
-                            meta: job.meta,
-                        });
-                    } catch { /* non-fatal */ }
+                        await deliverEvent('message.failed', { to: job.jid, jobId: job.jobId, error: err.message, meta: job.meta });
+                    } catch { }
                 }
             }
 
             this._processing = false;
-
-            // Delay before next message (anti-ban)
             await sleep(this._randomDelay());
         }
     }
 }
 
-const sleep = ms => new Promise(r => setTimeout(r, ms));
-
-// Singleton queue instance
 const queue = new MessageQueue({
-    minDelay: parseInt(process.env.QUEUE_MIN_DELAY || '800'),
-    maxDelay: parseInt(process.env.QUEUE_MAX_DELAY || '2500'),
+    minDelay: parseInt(process.env.QUEUE_MIN_DELAY || '1000'),
+    maxDelay: parseInt(process.env.QUEUE_MAX_DELAY || '3000'),
     maxRetries: 3,
     typingMs: 1200,
 });
