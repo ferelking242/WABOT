@@ -68,11 +68,15 @@ async function takeCommand(sock, chatId, message, args) {
             });
 
         } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
             console.error('Sticker processing error:', error);
             await sock.sendMessage(chatId, { text: '❌ Error processing sticker' });
         }
 
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Error in take command:', error);
         await sock.sendMessage(chatId, { text: '❌ Error processing command' });
     }
