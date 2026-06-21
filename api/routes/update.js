@@ -81,6 +81,50 @@ router.post('/github-webhook',
 
 router.use(requireAuth, rateLimit);
 
+// ── Check latest SHA from GitHub ──────────────────────────────────────────────
+
+router.get('/check', async (req, res) => {
+    try {
+        const https   = require('https');
+        const owner   = process.env.GITHUB_REPO_OWNER || 'ferelking242';
+        const repo    = process.env.GITHUB_REPO_NAME  || 'WABOT';
+        const branch  = process.env.GITHUB_BRANCH     || 'main';
+
+        const latestSha = await new Promise((resolve, reject) => {
+            const opts = {
+                hostname: 'api.github.com',
+                path:     `/repos/${owner}/${repo}/commits/${branch}`,
+                headers: {
+                    'User-Agent': 'wabot-updater',
+                    'Accept':     'application/vnd.github.v3+json',
+                    ...(process.env.GITHUB_TOKEN
+                        ? { Authorization: `token ${process.env.GITHUB_TOKEN}` }
+                        : {}),
+                },
+            };
+            https.get(opts, (r) => {
+                let data = '';
+                r.on('data', (c) => { data += c; });
+                r.on('end', () => {
+                    try { resolve(JSON.parse(data).sha || null); }
+                    catch { reject(new Error('Réponse GitHub invalide')); }
+                });
+            }).on('error', reject);
+        });
+
+        let currentSha = null;
+        try {
+            const { getStatus } = require('../../lib/autoUpdater');
+            currentSha = getStatus().currentSha || null;
+        } catch { /* autoUpdater pas encore initialisé */ }
+
+        const hasUpdate = !!(latestSha && currentSha && latestSha !== currentSha);
+        res.json({ success: true, latestSha, currentSha, hasUpdate });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
 // ── Status ────────────────────────────────────────────────────────────────────
 
 router.get('/status', (req, res) => {
