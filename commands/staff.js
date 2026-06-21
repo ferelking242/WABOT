@@ -36,6 +36,8 @@ async function staffCommand(sock, chatId, msg) {
         });
 
     } catch (error) {
+    const _errCode = error?.data || error?.output?.statusCode || error?.response?.status;
+      if (_errCode === 429 || error?.message?.includes('429')) return;
         console.error('Error in staff command:', error);
         await sock.sendMessage(chatId, { text: 'Failed to get admin list!' });
     }
